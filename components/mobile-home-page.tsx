@@ -9,7 +9,6 @@ import { Card, CardContent } from "./ui/card"
 import { Badge } from "./ui/badge"
 import { 
   ArrowRight, 
-  Code, 
   Database, 
   Brain, 
   Smartphone, 
@@ -18,24 +17,16 @@ import {
   Mail,
   ExternalLink,
   Star,
-  TrendingUp,
   Users
 } from "lucide-react"
 import Link from "next/link"
 
 const quickStats = [
-  { label: "Projects", value: "5+", icon: Code, color: "text-blue-500" },
-  { label: "Technologies", value: "15+", icon: Database, color: "text-green-500" },
-  { label: "Experience", value: "2+", icon: TrendingUp, color: "text-purple-500" },
+  { label: "Projects", value: "5+", icon: Database, color: "text-blue-500" },
+  { label: "Technologies", value: "15+", icon: Brain, color: "text-green-500" },
+  { label: "Experience", value: "2+", icon: Star, color: "text-purple-500" },
 ]
 
-const featuredSkills = [
-  { name: "React", level: 90, color: "bg-blue-500" },
-  { name: "TypeScript", level: 85, color: "bg-blue-600" },
-  { name: "Node.js", level: 80, color: "bg-green-500" },
-  { name: "Python", level: 75, color: "bg-yellow-500" },
-  { name: "AI/ML", level: 70, color: "bg-purple-500" },
-]
 
 export function MobileHomePage() {
   const [currentTime, setCurrentTime] = useState(new Date())
@@ -98,31 +89,6 @@ export function MobileHomePage() {
           </div>
         </section>
 
-        {/* Skills Section */}
-        <section className="space-y-4">
-          <h2 className="text-xl font-bold text-foreground text-center">
-            <Highlighter action="underline" color="#10B981" size="md">
-              Core Skills
-            </Highlighter>
-          </h2>
-          
-          <div className="space-y-3">
-            {featuredSkills.map((skill) => (
-              <div key={skill.name} className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm font-medium text-foreground">{skill.name}</span>
-                  <span className="text-xs text-muted-foreground">{skill.level}%</span>
-                </div>
-                <div className="w-full bg-muted rounded-full h-2">
-                  <div 
-                    className={`h-2 rounded-full ${skill.color} transition-all duration-1000 ease-out`}
-                    style={{ width: `${skill.level}%` }}
-                  />
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
 
         {/* Quick Actions */}
         <section className="space-y-4">
@@ -133,38 +99,6 @@ export function MobileHomePage() {
           </h2>
           
           <div className="grid grid-cols-2 gap-3">
-            <Link href="/projects">
-              <Card className="p-4 hover:shadow-md transition-shadow cursor-pointer">
-                <CardContent className="p-0 space-y-3 text-center">
-                  <div className="flex justify-center">
-                    <div className="p-3 rounded-lg bg-blue-500/10">
-                      <Code className="h-6 w-6 text-blue-500" />
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">Projects</h3>
-                    <p className="text-xs text-muted-foreground">View my work</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-
-            <Link href="/experience">
-              <Card className="p-4 hover:shadow-md transition-shadow cursor-pointer">
-                <CardContent className="p-0 space-y-3 text-center">
-                  <div className="flex justify-center">
-                    <div className="p-3 rounded-lg bg-green-500/10">
-                      <TrendingUp className="h-6 w-6 text-green-500" />
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">Experience</h3>
-                    <p className="text-xs text-muted-foreground">My journey</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-
             <Link href="/about">
               <Card className="p-4 hover:shadow-md transition-shadow cursor-pointer">
                 <CardContent className="p-0 space-y-3 text-center">
