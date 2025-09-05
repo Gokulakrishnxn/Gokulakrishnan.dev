@@ -37,10 +37,10 @@ export default function AboutPage() {
     <div className="min-h-screen bg-background">
       <BrowserNavigation />
 
-      <main className="container mx-auto px-4 py-16">
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         {/* Hero Section */}
-        <section className="space-y-12 max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <section className="space-y-8 sm:space-y-12 max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             {/* Profile Photo */}
             <div className="order-2 lg:order-1">
               <div className="relative">
@@ -51,24 +51,24 @@ export default function AboutPage() {
                     alt="Gokulakrishnan"
                     customGrid={{ rows: 6, cols: 6 }}
                     grayscaleAnimation={true}
-                    className="w-full max-w-lg mx-auto rounded-2xl shadow-2xl"
+                    className="w-full max-w-sm sm:max-w-md lg:max-w-lg mx-auto rounded-2xl shadow-2xl"
                   />
                 </div>
               </div>
             </div>
 
             {/* Content */}
-            <div className="order-1 lg:order-2 space-y-8">
-                              <div className="space-y-6">
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
-                    <Highlighter action="highlight" color="#10B981" size="lg">
-                      Hi 👋🏻 I'm <span className="text-muted-foreground">Gokulakrishnan</span>
-                    </Highlighter>
-                  </h1>
-                  <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                    A curious builder who turns ideas into technology. From crafting web apps to exploring AI and data science, I'm always learning, experimenting, and striving to make an impact.
-                  </p>
-                </div>
+            <div className="order-1 lg:order-2 space-y-6 sm:space-y-8">
+              <div className="space-y-4 sm:space-y-6">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight">
+                  <Highlighter action="highlight" color="#10B981" size="lg">
+                    Hi 👋🏻 I'm <span className="text-muted-foreground">Gokulakrishnan</span>
+                  </Highlighter>
+                </h1>
+                <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
+                  A curious builder who turns ideas into technology. From crafting web apps to exploring AI and data science, I'm always learning, experimenting, and striving to make an impact.
+                </p>
+              </div>
 
               {/* Social Links */}
               <div className="flex flex-wrap gap-4">
@@ -128,14 +128,14 @@ export default function AboutPage() {
         </section>
 
         {/* Story Section */}
-        <section className="py-16 max-w-4xl mx-auto">
-          <div className="space-y-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+        <section className="py-8 sm:py-12 lg:py-16 max-w-4xl mx-auto">
+          <div className="space-y-6 sm:space-y-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
               <Highlighter action="underline" color="#8B5CF6" size="md">
                 My Journey
               </Highlighter>
             </h2>
-            <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
+            <div className="space-y-4 sm:space-y-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
               <p>
                 In 2025, I continued my journey as a software engineer, specializing in innovative full-stack
                 development and later expanding my interests into data science. I focus on building and scaling

@@ -141,23 +141,23 @@ export default function ExperiencePage() {
     <div className="min-h-screen bg-background">
       <BrowserNavigation />
 
-      <main className="container mx-auto px-4 py-16">
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         {/* Hero Section */}
-        <section className="space-y-8 max-w-4xl mx-auto">
-          <div className="space-y-6">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
+        <section className="space-y-6 sm:space-y-8 max-w-4xl mx-auto">
+          <div className="space-y-4 sm:space-y-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight">
               <Highlighter action="highlight" color="#EF4444" size="lg">
                 Work <span className="text-muted-foreground">Experience</span>
               </Highlighter>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
               My professional journey and career development. From full-stack development to specialized roles, 
               I've gained diverse experience across different technologies and industries.
             </p>
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
             <div className="text-center space-y-2">
               <div className="text-2xl font-bold text-primary">{experienceData.filter(e => e.type === 'full-time').length}</div>
               <div className="text-sm text-muted-foreground">Full-time</div>
@@ -178,15 +178,15 @@ export default function ExperiencePage() {
         </section>
 
         {/* Experience Timeline */}
-        <section className="py-16 max-w-6xl mx-auto">
-          <div className="space-y-12">
-            <div className="text-center space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+        <section className="py-8 sm:py-12 lg:py-16 max-w-6xl mx-auto">
+          <div className="space-y-8 sm:space-y-12">
+            <div className="text-center space-y-3 sm:space-y-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
                 <Highlighter action="underline" color="#06B6D4" size="md">
                   Professional Journey
                 </Highlighter>
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
                 A comprehensive overview of my work experience and career progression
               </p>
             </div>
@@ -196,13 +196,13 @@ export default function ExperiencePage() {
               {/* Central Timeline Line */}
               <div className="absolute left-1/2 transform -translate-x-0.5 w-0.5 h-full bg-gradient-to-b from-primary via-primary/50 to-primary/20"></div>
               
-              <div className="space-y-16">
+              <div className="space-y-8 sm:space-y-12 lg:space-y-16">
                 {experienceData.map((item, index) => (
-                  <div key={item.id} className={`relative flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                  <div key={item.id} className={`relative flex flex-col lg:flex-row items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                     {/* Timeline Dot */}
-                    <div className="absolute left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="absolute left-1/2 lg:left-1/2 transform -translate-x-1/2 z-10">
                       <div className="relative">
-                        <div className="w-16 h-16 rounded-full bg-background border-4 border-primary flex items-center justify-center shadow-lg">
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full bg-background border-4 border-primary flex items-center justify-center shadow-lg">
                           <div className="text-primary">
                             {getTypeIcon(item.type)}
                           </div>
@@ -213,9 +213,9 @@ export default function ExperiencePage() {
                     </div>
                     
                     {/* Content Card */}
-                    <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
+                    <div className={`w-full lg:w-5/12 ${index % 2 === 0 ? 'lg:pr-8' : 'lg:pl-8'} mt-8 lg:mt-0`}>
                       <Card className="group hover:shadow-xl transition-all duration-500 border-border/50 hover:border-primary/30 bg-background/80 backdrop-blur-sm">
-                        <CardContent className="p-8">
+                        <CardContent className="p-4 sm:p-6 lg:p-8">
                           <div className="space-y-6">
                             {/* Header */}
                             <div className="space-y-3">

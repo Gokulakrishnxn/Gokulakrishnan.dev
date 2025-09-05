@@ -35,24 +35,24 @@ export default function ProjectsPage() {
     <div className="min-h-screen bg-background">
       <BrowserNavigation />
 
-      <main className="container mx-auto px-4 py-16">
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         {/* Hero Section */}
-        <section className="space-y-8 max-w-4xl mx-auto">
-          <div className="space-y-6">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
+        <section className="space-y-6 sm:space-y-8 max-w-4xl mx-auto">
+          <div className="space-y-4 sm:space-y-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight">
               <Highlighter action="highlight" color="#EC4899" size="lg">
                 My <span className="text-muted-foreground">Projects</span>
               </Highlighter>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
               A collection of projects showcasing my expertise in web development, data science, and AI. Each project represents a unique challenge and learning opportunity.
             </p>
           </div>
         </section>
 
         {/* Featured Projects */}
-        <section className="py-16 max-w-6xl mx-auto">
-          <div className="space-y-8">
+        <section className="py-8 sm:py-12 lg:py-16 max-w-6xl mx-auto">
+          <div className="space-y-6 sm:space-y-8">
             <div className="flex items-center gap-3">
               <Star className="h-6 w-6 text-primary" />
               <h2 className="text-3xl md:text-4xl font-bold text-foreground">
