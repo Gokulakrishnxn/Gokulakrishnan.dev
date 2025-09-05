@@ -16,8 +16,7 @@ import {
   Github,
   Mail,
   ExternalLink,
-  Star,
-  Users
+  Star
 } from "lucide-react"
 import Link from "next/link"
 
@@ -90,48 +89,6 @@ export function MobileHomePage() {
         </section>
 
 
-        {/* Quick Actions */}
-        <section className="space-y-4">
-          <h2 className="text-xl font-bold text-foreground text-center">
-            <Highlighter action="highlight" color="#EC4899" size="md">
-              Quick Actions
-            </Highlighter>
-          </h2>
-          
-          <div className="grid grid-cols-2 gap-3">
-            <Link href="/about">
-              <Card className="p-4 hover:shadow-md transition-shadow cursor-pointer">
-                <CardContent className="p-0 space-y-3 text-center">
-                  <div className="flex justify-center">
-                    <div className="p-3 rounded-lg bg-purple-500/10">
-                      <Users className="h-6 w-6 text-purple-500" />
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">About</h3>
-                    <p className="text-xs text-muted-foreground">Know me better</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-
-            <Link href="/contact">
-              <Card className="p-4 hover:shadow-md transition-shadow cursor-pointer">
-                <CardContent className="p-0 space-y-3 text-center">
-                  <div className="flex justify-center">
-                    <div className="p-3 rounded-lg bg-orange-500/10">
-                      <Mail className="h-6 w-6 text-orange-500" />
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground">Contact</h3>
-                    <p className="text-xs text-muted-foreground">Get in touch</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-          </div>
-        </section>
 
         {/* Recent Activity */}
         <section className="space-y-4">
