@@ -224,23 +224,6 @@ export default function ContactPage() {
               </CardContent>
             </Card>
 
-            {/* Availability */}
-            <Card>
-              <CardHeader>
-                <CardTitle>Current Availability</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-2">
-                    <div className="h-3 w-3 bg-green-500 rounded-full"></div>
-                    <span className="font-medium">Available for new projects</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    I'm currently open to freelance projects, full-time opportunities, and interesting collaborations.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
 
