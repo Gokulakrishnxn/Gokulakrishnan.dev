@@ -9,6 +9,18 @@ import Link from "next/link"
 import Image from "next/image"
 import { Highlighter } from "@/components/magicui/highlighter"
 
+interface Project {
+  id: string
+  title: string
+  description: string
+  image?: string
+  category: string
+  technologies: string[]
+  github: string
+  demo: string
+  featured: boolean
+}
+
 const projectCategories = [
   { id: "all", label: "All Projects", icon: Code2 },
   { id: "web", label: "Web Development", icon: Globe },
@@ -17,7 +29,74 @@ const projectCategories = [
   { id: "mobile", label: "Mobile", icon: Smartphone },
 ]
 
-const projects = []
+const projects: Project[] = [
+  {
+    id: "1",
+    title: "E-Commerce Platform",
+    description: "A full-stack e-commerce platform built with Next.js, featuring user authentication, payment processing, and admin dashboard.",
+    image: "/placeholder.svg",
+    category: "web",
+    technologies: ["Next.js", "TypeScript", "TailwindCSS", "Stripe", "Prisma"],
+    github: "https://github.com/example/ecommerce",
+    demo: "https://ecommerce-demo.vercel.app",
+    featured: true
+  },
+  {
+    id: "2",
+    title: "Data Analytics Dashboard",
+    description: "Interactive dashboard for visualizing business metrics with real-time data updates and custom chart configurations.",
+    image: "/placeholder.svg",
+    category: "data",
+    technologies: ["React", "D3.js", "Python", "FastAPI", "PostgreSQL"],
+    github: "https://github.com/example/analytics",
+    demo: "https://analytics-demo.vercel.app",
+    featured: true
+  },
+  {
+    id: "3",
+    title: "AI Chat Assistant",
+    description: "Intelligent chatbot powered by OpenAI GPT with custom training and context-aware responses.",
+    image: "/placeholder.svg",
+    category: "ai",
+    technologies: ["Python", "OpenAI API", "FastAPI", "React", "WebSocket"],
+    github: "https://github.com/example/ai-chat",
+    demo: "https://ai-chat-demo.vercel.app",
+    featured: false
+  },
+  {
+    id: "4",
+    title: "Mobile Task Manager",
+    description: "Cross-platform mobile app for task management with offline sync and team collaboration features.",
+    image: "/placeholder.svg",
+    category: "mobile",
+    technologies: ["React Native", "TypeScript", "Firebase", "Redux"],
+    github: "https://github.com/example/task-manager",
+    demo: "https://task-manager-demo.vercel.app",
+    featured: false
+  },
+  {
+    id: "5",
+    title: "Portfolio Website",
+    description: "Personal portfolio website showcasing projects and skills with modern design and smooth animations.",
+    image: "/placeholder.svg",
+    category: "web",
+    technologies: ["Next.js", "TailwindCSS", "Framer Motion", "TypeScript"],
+    github: "https://github.com/example/portfolio",
+    demo: "https://portfolio-demo.vercel.app",
+    featured: false
+  },
+  {
+    id: "6",
+    title: "Machine Learning Model",
+    description: "Predictive model for customer behavior analysis with 95% accuracy using advanced ML algorithms.",
+    image: "/placeholder.svg",
+    category: "ai",
+    technologies: ["Python", "Scikit-learn", "Pandas", "Jupyter", "TensorFlow"],
+    github: "https://github.com/example/ml-model",
+    demo: "https://ml-model-demo.vercel.app",
+    featured: false
+  }
+]
 
 export default function ProjectsPage() {
   const [selectedCategory, setSelectedCategory] = useState("all")

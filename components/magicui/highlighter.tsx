@@ -67,14 +67,16 @@ export function Highlighter({
           sizeClasses[size],
           actionClasses[action]
         )}
-        style={{ backgroundColor: color }}
+        style={{ 
+          backgroundColor: color,
+          transformOrigin: "left"
+        }}
         initial={{ scaleX: 0 }}
         animate={{ scaleX: isVisible ? 1 : 0 }}
         transition={{
           duration,
           ease: "easeOut",
         }}
-        transformOrigin="left"
       />
     </span>
   );
