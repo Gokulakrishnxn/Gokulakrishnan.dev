@@ -9,6 +9,18 @@ import Link from "next/link"
 import Image from "next/image"
 import { Highlighter } from "@/components/magicui/highlighter"
 
+interface Project {
+  id: string
+  title: string
+  description: string
+  image?: string
+  category: string
+  technologies: string[]
+  github: string
+  demo: string
+  featured: boolean
+}
+
 const projectCategories = [
   { id: "all", label: "All Projects", icon: Code2 },
   { id: "web", label: "Web Development", icon: Globe },
@@ -17,7 +29,7 @@ const projectCategories = [
   { id: "mobile", label: "Mobile", icon: Smartphone },
 ]
 
-const projects = []
+const projects: Project[] = []
 
 export default function ProjectsPage() {
   const [selectedCategory, setSelectedCategory] = useState("all")
@@ -91,7 +103,7 @@ export default function ProjectsPage() {
                       </div>
                       
                       <div className="flex flex-wrap gap-2">
-                        {project.technologies.slice(0, 4).map((tech) => (
+                        {project.technologies.slice(0, 4).map((tech: string) => (
                           <Badge key={tech} variant="secondary" className="text-xs">
                             {tech}
                           </Badge>
@@ -201,7 +213,7 @@ export default function ProjectsPage() {
                       </div>
 
                   <div className="flex flex-wrap gap-1">
-                        {project.technologies.slice(0, 3).map((tech) => (
+                        {project.technologies.slice(0, 3).map((tech: string) => (
                       <Badge key={tech} variant="secondary" className="text-xs">
                         {tech}
                       </Badge>

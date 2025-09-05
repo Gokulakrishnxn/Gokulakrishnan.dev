@@ -1,9 +1,13 @@
+"use client"
+
 import { BrowserNavigation } from "@/components/browser-navigation"
+import { MobileAboutPage } from "@/components/mobile-about-page"
 import { Badge } from "@/components/ui/badge"
 import { Award, Github, Linkedin, Twitter, Mail, Download, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import { PixelImage } from "@/components/magicui/pixel-image"
 import { Highlighter } from "@/components/magicui/highlighter"
+import { useMobileDetection } from "@/hooks/use-mobile-detection"
 
 const certifications = [
   {
@@ -33,6 +37,23 @@ const certifications = [
 ]
 
 export default function AboutPage() {
+  const { isMobile, isLoading } = useMobileDetection()
+
+  // Show loading state while detecting device
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+      </div>
+    )
+  }
+
+  // Render mobile-specific layout
+  if (isMobile) {
+    return <MobileAboutPage />
+  }
+
+  // Render desktop layout
   return (
     <div className="min-h-screen bg-background">
       <BrowserNavigation />
