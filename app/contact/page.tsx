@@ -224,9 +224,71 @@ export default function ContactPage() {
               </CardContent>
             </Card>
 
+            {/* Availability */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Current Availability</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2">
+                    <div className="h-3 w-3 bg-green-500 rounded-full"></div>
+                    <span className="font-medium">Available for new projects</span>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    I'm currently open to freelance projects, full-time opportunities, and interesting collaborations.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
 
+        {/* FAQ Section */}
+        <section className="py-16 max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="font-semibold mb-2">What type of projects do you work on?</h3>
+                <p className="text-sm text-muted-foreground">
+                  I specialize in full-stack web applications, data science projects, and AI/ML implementations. From
+                  MVPs to enterprise solutions.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="font-semibold mb-2">What's your typical project timeline?</h3>
+                <p className="text-sm text-muted-foreground">
+                  Project timelines vary based on complexity. Simple websites take 2-4 weeks, while complex applications
+                  can take 2-6 months.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="font-semibold mb-2">Do you work with international clients?</h3>
+                <p className="text-sm text-muted-foreground">
+                  I work with clients worldwide and am comfortable with remote collaboration across different time
+                  zones.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="font-semibold mb-2">What's your preferred tech stack?</h3>
+                <p className="text-sm text-muted-foreground">
+                  I primarily work with React/Next.js, Node.js, TypeScript, and Python. I'm always open to learning new
+                  technologies based on project needs.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
 
         {/* CTA Section */}
         <section className="py-12 text-center">
