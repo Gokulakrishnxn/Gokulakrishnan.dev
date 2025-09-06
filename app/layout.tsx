@@ -6,7 +6,6 @@ import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
 import { GridBackground } from "@/components/grid-background"
 import { Suspense } from "react"
-import { SplashProvider } from "@/components/splash-provider"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -48,16 +47,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
-        <Suspense fallback={<div>Loading...</div>}>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-            <SplashProvider>
-              <GridBackground />
-              <div className="flex flex-col min-h-screen relative z-10">
-                <main className="flex-1">{children}</main>
-              </div>
-            </SplashProvider>
-          </ThemeProvider>
-        </Suspense>
+                    <Suspense fallback={<div>Loading...</div>}>
+                      <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+                        <GridBackground />
+                        <div className="flex flex-col min-h-screen relative z-10">
+                          <main className="flex-1">{children}</main>
+                        </div>
+                      </ThemeProvider>
+                    </Suspense>
         <Analytics />
       </body>
     </html>
