@@ -1,4 +1,3 @@
-import { BrowserNavigation } from "@/components/browser-navigation"
 import { Badge } from "@/components/ui/badge"
 import { Award, Github, Linkedin, Twitter, Mail, Download, ExternalLink } from "lucide-react"
 import Link from "next/link"
@@ -35,7 +34,6 @@ const certifications = [
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
-      <BrowserNavigation />
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         {/* Hero Section */}

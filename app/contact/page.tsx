@@ -3,7 +3,6 @@
 import type React from "react"
 
 import { useState } from "react"
-import { BrowserNavigation } from "@/components/browser-navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -46,7 +45,6 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <BrowserNavigation />
 
       <main className="container mx-auto px-4 py-8">
         {/* Hero Section */}

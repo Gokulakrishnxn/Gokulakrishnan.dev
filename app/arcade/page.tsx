@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { BrowserNavigation } from "@/components/browser-navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -285,7 +284,6 @@ export default function ArcadePage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <BrowserNavigation />
 
       <main className="container mx-auto px-4 py-16">
         {/* Hero Section */}

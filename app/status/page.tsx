@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { BrowserNavigation } from "@/components/browser-navigation"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -158,7 +157,6 @@ export default function StatusPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <BrowserNavigation />
 
       <main className="container mx-auto px-4 py-16">
         {/* Hero Section */}

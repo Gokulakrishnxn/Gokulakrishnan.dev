@@ -1,10 +1,8 @@
-import { BrowserNavigation } from "@/components/browser-navigation"
 import { Camera, Clock, Wrench } from "lucide-react"
 
 export default function AlbumPage() {
   return (
     <div className="min-h-screen bg-background">
-      <BrowserNavigation />
 
       <main className="container mx-auto px-4 py-16">
         {/* Hero Section */}

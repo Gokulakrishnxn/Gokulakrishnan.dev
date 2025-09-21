@@ -1,6 +1,5 @@
 "use client"
 
-import { BrowserNavigation } from "@/components/browser-navigation"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -12,7 +11,6 @@ import { Highlighter } from "@/components/magicui/highlighter"
 export default function ResumePage() {
   return (
     <div className="min-h-screen bg-background">
-      <BrowserNavigation />
 
       <main className="container mx-auto px-4 py-8">
         {/* Header Actions */}

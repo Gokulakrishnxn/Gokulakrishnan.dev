@@ -1,4 +1,3 @@
-import { BrowserNavigation } from "@/components/browser-navigation"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
 import { 
@@ -139,7 +138,6 @@ const getTypeIcon = (type: ExperienceItem['type']) => {
 export default function ExperiencePage() {
   return (
     <div className="min-h-screen bg-background">
-      <BrowserNavigation />
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         {/* Hero Section */}
