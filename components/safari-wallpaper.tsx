@@ -1,53 +1,25 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { AnimatedThemeToggler } from "@/components/animated-theme-toggler"
 import {
-  Home,
-  User,
-  FolderOpen,
-  FileText,
-  BookOpen,
-  Mail,
-  Activity,
-  Camera,
-  GraduationCap,
-  Gamepad2,
-  Menu,
-  X,
   ChevronLeft,
   ChevronRight,
   RotateCcw,
   Plus,
-  Minus,
-  Square,
-  Maximize2,
+  X,
   Minimize2,
+  Maximize2,
 } from "lucide-react"
-import { cn } from "@/lib/utils"
 
-const navigationItems = [
-  { href: "/", label: "Home", icon: Home },
-  { href: "/about", label: "About", icon: User },
-  { href: "/projects", label: "Projects", icon: FolderOpen },
-  { href: "/experience", label: "Experience", icon: GraduationCap },
-  { href: "/resume", label: "Resume", icon: FileText },
-  { href: "/blog", label: "Blog", icon: BookOpen },
-  { href: "/album", label: "Album", icon: Camera },
-  { href: "/arcade", label: "Arcade", icon: Gamepad2 },
-  { href: "/status", label: "Status", icon: Activity },
-  { href: "/contact", label: "Contact", icon: Mail },
-]
 
 interface SafariWallpaperProps {
   children: React.ReactNode
 }
 
 export function SafariWallpaper({ children }: SafariWallpaperProps) {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [currentTime, setCurrentTime] = useState(new Date())
   const [isMinimized, setIsMinimized] = useState(false)
   const [isMaximized, setIsMaximized] = useState(false)
@@ -200,7 +172,7 @@ export function SafariWallpaper({ children }: SafariWallpaperProps) {
                 <div className="flex items-center gap-2 bg-black border border-gray-700 rounded-t-xl px-3 py-1.5 min-w-0 flex-shrink-0 shadow-sm">
                   <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
                   <span className="text-sm text-white truncate font-medium">
-                    {navigationItems.find(item => item.href === pathname)?.label || 'Home'}
+                    Website
                   </span>
                   <Button 
                     variant="ghost" 
@@ -221,105 +193,9 @@ export function SafariWallpaper({ children }: SafariWallpaperProps) {
                 </Button>
               </div>
 
-              {/* Tab Controls */}
-              <div className="flex items-center gap-1 ml-2">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="md:hidden h-6 w-6 p-0 hover:bg-gray-800 text-gray-400 hover:text-white"
-                  onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                >
-                  {isMobileMenuOpen ? (
-                    <X className="h-3 w-3" />
-                  ) : (
-                    <Menu className="h-3 w-3" />
-                  )}
-                </Button>
-              </div>
             </div>
           </div>
 
-          {/* Safari Navigation Bar */}
-          <div className="bg-black border-b border-gray-800">
-            <div className="flex items-center px-4 py-2">
-              {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center gap-1 flex-1 overflow-x-auto">
-                {navigationItems.map((item) => {
-                  const Icon = item.icon
-                  const isActive = pathname === item.href
-
-                  return (
-                    <Link key={item.href} href={item.href}>
-                      <div
-                        className={cn(
-                          "flex items-center gap-2 rounded-xl px-3 py-1.5 text-sm transition-all duration-200 hover:scale-105 hover:shadow-sm",
-                          isActive
-                            ? "bg-blue-900/50 text-blue-400 border border-blue-700 shadow-sm"
-                            : "text-gray-400 hover:text-white hover:bg-gray-800",
-                        )}
-                      >
-                        <Icon className="h-4 w-4" />
-                        <span className="whitespace-nowrap">{item.label}</span>
-                      </div>
-                    </Link>
-                  )
-                })}
-              </div>
-
-              {/* Mobile Navigation */}
-              <div className="flex md:hidden items-center gap-1 overflow-x-auto scrollbar-hide w-full">
-                {navigationItems.map((item) => {
-                  const Icon = item.icon
-                  const isActive = pathname === item.href
-
-                  return (
-                    <Link key={item.href} href={item.href}>
-                      <div
-                        className={cn(
-                          "flex items-center gap-1.5 rounded-xl px-2 py-1.5 text-xs transition-all duration-200 whitespace-nowrap flex-shrink-0 hover:shadow-sm",
-                          isActive
-                            ? "bg-blue-900/50 text-blue-400 border border-blue-700 shadow-sm"
-                            : "text-gray-400 hover:text-white hover:bg-gray-800",
-                        )}
-                      >
-                        <Icon className="h-3 w-3" />
-                        <span className="hidden sm:inline">{item.label}</span>
-                      </div>
-                    </Link>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* Mobile menu dropdown */}
-            {isMobileMenuOpen && (
-              <div className="md:hidden border-t border-gray-800 bg-gray-900">
-                <div className="flex flex-col p-3 gap-1">
-                  {navigationItems.map((item) => {
-                    const Icon = item.icon
-                    const isActive = pathname === item.href
-
-                    return (
-                      <Link key={item.href} href={item.href}>
-                        <div
-                          className={cn(
-                            "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors",
-                            isActive
-                              ? "bg-blue-900/50 text-blue-400 border border-blue-700"
-                              : "text-gray-400 hover:text-white hover:bg-gray-800",
-                          )}
-                          onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                          <Icon className="h-4 w-4" />
-                          {item.label}
-                        </div>
-                      </Link>
-                    )
-                  })}
-                </div>
-              </div>
-            )}
-          </div>
 
           {/* Browser Content Area */}
           <div className="bg-black h-full overflow-auto">
