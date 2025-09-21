@@ -5,9 +5,6 @@ import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { AnimatedThemeToggler } from "@/components/animated-theme-toggler"
 import {
-  ChevronLeft,
-  ChevronRight,
-  RotateCcw,
   Minimize2,
   Maximize2,
 } from "lucide-react"
@@ -31,23 +28,6 @@ export function SafariWallpaper({ children }: SafariWallpaperProps) {
     return () => clearInterval(timer)
   }, [])
 
-  const handleBack = () => {
-    if (typeof window !== 'undefined' && window.history.length > 1) {
-      window.history.back()
-    }
-  }
-
-  const handleForward = () => {
-    if (typeof window !== 'undefined' && window.history.length > 1) {
-      window.history.forward()
-    }
-  }
-
-  const handleRefresh = () => {
-    if (typeof window !== 'undefined') {
-      window.location.reload()
-    }
-  }
 
   const handleMinimize = () => {
     setIsMinimized(!isMinimized)
@@ -89,36 +69,6 @@ export function SafariWallpaper({ children }: SafariWallpaperProps) {
                 <div className="w-3 h-3 rounded-full bg-green-500 shadow-sm hover:bg-green-600 transition-colors cursor-pointer"></div>
               </div>
               
-              {/* Safari-specific controls */}
-              <div className="flex items-center gap-1">
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className="h-6 w-6 p-0 hover:bg-gray-800 text-gray-400 hover:text-white"
-                  onClick={handleBack}
-                  title="Go back"
-                >
-                  <ChevronLeft className="h-3 w-3" />
-                </Button>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className="h-6 w-6 p-0 hover:bg-gray-800 text-gray-400 hover:text-white"
-                  onClick={handleForward}
-                  title="Go forward"
-                >
-                  <ChevronRight className="h-3 w-3" />
-                </Button>
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className="h-6 w-6 p-0 hover:bg-gray-800 text-gray-400 hover:text-white"
-                  onClick={handleRefresh}
-                  title="Refresh page"
-                >
-                  <RotateCcw className="h-3 w-3" />
-                </Button>
-              </div>
 
               {/* Address Bar */}
               <div className="flex-1 mx-4 max-w-md">
