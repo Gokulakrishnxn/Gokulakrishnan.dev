@@ -8,8 +8,6 @@ import {
   ChevronLeft,
   ChevronRight,
   RotateCcw,
-  Plus,
-  X,
   Minimize2,
   Maximize2,
 } from "lucide-react"
@@ -163,38 +161,6 @@ export function SafariWallpaper({ children }: SafariWallpaperProps) {
             </div>
           </div>
 
-          {/* Safari Tab Bar */}
-          <div className="bg-gray-900 border-b border-gray-800">
-            <div className="flex items-center justify-between px-4 py-2">
-              {/* Tabs */}
-              <div className="flex items-center gap-1 flex-1 overflow-x-auto">
-                {/* Active Tab */}
-                <div className="flex items-center gap-2 bg-black border border-gray-700 rounded-t-xl px-3 py-1.5 min-w-0 flex-shrink-0 shadow-sm">
-                  <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
-                  <span className="text-sm text-white truncate font-medium">
-                    Website
-                  </span>
-                  <Button 
-                    variant="ghost" 
-                    size="sm" 
-                    className="h-4 w-4 p-0 hover:bg-gray-800 text-gray-400 hover:text-white rounded-full"
-                  >
-                    <X className="h-2 w-2" />
-                  </Button>
-                </div>
-                
-                {/* New Tab Button */}
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className="h-6 w-6 p-0 hover:bg-gray-800 text-gray-400 hover:text-white rounded"
-                >
-                  <Plus className="h-3 w-3" />
-                </Button>
-              </div>
-
-            </div>
-          </div>
 
 
           {/* Browser Content Area */}
