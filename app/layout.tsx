@@ -4,7 +4,7 @@ import { GeistSans } from "geist/font/sans"
 import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
-import { GridBackground } from "@/components/grid-background"
+import { SafariWallpaper } from "@/components/safari-wallpaper"
 import { Suspense } from "react"
 import "./globals.css"
 
@@ -47,14 +47,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
-                    <Suspense fallback={<div>Loading...</div>}>
-                      <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-                        <GridBackground />
-                        <div className="flex flex-col min-h-screen relative z-10">
-                          <main className="flex-1">{children}</main>
-                        </div>
-                      </ThemeProvider>
-                    </Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            <SafariWallpaper>
+              {children}
+            </SafariWallpaper>
+          </ThemeProvider>
+        </Suspense>
         <Analytics />
       </body>
     </html>
