@@ -219,10 +219,10 @@ export default function ResumePage() {
                 <div className="flex justify-between items-start">
                   <div>
                     <h3 className="text-lg font-semibold">Bachelor of Technology in Computer Science</h3>
-                    <p className="text-muted-foreground">Anna University • Chennai, India</p>
+                    <p className="text-muted-foreground">Hindustan University • Chennai, India</p>
                     <p className="text-sm text-muted-foreground">CGPA: 8.7/10</p>
                   </div>
-                  <p className="text-sm text-muted-foreground">2018 - 2022</p>
+                  <p className="text-sm text-muted-foreground">2022 - 2026</p>
                 </div>
               </section>
 

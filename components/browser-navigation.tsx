@@ -50,6 +50,24 @@ export function BrowserNavigation() {
     return () => clearInterval(timer)
   }, [])
 
+  const handleBack = () => {
+    if (typeof window !== 'undefined' && window.history.length > 1) {
+      window.history.back()
+    }
+  }
+
+  const handleForward = () => {
+    if (typeof window !== 'undefined' && window.history.length > 1) {
+      window.history.forward()
+    }
+  }
+
+  const handleRefresh = () => {
+    if (typeof window !== 'undefined') {
+      window.location.reload()
+    }
+  }
+
   return (
     <div className="sticky top-2 sm:top-4 z-50 mx-2 sm:mx-4 lg:mx-8">
       <div className="relative">
@@ -69,13 +87,31 @@ export function BrowserNavigation() {
                 <div className="h-2 w-2 sm:h-2.5 sm:w-2.5 lg:h-3 lg:w-3 rounded-full bg-green-500"></div>
               </div>
               <div className="ml-1 sm:ml-2 lg:ml-4 flex items-center gap-0.5 sm:gap-1 lg:gap-2">
-                <Button variant="ghost" size="sm" className="h-5 w-5 sm:h-6 sm:w-6 lg:h-8 lg:w-8 p-0">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="h-5 w-5 sm:h-6 sm:w-6 lg:h-8 lg:w-8 p-0"
+                  onClick={handleBack}
+                  title="Go back"
+                >
                   <ChevronLeft className="h-2.5 w-2.5 sm:h-3 sm:w-3 lg:h-4 lg:w-4" />
                 </Button>
-                <Button variant="ghost" size="sm" className="h-5 w-5 sm:h-6 sm:w-6 lg:h-8 lg:w-8 p-0">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="h-5 w-5 sm:h-6 sm:w-6 lg:h-8 lg:w-8 p-0"
+                  onClick={handleForward}
+                  title="Go forward"
+                >
                   <ChevronRight className="h-2.5 w-2.5 sm:h-3 sm:w-3 lg:h-4 lg:w-4" />
                 </Button>
-                <Button variant="ghost" size="sm" className="h-5 w-5 sm:h-6 sm:w-6 lg:h-8 lg:w-8 p-0 hidden sm:flex">
+                <Button 
+                  variant="ghost" 
+                  size="sm" 
+                  className="h-5 w-5 sm:h-6 sm:w-6 lg:h-8 lg:w-8 p-0 hidden sm:flex"
+                  onClick={handleRefresh}
+                  title="Refresh page"
+                >
                   <RotateCcw className="h-2.5 w-2.5 sm:h-3 sm:w-3 lg:h-4 lg:w-4" />
                 </Button>
               </div>
