@@ -7,7 +7,6 @@ import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
-import Chatbot from "@/components/chatbot";
 import { ExternalLinkIcon, EyeIcon } from "lucide-react";
 
 const BLUR_FADE_DELAY = 0.04;
@@ -162,9 +161,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-      
-      {/* Chatbot */}
-      <Chatbot />
     </main>
   );
 }
