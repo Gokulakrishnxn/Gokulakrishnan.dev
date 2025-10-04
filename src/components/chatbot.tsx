@@ -120,7 +120,7 @@ export default function Chatbot() {
                     <CardTitle className="text-sm font-semibold text-white">
                       Tessa
                     </CardTitle>
-                    <p className="text-xs text-slate-400">Gokul's Assistant</p>
+                    <p className="text-xs text-slate-400">Gokul&apos;s Assistant</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-1">
