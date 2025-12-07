@@ -1,0 +1,211 @@
+---
+title: "AI Prompt Builder"
+description: "Build and test AI prompts with variable substitution. Create reusable prompt templates and dynamically fill variables for different use cases."
+category: "components"
+icon: "FileText"
+new: true
+pinned: false
+createdAt: "2025-01-15"
+updatedAt: "2025-01-15"
+---
+
+# AI Prompt Builder
+
+A powerful component for building and testing AI prompts with variable substitution. Create reusable prompt templates and dynamically fill variables for different use cases. Perfect for developers working with LLMs who need to create flexible, reusable prompts.
+
+## Features
+
+- **Template-Based** - Create prompt templates with variable placeholders
+- **Variable Substitution** - Dynamically replace variables in templates
+- **Live Preview** - See the final prompt update in real-time as you type
+- **Add Variables** - Easily add new variables to your template
+- **Copy to Clipboard** - One-click copy of the final prompt
+- **TypeScript** - Fully typed with TypeScript interfaces
+- **Monospace Font** - Template and preview use monospace font for better readability
+
+## Installation
+
+```bash
+pnpm dlx ncdai add ai-prompt-builder
+```
+
+## Basic Usage
+
+```tsx
+import { AIPromptBuilder } from "@/components/ai-prompt-builder";
+
+export function MyPromptApp() {
+  return (
+    <AIPromptBuilder
+      template="You are a helpful assistant. User question: {{question}}"
+      variables={[
+        { name: "question", value: "What is React?" },
+      ]}
+      onCopy={(prompt) => {
+        console.log("Copied prompt:", prompt);
+      }}
+    />
+  );
+}
+```
+
+## Advanced Usage
+
+```tsx
+import { AIPromptBuilder } from "@/components/ai-prompt-builder";
+
+export function AdvancedPromptApp() {
+  return (
+    <AIPromptBuilder
+      template={`You are an expert {{role}}. 
+      
+Context: {{context}}
+User Question: {{question}}
+Language: {{language}}
+
+Please provide a detailed answer in {{language}}.`}
+      variables={[
+        { name: "role", value: "software engineer" },
+        { name: "context", value: "Web development with React" },
+        { name: "question", value: "How do I optimize React performance?" },
+        { name: "language", value: "English" },
+      ]}
+      onCopy={(prompt) => {
+        // Send to API, save to clipboard, etc.
+        navigator.clipboard.writeText(prompt);
+      }}
+    />
+  );
+}
+```
+
+## Props
+
+### `AIPromptBuilderProps`
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `template` | `string` | `"You are a helpful assistant. User question: {{question}}"` | The prompt template with variable placeholders |
+| `variables` | `Variable[]` | `[{ name: "question", value: "" }]` | Array of variables to substitute |
+| `onCopy` | `(prompt: string) => void` | - | Callback function called when prompt is copied |
+| `className` | `string` | - | Additional CSS classes for the container |
+
+### `Variable` Interface
+
+```tsx
+interface Variable {
+  name: string;
+  value: string;
+}
+```
+
+## Variable Syntax
+
+Variables in templates use double curly braces: `{{variableName}}`
+
+**Example:**
+```
+Template: "Hello {{name}}, you are a {{role}}."
+Variables: 
+  - name: "John"
+  - role: "developer"
+Result: "Hello John, you are a developer."
+```
+
+## Adding Variables
+
+The component includes an "Add Variable" button that:
+1. Creates a new variable with a default name
+2. Automatically adds the variable placeholder to the template
+3. Allows you to fill in the value
+
+## Use Cases
+
+### 1. Multi-Language Support
+
+```tsx
+<AIPromptBuilder
+  template="Translate the following text to {{targetLanguage}}: {{text}}"
+  variables={[
+    { name: "targetLanguage", value: "Spanish" },
+    { name: "text", value: "Hello, world!" },
+  ]}
+/>
+```
+
+### 2. Role-Based Prompts
+
+```tsx
+<AIPromptBuilder
+  template="You are a {{role}}. Help the user with: {{task}}"
+  variables={[
+    { name: "role", value: "senior developer" },
+    { name: "task", value: "code review" },
+  ]}
+/>
+```
+
+### 3. Context-Aware Prompts
+
+```tsx
+<AIPromptBuilder
+  template={`Context: {{context}}
+User: {{userInput}}
+System: {{systemInstruction}}`}
+  variables={[
+    { name: "context", value: "E-commerce website" },
+    { name: "userInput", value: "How do I add a product?" },
+    { name: "systemInstruction", value: "Provide step-by-step instructions" },
+  ]}
+/>
+```
+
+## Integration Examples
+
+### With OpenAI API
+
+```tsx
+const handleCopy = async (prompt: string) => {
+  const response = await fetch("/api/openai", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ prompt }),
+  });
+  // Handle response...
+};
+```
+
+### Save to Database
+
+```tsx
+const handleCopy = async (prompt: string) => {
+  await fetch("/api/prompts", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ 
+      template: template,
+      variables: variables,
+      finalPrompt: prompt 
+    }),
+  });
+};
+```
+
+## Best Practices
+
+1. **Variable Naming** - Use descriptive variable names (e.g., `userQuestion` instead of `q`)
+2. **Template Organization** - Keep templates readable with proper formatting
+3. **Validation** - Validate that all variables are filled before using the prompt
+4. **Reusability** - Create templates that can be reused across different scenarios
+5. **Documentation** - Document what each variable represents
+
+## Example
+
+<ComponentPreview name="ai-prompt-builder-demo" />
+
+## Dependencies
+
+- `lucide-react` - For icons
+- `@ncdai/utils` - Utility functions
+- `button` - Button component (shadcn/ui)
+- `textarea` - Textarea component (shadcn/ui)

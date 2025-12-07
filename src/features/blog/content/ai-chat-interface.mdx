@@ -1,0 +1,205 @@
+---
+title: "AI Chat Interface"
+description: "A reusable AI chat interface component with message history, loading states, and customizable styling. Perfect for integrating AI assistants into your applications."
+category: "components"
+icon: "MessageCircle"
+new: true
+pinned: false
+createdAt: "2025-01-15"
+updatedAt: "2025-01-15"
+---
+
+# AI Chat Interface
+
+A modern, production-ready chat interface component designed specifically for AI applications. This component provides a clean, accessible UI for displaying conversations between users and AI assistants, with built-in support for message history, loading states, and keyboard interactions.
+
+## Features
+
+- **Message History** - Display user and assistant messages with proper styling and alignment
+- **Loading States** - Animated loading indicator with bouncing dots while waiting for AI responses
+- **Keyboard Support** - Press Enter to send, Shift+Enter for new line
+- **Controlled & Uncontrolled** - Works in both controlled and uncontrolled modes
+- **TypeScript** - Fully typed with TypeScript interfaces
+- **Accessible** - Built with accessibility in mind, including screen reader support
+- **Customizable** - Fully customizable styling via className prop
+- **Empty State** - Helpful empty state message when no messages exist
+
+## Installation
+
+```bash
+pnpm dlx ncdai add ai-chat-interface
+```
+
+## Basic Usage
+
+```tsx
+import { AIChatInterface } from "@/components/ai-chat-interface";
+
+export function MyChatApp() {
+  const handleSendMessage = async (message: string) => {
+    // Your API call here
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      body: JSON.stringify({ message }),
+    });
+    // Handle response...
+  };
+
+  return (
+    <div className="h-[600px]">
+      <AIChatInterface onSendMessage={handleSendMessage} />
+    </div>
+  );
+}
+```
+
+## Controlled Mode
+
+For more control over messages, use the controlled mode:
+
+```tsx
+import { AIChatInterface, type Message } from "@/components/ai-chat-interface";
+import { useState } from "react";
+
+export function ControlledChatApp() {
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      id: "1",
+      role: "assistant",
+      content: "Hello! How can I help you today?",
+      timestamp: new Date(),
+    },
+  ]);
+
+  const handleSendMessage = async (message: string) => {
+    // Add user message
+    const userMessage: Message = {
+      id: `user-${Date.now()}`,
+      role: "user",
+      content: message,
+      timestamp: new Date(),
+    };
+    setMessages((prev) => [...prev, userMessage]);
+
+    // Simulate API call
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      body: JSON.stringify({ message }),
+    });
+    const data = await response.json();
+
+    // Add assistant response
+    const assistantMessage: Message = {
+      id: `assistant-${Date.now()}`,
+      role: "assistant",
+      content: data.response,
+      timestamp: new Date(),
+    };
+    setMessages((prev) => [...prev, assistantMessage]);
+  };
+
+  return (
+    <div className="h-[600px]">
+      <AIChatInterface
+        messages={messages}
+        onSendMessage={handleSendMessage}
+        placeholder="Ask me anything..."
+      />
+    </div>
+  );
+}
+```
+
+## Props
+
+### `AIChatInterfaceProps`
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `onSendMessage` | `(message: string) => void \| Promise<void>` | - | Callback function called when a message is sent |
+| `messages` | `Message[]` | - | Optional array of messages (controlled mode) |
+| `placeholder` | `string` | `"Type your message..."` | Placeholder text for the input field |
+| `className` | `string` | - | Additional CSS classes for the container |
+| `disabled` | `boolean` | `false` | Disable the chat interface |
+
+### `Message` Interface
+
+```tsx
+interface Message {
+  id: string;
+  role: "user" | "assistant";
+  content: string;
+  timestamp: Date;
+}
+```
+
+## Styling
+
+The component uses Tailwind CSS classes and can be customized via the `className` prop:
+
+```tsx
+<AIChatInterface
+  className="rounded-lg border border-edge shadow-lg"
+  onSendMessage={handleSendMessage}
+/>
+```
+
+## Integration with AI APIs
+
+### OpenAI Example
+
+```tsx
+const handleSendMessage = async (message: string) => {
+  const response = await fetch("/api/openai", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message }),
+  });
+  
+  const data = await response.json();
+  // Handle response...
+};
+```
+
+### Google Gemini Example
+
+```tsx
+const handleSendMessage = async (message: string) => {
+  const response = await fetch("/api/gemini", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ message }),
+  });
+  
+  const data = await response.json();
+  // Handle response...
+};
+```
+
+## Best Practices
+
+1. **Error Handling** - Always handle errors in your `onSendMessage` callback
+2. **Loading States** - The component shows a loading indicator automatically
+3. **Message Persistence** - Consider saving messages to localStorage or a database
+4. **Rate Limiting** - Implement rate limiting on your API endpoints
+5. **Accessibility** - The component includes ARIA labels and keyboard support
+
+## Use Cases
+
+- AI-powered chatbots
+- Customer support assistants
+- Educational AI tutors
+- Code generation interfaces
+- Creative writing assistants
+- Data analysis tools
+
+## Example
+
+<ComponentPreview name="ai-chat-interface-demo" />
+
+## Dependencies
+
+- `lucide-react` - For icons
+- `@ncdai/utils` - Utility functions
+- `button` - Button component (shadcn/ui)
+- `textarea` - Textarea component (shadcn/ui)
