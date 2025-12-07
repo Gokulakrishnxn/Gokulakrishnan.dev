@@ -1,18 +1,18 @@
-# [chanhdai.com](https://chanhdai.com)
+# [gokulakrishnan.dev](https://gokulakrishnan.dev)
 
-A minimal, pixel-perfect dev portfolio, component registry, and blog to showcase my work as a Design Engineer.
+A minimal, pixel-perfect dev portfolio, component registry, and blog to showcase my work as an AI Engineer and Researcher.
 
-Check out the live site: [chanhdai.com](https://chanhdai.com)
+Check out the live site: [gokulakrishnan.dev](https://gokulakrishnan.dev)
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://assets.chanhdai.com/images/screenshot-desktop-dark.webp?t=1764345394">
-  <source media="(prefers-color-scheme: light)" srcset="https://assets.chanhdai.com/images/screenshot-desktop-light.webp?t=1764345394">
-  <img src="https://assets.chanhdai.com/images/screenshot-desktop-light.webp?t=1764345394" alt="Screenshot">
+  <source media="(prefers-color-scheme: dark)" srcset="https://assets.gokulakrishnan.dev/images/screenshot-desktop-dark.webp?t=1764345394">
+  <source media="(prefers-color-scheme: light)" srcset="https://assets.gokulakrishnan.dev/images/screenshot-desktop-light.webp?t=1764345394">
+  <img src="https://assets.gokulakrishnan.dev/images/screenshot-desktop-light.webp?t=1764345394" alt="Screenshot">
 </picture>
 
 ## GitAds Sponsored
 
-[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=ncdai/chanhdai.com@github)](https://gitads.dev/v1/ad-track?source=ncdai/chanhdai.com@github)
+[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=Gokulakrishnxn/gokulakrishnan.dev@github)](https://gitads.dev/v1/ad-track?source=Gokulakrishnxn/gokulakrishnan.dev@github)
 
 ## Overview
 
@@ -79,7 +79,7 @@ You're free to use my code! Just make sure to <ins>remove all my personal inform
 
 ## Star History
 
-[![Star History](https://starchart.cc/ncdai/chanhdai.com.svg?variant=adaptive&line=%23d37f2c)](https://starchart.cc/ncdai/chanhdai.com)
+[![Star History](https://starchart.cc/Gokulakrishnxn/gokulakrishnan.dev.svg?variant=adaptive&line=%23d37f2c)](https://starchart.cc/Gokulakrishnxn/gokulakrishnan.dev)
 
 ## Acknowledgments
 

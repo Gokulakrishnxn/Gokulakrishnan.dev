@@ -9,7 +9,12 @@ import { getAllPosts } from "@/features/blog/data/posts";
 import { Panel, PanelHeader, PanelTitle } from "./panel";
 
 export function Blog() {
-  const allPosts = getAllPosts();
+  const allPosts = getAllPosts().filter(
+    (post) =>
+      post.slug !== "ai-chat-interface" &&
+      post.slug !== "ai-prompt-builder" &&
+      post.slug !== "token-counter"
+  );
 
   return (
     <Panel id="blog">

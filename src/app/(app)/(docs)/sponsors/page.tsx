@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 
-import { Button } from "@/components/ui/button";
-import { SPONSORSHIP_URL } from "@/config/site";
 import sponsors from "@/features/sponsors/sponsors.json";
 import { cn } from "@/lib/utils";
 
@@ -58,14 +56,6 @@ export default function Page() {
             )
           )}
         </div>
-      </div>
-
-      <div className="flex justify-center p-2">
-        <Button asChild>
-          <a href={SPONSORSHIP_URL} target="_blank" rel="noopener noreferrer">
-            Become a Sponsor
-          </a>
-        </Button>
       </div>
 
       <div className="screen-line-before h-4" />
