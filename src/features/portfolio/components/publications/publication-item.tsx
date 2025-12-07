@@ -25,7 +25,7 @@ export function PublicationItem({
 
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
           <dl>
-            <dt className="sr-only">Period</dt>
+            <dt className="sr-only">Publication Period</dt>
             <dd>
               {publication.period.start}
               {publication.period.end ? ` — ${publication.period.end}` : ""}
