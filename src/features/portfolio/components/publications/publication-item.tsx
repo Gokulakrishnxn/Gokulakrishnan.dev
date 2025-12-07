@@ -26,23 +26,12 @@ export function PublicationItem({
 
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
           <dl>
-            <dt className="sr-only">Venue</dt>
-            <dd>{publication.venue}</dd>
+            <dt className="sr-only">Period</dt>
+            <dd>
+              {publication.period.start}
+              {publication.period.end ? ` — ${publication.period.end}` : ""}
+            </dd>
           </dl>
-
-          {publication.date && (
-            <>
-              <Separator
-                className="data-[orientation=vertical]:h-4"
-                orientation="vertical"
-              />
-
-              <dl>
-                <dt className="sr-only">Date</dt>
-                <dd>{publication.date}</dd>
-              </dl>
-            </>
-          )}
         </div>
 
         {publication.description && (
