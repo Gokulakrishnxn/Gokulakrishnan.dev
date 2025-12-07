@@ -39,19 +39,16 @@ I'm always excited to collaborate on innovative AI projects. Let's connect!
   avatar: "/profile.jpg",
   ogImage:
     "https://assets.gokulakrishnan.dev/images/screenshot-og-image-light.png?t=1764345394",
-  namePronunciationUrl: "/audio/chanhdai.mp3",
+  namePronunciationUrl: "/audio/gokulakrishnan.mp3",
   timeZone: "Asia/Kolkata",
   keywords: [
-    "ncdai",
-    "nguyenchanhdai",
-    "nguyen chanh dai",
-    "chanhdai",
-    "chanh dai",
-    "iamncdai",
-    "quaric",
-    "zadark",
-    "nguyễn chánh đại",
-    "chánh đại",
+    "gokulakrishnan",
+    "gokulakrishnan s",
+    "gokulakrishnxn",
+    "ai engineer",
+    "machine learning",
+    "llm",
+    "researcher",
   ],
   dateCreated: "2023-10-20", // YYYY-MM-DD
 };

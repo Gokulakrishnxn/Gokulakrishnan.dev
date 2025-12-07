@@ -1,6 +1,6 @@
 # AI Agent Guidelines for gokulakrishnan.dev
 
-This guide provides essential information for AI agents working with the chanhdai.com codebase - a Next.js dev portfolio, blog, and component registry website.
+This guide provides essential information for AI agents working with the gokulakrishnan.dev codebase - a Next.js dev portfolio, blog, and component registry website.
 
 ## Project Overview
 

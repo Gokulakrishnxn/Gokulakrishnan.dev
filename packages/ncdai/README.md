@@ -1,6 +1,6 @@
 # ncdai
 
-A simple CLI wrapper for adding components from [chanhdai.com](https://chanhdai.com/components) component registry using [shadcn](https://ui.shadcn.com/docs/cli).
+A simple CLI wrapper for adding components from [gokulakrishnan.dev](https://gokulakrishnan.dev/components) component registry using [shadcn](https://ui.shadcn.com/docs/cli).
 
 ## Usage
 
@@ -30,4 +30,4 @@ Visit https://ui.shadcn.com/docs/cli to view the documentation.
 
 ## License
 
-Licensed under the [MIT license](https://github.com/ncdai/chanhdai.com/blob/main/LICENSE).
+Licensed under the [MIT license](https://github.com/Gokulakrishnxn/gokulakrishnan.dev/blob/main/LICENSE).
