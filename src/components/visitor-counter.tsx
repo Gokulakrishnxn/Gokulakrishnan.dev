@@ -20,7 +20,7 @@ export function VisitorCounter() {
           method: "GET",
           cache: "no-store",
         });
-        const data = await response.json();
+        const data = (await response.json()) as { views: number };
         setViews(data.views || 0);
       } catch (error) {
         console.error("Failed to fetch views:", error);
