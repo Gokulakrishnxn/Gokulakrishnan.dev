@@ -17,13 +17,13 @@ export function PostItem({
     <Link
       href={`/blog/${post.slug}`}
       className={cn(
-        "group/post flex flex-col gap-2 p-2",
+        "group/post flex flex-col gap-2 p-2 sm:p-3",
         "max-sm:screen-line-before max-sm:screen-line-after",
         "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
       )}
     >
       {post.metadata.image && (
-        <div className="relative select-none [&_img]:aspect-1200/630 [&_img]:rounded-xl">
+        <div className="relative aspect-video overflow-hidden rounded-xl select-none sm:aspect-[1200/630]">
           <Image
             src={post.metadata.image}
             alt={post.metadata.title}
@@ -32,6 +32,7 @@ export function PostItem({
             quality={100}
             priority={shouldPreloadImage}
             unoptimized
+            className="h-full w-full object-cover"
           />
 
           <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/10" />
@@ -51,8 +52,8 @@ export function PostItem({
         </div>
       )}
 
-      <div className="flex flex-col gap-1 p-2">
-        <h3 className="text-lg leading-snug font-medium text-balance underline-offset-4 group-hover/post:underline">
+      <div className="flex flex-col gap-1 p-2 sm:p-3">
+        <h3 className="text-base leading-snug font-medium text-balance underline-offset-4 group-hover/post:underline sm:text-lg">
           {post.metadata.title}
           {post.metadata.new && (
             <span className="ml-2 inline-block size-2 -translate-y-px rounded-full bg-info">

@@ -1,4 +1,10 @@
-import { FileTextIcon, GlobeIcon, MapPinIcon, MarsIcon, VenusIcon } from "lucide-react";
+import {
+  FileTextIcon,
+  GlobeIcon,
+  MapPinIcon,
+  MarsIcon,
+  VenusIcon,
+} from "lucide-react";
 
 import { USER } from "@/features/portfolio/data/user";
 import { urlToName } from "@/utils/url";
@@ -31,7 +37,7 @@ export function Overview() {
           );
         })}
 
-        <div className="grid gap-x-12 gap-y-2.5 sm:grid-cols-2">
+        <div className="grid gap-x-4 gap-y-2.5 sm:grid-cols-2 sm:gap-x-8 md:gap-x-12">
           <IntroItem>
             <IntroItemIcon>
               <MapPinIcon />

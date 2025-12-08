@@ -43,27 +43,27 @@ export function ProjectItem({
               width={32}
               height={32}
               quality={100}
-              className="mx-4 flex size-6 shrink-0 select-none"
+              className="mx-2 flex size-5 shrink-0 select-none sm:mx-4 sm:size-6"
               unoptimized
               aria-hidden="true"
             />
           ) : (
             <div
-              className="mx-4 flex size-6 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background select-none"
+              className="mx-2 flex size-5 shrink-0 items-center justify-center rounded-lg border border-muted-foreground/15 bg-muted text-muted-foreground ring-1 ring-edge ring-offset-1 ring-offset-background select-none sm:mx-4 sm:size-6"
               aria-hidden="true"
             >
-              <Icons.project className="size-4" />
+              <Icons.project className="size-3 sm:size-4" />
             </div>
           )}
 
           <div className="flex-1 border-l border-dashed border-edge">
-            <CollapsibleTrigger className="flex w-full items-center gap-4 p-4 pr-2 text-left">
-              <div className="flex-1">
-                <h3 className="mb-1 leading-snug font-medium text-balance">
+            <CollapsibleTrigger className="flex w-full items-center gap-2 p-3 pr-2 text-left sm:gap-4 sm:p-4">
+              <div className="min-w-0 flex-1">
+                <h3 className="mb-1 text-sm leading-snug font-medium text-balance sm:text-base">
                   {project.title}
                 </h3>
 
-                <dl className="text-sm text-muted-foreground">
+                <dl className="text-xs text-muted-foreground sm:text-sm">
                   <dt className="sr-only">Period</dt>
                   <dd className="flex items-center gap-0.5">
                     <span>{start}</span>
@@ -90,12 +90,12 @@ export function ProjectItem({
               <Tooltip>
                 <TooltipTrigger asChild>
                   <a
-                    className="relative flex size-6 shrink-0 items-center justify-center text-muted-foreground after:absolute after:-inset-2 hover:text-foreground"
+                    className="relative flex size-5 shrink-0 items-center justify-center text-muted-foreground after:absolute after:-inset-2 hover:text-foreground sm:size-6"
                     href={addQueryParams(project.link, UTM_PARAMS)}
                     target="_blank"
                     rel="noopener"
                   >
-                    <LinkIcon className="pointer-events-none size-4" />
+                    <LinkIcon className="pointer-events-none size-3.5 sm:size-4" />
                     <span className="sr-only">Open Project Link</span>
                   </a>
                 </TooltipTrigger>
@@ -106,7 +106,7 @@ export function ProjectItem({
               </Tooltip>
 
               <div
-                className="shrink-0 text-muted-foreground [&_svg]:size-4"
+                className="shrink-0 text-muted-foreground [&_svg]:size-3.5 sm:[&_svg]:size-4"
                 aria-hidden
               >
                 <CollapsibleChevronsIcon />
@@ -117,7 +117,7 @@ export function ProjectItem({
 
         <CollapsibleContent className="group overflow-hidden duration-300 data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
           <div className="border-t border-edge shadow-inner">
-            <div className="space-y-4 p-4 duration-300 group-data-[state=closed]:animate-fade-out group-data-[state=open]:animate-fade-in">
+            <div className="space-y-3 p-3 duration-300 group-data-[state=closed]:animate-fade-out group-data-[state=open]:animate-fade-in sm:space-y-4 sm:p-4">
               {project.description && (
                 <ProseMono>
                   <Markdown>{project.description}</Markdown>
@@ -125,10 +125,10 @@ export function ProjectItem({
               )}
 
               {project.skills.length > 0 && (
-                <ul className="flex flex-wrap gap-1.5">
+                <ul className="flex flex-wrap gap-1 sm:gap-1.5">
                   {project.skills.map((skill, index) => (
                     <li key={index} className="flex">
-                      <Tag>{skill}</Tag>
+                      <Tag className="text-xs sm:text-sm">{skill}</Tag>
                     </li>
                   ))}
                 </ul>

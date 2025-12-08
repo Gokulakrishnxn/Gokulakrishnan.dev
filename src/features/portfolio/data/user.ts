@@ -2,8 +2,8 @@ import type { User } from "@/features/portfolio/types/user";
 
 export const USER: User = {
   firstName: "Gokulakrishnan",
-  lastName: "S",
-  displayName: "Gokulakrishnan S",
+  lastName: "",
+  displayName: "Gokulakrishnan",
   username: "Gokulakrishnan",
   gender: "male",
   pronouns: "he/him",
@@ -43,7 +43,6 @@ I'm always excited to collaborate on innovative AI projects. Let's connect!
   timeZone: "Asia/Kolkata",
   keywords: [
     "gokulakrishnan",
-    "gokulakrishnan s",
     "gokulakrishnxn",
     "ai engineer",
     "machine learning",

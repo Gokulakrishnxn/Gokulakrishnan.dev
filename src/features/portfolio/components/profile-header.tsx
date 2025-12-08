@@ -9,14 +9,12 @@ export function ProfileHeader() {
       <div className="shrink-0 border-r border-edge">
         <div className="mx-0.5 my-[3px]">
           <img
-            className="size-32 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background select-none sm:size-40"
+            className="size-24 rounded-full ring-1 ring-border ring-offset-2 ring-offset-background select-none sm:size-32 md:size-40"
             alt={`${USER.displayName}'s avatar`}
             src={USER.avatar}
             fetchPriority="high"
           />
         </div>
-
-
       </div>
 
       <div className="flex flex-1 flex-col">
@@ -30,8 +28,8 @@ export function ProfileHeader() {
         </div>
 
         <div className="border-t border-edge">
-          <div className="flex items-center gap-2 pl-4">
-            <h1 className="-translate-y-px text-3xl font-semibold">
+          <div className="flex items-center gap-2 pl-2 sm:pl-4">
+            <h1 className="-translate-y-px text-2xl font-semibold sm:text-3xl">
               {USER.displayName}
             </h1>
 
@@ -41,9 +39,9 @@ export function ProfileHeader() {
             />
           </div>
 
-          <div className="h-12.5 border-t border-edge py-1 pl-4 sm:h-9">
+          <div className="h-12.5 border-t border-edge py-1 pl-2 sm:h-9 sm:pl-4">
             <FlipSentences
-              className="font-mono text-sm text-balance text-muted-foreground"
+              className="font-mono text-xs text-balance text-muted-foreground sm:text-sm"
               variants={{
                 initial: { y: -10, opacity: 0 },
                 animate: { y: -1, opacity: 1 },

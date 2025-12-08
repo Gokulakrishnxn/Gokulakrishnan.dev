@@ -16,17 +16,17 @@ export default function Page() {
 
   return (
     <div className="min-h-svh">
-      <div className="screen-line-after px-4">
-        <h1 className="text-3xl font-semibold">Blog</h1>
+      <div className="screen-line-after px-4 sm:px-6 md:px-8">
+        <h1 className="text-2xl font-semibold sm:text-3xl">Blog</h1>
       </div>
 
-      <div className="p-4">
+      <div className="p-4 sm:p-6 md:p-8">
         <p className="font-mono text-sm text-balance text-muted-foreground">
           {metadata.description}
         </p>
       </div>
 
-      <div className="screen-line-before screen-line-after p-2">
+      <div className="screen-line-before screen-line-after p-2 sm:p-4">
         <Suspense
           fallback={
             <div className="flex h-9 w-full rounded-lg border border-input shadow-xs dark:bg-input/30" />

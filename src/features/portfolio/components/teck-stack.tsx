@@ -92,7 +92,7 @@ export function TeckStack() {
           "bg-zinc-950/0.75 dark:bg-white/0.75"
         )}
       >
-        <ul className="flex flex-wrap gap-4 select-none">
+        <ul className="flex flex-wrap gap-3 select-none sm:gap-4">
           {TECH_STACK.map((tech) => {
             return (
               <li key={tech.key} className="flex">

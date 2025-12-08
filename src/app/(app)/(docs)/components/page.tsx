@@ -15,17 +15,18 @@ export default function Page() {
 
   return (
     <div className="min-h-svh">
-      <div className="screen-line-after px-4">
-        <h1 className="text-3xl font-semibold">Components</h1>
+      <div className="screen-line-after px-4 sm:px-6 md:px-8">
+        <h1 className="text-2xl font-semibold sm:text-3xl">Components</h1>
       </div>
 
       <div className="relative mt-4">
-        <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2">
+        <div className="absolute inset-0 -z-1 grid grid-cols-1 gap-4 max-sm:hidden sm:grid-cols-2 lg:grid-cols-3">
           <div className="border-r border-edge"></div>
-          <div className="border-l border-edge"></div>
+          <div className="border-l border-edge lg:border-r"></div>
+          <div className="hidden border-l border-edge lg:block"></div>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {posts
             .slice()
             .sort((a, b) =>
@@ -38,9 +39,10 @@ export default function Page() {
                 key={post.slug}
                 href={`/components/${post.slug}`}
                 className={cn(
-                  "group/post flex flex-col gap-2 p-4 hover:bg-accent2",
+                  "group/post flex flex-col gap-2 p-3 hover:bg-accent2 sm:p-4",
                   "max-sm:screen-line-before max-sm:screen-line-after",
-                  "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after"
+                  "sm:nth-[2n+1]:screen-line-before sm:nth-[2n+1]:screen-line-after",
+                  "lg:nth-[3n]:screen-line-after lg:nth-[3n+1]:screen-line-before"
                 )}
               >
                 <div className="flex items-center gap-4">
@@ -69,7 +71,7 @@ export default function Page() {
                 </div>
 
                 {post.metadata.description && (
-                  <p className="text-sm text-muted-foreground pl-10">
+                  <p className="pl-8 text-xs text-muted-foreground sm:pl-10 sm:text-sm">
                     {post.metadata.description}
                   </p>
                 )}
