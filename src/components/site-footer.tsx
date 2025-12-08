@@ -3,6 +3,8 @@ import { RssIcon } from "lucide-react";
 import { SITE_INFO } from "@/config/site";
 
 import { Icons } from "./icons";
+import { IndianTime } from "./indian-time";
+import { VisitorCounter } from "./visitor-counter";
 
 export function SiteFooter() {
   return (
@@ -18,6 +20,14 @@ export function SiteFooter() {
             >
               llms.txt
             </a>
+
+            <Separator />
+
+            <IndianTime />
+
+            <Separator />
+
+            <VisitorCounter />
 
             <Separator />
 

@@ -1,3 +1,4 @@
+import { TZDate } from "@date-fns/tz";
 import { format } from "date-fns";
 
 import { SITE_INFO } from "@/config/site";
@@ -73,7 +74,14 @@ async function getBlogContent() {
   return text.join("\n\n");
 }
 
+function getIndianTime() {
+  const indianTime = TZDate.tz("Asia/Kolkata");
+  return format(indianTime, "EEEE, MMMM d, yyyy 'at' h:mm:ss a") + " IST";
+}
+
 async function getContent() {
+  const indianTime = getIndianTime();
+
   return `<SYSTEM>This document contains comprehensive information about ${USER.displayName}'s professional profile, portfolio, and blog content. It includes personal details, work experience, projects, achievements, certifications, and all published blog posts. This data is formatted for consumption by Large Language Models (LLMs) to provide accurate and up-to-date information about ${USER.displayName}'s background, skills, and expertise as a Design Engineer.</SYSTEM>
 
 # gokulakrishnan.dev
@@ -88,10 +96,14 @@ ${certificationsText}
 
 ## Blog
 
-${await getBlogContent()}`;
+${await getBlogContent()}
+
+---
+
+**Current Indian Standard Time (IST):** ${indianTime}`;
 }
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 export async function GET() {
   return new Response(await getContent(), {

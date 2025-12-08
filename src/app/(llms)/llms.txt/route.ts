@@ -1,9 +1,22 @@
+import { TZDate } from "@date-fns/tz";
+import { format } from "date-fns";
+
 import { SITE_INFO } from "@/config/site";
 import { getAllPosts } from "@/features/blog/data/posts";
 
 const allPosts = getAllPosts();
 
-const content = `# gokulakrishnan.dev
+function getIndianTime() {
+  const indianTime = TZDate.tz("Asia/Kolkata");
+  return format(indianTime, "EEEE, MMMM d, yyyy 'at' h:mm:ss a") + " IST";
+}
+
+export const dynamic = "force-dynamic";
+
+export async function GET() {
+  const indianTime = getIndianTime();
+
+  const content = `# gokulakrishnan.dev
 
 > A minimal, pixel-perfect dev portfolio, component registry, and blog to showcase my work as an AI Engineer and Researcher.
 
@@ -16,11 +29,12 @@ const content = `# gokulakrishnan.dev
 ## Blog
 
 ${allPosts.map((item) => `- [${item.metadata.title}](${SITE_INFO.url}/blog/${item.slug}.mdx): ${item.metadata.description}`).join("\n")}
+
+---
+
+**Current Indian Standard Time (IST):** ${indianTime}
 `;
 
-export const dynamic = "force-static";
-
-export async function GET() {
   return new Response(content, {
     headers: {
       "Content-Type": "text/markdown;charset=utf-8",
