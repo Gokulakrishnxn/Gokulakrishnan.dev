@@ -1,48 +1,14 @@
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import { NextResponse } from "next/server";
-import { join } from "path";
 
-const VIEWS_FILE = join(process.cwd(), "data", "views.json");
-
-interface ViewsData {
-  views?: number;
-}
-
-function ensureDataDir() {
-  const dataDir = join(process.cwd(), "data");
-  if (!existsSync(dataDir)) {
-    mkdirSync(dataDir, { recursive: true });
-  }
-}
+let viewsCount = 0;
 
 function getViews(): number {
-  try {
-    ensureDataDir();
-    if (existsSync(VIEWS_FILE)) {
-      const data = readFileSync(VIEWS_FILE, "utf-8");
-      const parsed = JSON.parse(data);
-      const json: ViewsData =
-        typeof parsed === "object" && parsed !== null ? parsed : {};
-      return typeof json.views === "number" ? json.views : 0;
-    }
-    return 0;
-  } catch {
-    return 0;
-  }
+  return viewsCount;
 }
 
 function incrementViews(): number {
-  const views = getViews();
-  const newViews = views + 1;
-
-  try {
-    ensureDataDir();
-    writeFileSync(VIEWS_FILE, JSON.stringify({ views: newViews }), "utf-8");
-  } catch (error) {
-    console.error("Failed to write views file:", error);
-  }
-
-  return newViews;
+  viewsCount += 1;
+  return viewsCount;
 }
 
 export const dynamic = "force-dynamic";
