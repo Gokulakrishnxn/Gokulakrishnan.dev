@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import { PinIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -61,6 +62,17 @@ export function PostItem({
             </span>
           )}
         </h3>
+        {post.metadata.description && (
+          <p className="line-clamp-2 text-sm text-muted-foreground">
+            {post.metadata.description}
+          </p>
+        )}
+        <time
+          dateTime={post.metadata.createdAt}
+          className="font-mono text-xs text-muted-foreground"
+        >
+          {format(new Date(post.metadata.createdAt), "MMMM d, yyyy")}
+        </time>
       </div>
     </Link>
   );

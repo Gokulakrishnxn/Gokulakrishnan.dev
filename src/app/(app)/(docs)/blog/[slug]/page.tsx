@@ -114,7 +114,9 @@ export default async function Page({
 
   const toc = getTableOfContents(post.content);
 
-  const allPosts = getAllPosts();
+  const allPosts = getAllPosts().filter(
+    (post) => post.metadata.category !== "components"
+  );
   const { previous, next } = findNeighbour(allPosts, slug);
 
   return (

@@ -1,10 +1,47 @@
 import Image from "next/image";
-import React from "react";
+import React, { useMemo } from "react";
 
 import type { Experience } from "../../types/experiences";
 import { ExperiencePositionItem } from "./experience-position-item";
 
+function parseDate(dateString: string | undefined): number {
+  if (!dateString) return 0;
+
+  // Handle formats like "2023", "09.2017", "06.2022"
+  if (dateString.includes(".")) {
+    const [month, year] = dateString.split(".");
+    return parseInt(year || month, 10) * 100 + parseInt(month || "0", 10);
+  }
+
+  return parseInt(dateString, 10) * 100;
+}
+
+function sortPositionsByDate(positions: Experience["positions"]) {
+  return [...positions].sort((a, b) => {
+    const aEnd = a.employmentPeriod.end
+      ? parseDate(a.employmentPeriod.end)
+      : Number.MAX_SAFE_INTEGER;
+    const bEnd = b.employmentPeriod.end
+      ? parseDate(b.employmentPeriod.end)
+      : Number.MAX_SAFE_INTEGER;
+
+    // Sort by end date (most recent first), if end dates are equal, sort by start date
+    if (aEnd !== bEnd) {
+      return bEnd - aEnd;
+    }
+
+    const aStart = parseDate(a.employmentPeriod.start);
+    const bStart = parseDate(b.employmentPeriod.start);
+    return bStart - aStart;
+  });
+}
+
 export function ExperienceItem({ experience }: { experience: Experience }) {
+  const sortedPositions = useMemo(
+    () => sortPositionsByDate(experience.positions),
+    [experience.positions]
+  );
+
   return (
     <div className="screen-line-after space-y-4 py-4">
       <div className="flex items-center gap-3">
@@ -39,7 +76,7 @@ export function ExperienceItem({ experience }: { experience: Experience }) {
       </div>
 
       <div className="relative space-y-4 before:absolute before:left-3 before:h-full before:w-px before:bg-border">
-        {experience.positions.map((position) => (
+        {sortedPositions.map((position) => (
           <ExperiencePositionItem key={position.id} position={position} />
         ))}
       </div>

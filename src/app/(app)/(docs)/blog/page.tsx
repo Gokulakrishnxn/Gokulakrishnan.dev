@@ -12,7 +12,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const allPosts = getAllPosts();
+  const allPosts = getAllPosts().filter(
+    (post) => post.metadata.category !== "components"
+  );
 
   return (
     <div className="min-h-svh">

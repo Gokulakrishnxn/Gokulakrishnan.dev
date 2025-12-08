@@ -11,7 +11,7 @@ export function SiteFooter() {
     <footer className="max-w-screen overflow-x-hidden px-2 sm:px-4">
       <div className="screen-line-before mx-auto border-x border-edge pt-4 md:max-w-3xl lg:max-w-4xl">
         <div className="screen-line-before screen-line-after flex w-full before:z-1 after:z-1">
-          <div className="mx-auto flex items-center justify-center gap-2 border-x border-edge bg-background px-3 sm:gap-3 sm:px-4">
+          <div className="mx-auto flex items-center justify-start gap-2 border-x border-edge bg-background px-3 sm:gap-3 sm:px-4">
             <a
               className="flex font-mono text-xs font-medium text-muted-foreground"
               href={`${SITE_INFO.url}/llms.txt`}

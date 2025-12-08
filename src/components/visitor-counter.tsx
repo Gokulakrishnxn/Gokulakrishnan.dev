@@ -3,6 +3,12 @@
 import { EyeIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
 export function VisitorCounter() {
   const [views, setViews] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -49,12 +55,16 @@ export function VisitorCounter() {
   }
 
   return (
-    <span
-      className="flex items-center gap-1.5 font-mono text-xs text-muted-foreground"
-      aria-label={`Total portfolio views: ${views.toLocaleString()}`}
-    >
-      <EyeIcon className="size-3.5" />
-      <span>{views.toLocaleString()}</span>
-    </span>
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <span className="flex cursor-default items-center gap-1.5 font-mono text-xs text-muted-foreground">
+          <EyeIcon className="size-3.5" />
+          <span>{views.toLocaleString()}</span>
+        </span>
+      </TooltipTrigger>
+      <TooltipContent>
+        <p>Total portfolio views: {views.toLocaleString()}</p>
+      </TooltipContent>
+    </Tooltip>
   );
 }

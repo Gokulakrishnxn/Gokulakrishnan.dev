@@ -10,10 +10,7 @@ import { Panel, PanelHeader, PanelTitle } from "./panel";
 
 export function Blog() {
   const allPosts = getAllPosts().filter(
-    (post) =>
-      post.slug !== "ai-chat-interface" &&
-      post.slug !== "ai-prompt-builder" &&
-      post.slug !== "token-counter"
+    (post) => post.metadata.category !== "components"
   );
 
   return (
