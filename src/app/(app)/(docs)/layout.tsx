@@ -6,7 +6,7 @@ export default function DocsLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="mx-auto border-x border-edge md:max-w-3xl">
+    <div className="mx-auto border-x border-edge md:max-w-3xl lg:max-w-4xl">
       <div
         className={cn(
           "h-8 px-2",
