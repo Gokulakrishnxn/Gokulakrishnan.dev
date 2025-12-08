@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#52525B"/>
+  <g transform="translate(32, 32)">
+    <!-- Drone body -->
+    <ellipse cx="0" cy="0" rx="8" ry="5" fill="white" opacity="0.95"/>
+    <!-- Propeller arms -->
+    <line x1="-12" y1="0" x2="12" y2="0" stroke="white" stroke-width="2" opacity="0.9"/>
+    <line x1="0" y1="-10" x2="0" y2="10" stroke="white" stroke-width="2" opacity="0.9"/>
+    <!-- Propellers -->
+    <circle cx="-12" cy="0" r="3" fill="white" opacity="0.8"/>
+    <circle cx="12" cy="0" r="3" fill="white" opacity="0.8"/>
+    <circle cx="0" cy="-10" r="3" fill="white" opacity="0.8"/>
+    <circle cx="0" cy="10" r="3" fill="white" opacity="0.8"/>
+    <!-- Center indicator -->
+    <circle cx="0" cy="0" r="2" fill="#52525B"/>
+  </g>
+</svg>
+

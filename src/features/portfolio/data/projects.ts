@@ -28,6 +28,7 @@ export const PROJECTS: Project[] = [
 - **Local MLP Learning** - Each drone trains local exploration policies using MLPRegressor
 - **Real-Time Visualization** - Interactive 3D visualization of world, drones, and coverage metrics
 - **Multi-Drone Coordination** - Collaborative exploration with decentralized decision-making`,
+    logo: "/drone-logo.svg",
     isExpanded: true,
   },
   {
@@ -86,7 +87,7 @@ export const PROJECTS: Project[] = [
 - **Medication Tracking** - Never miss a dose with smart reminders and adherence monitoring
 - **Voice Chat Interface** - Interact with your health assistant using natural voice commands
 - **NFC Emergency Card** - Quick access to critical health information in emergencies`,
-    logo: "/rex-logo.png",
+    logo: "/rex-logo.svg",
     isExpanded: false,
   },
   {
