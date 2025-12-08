@@ -4,6 +4,10 @@ import { join } from "path";
 
 const VIEWS_FILE = join(process.cwd(), "data", "views.json");
 
+interface ViewsData {
+  views?: number;
+}
+
 function ensureDataDir() {
   const dataDir = join(process.cwd(), "data");
   if (!existsSync(dataDir)) {
@@ -16,8 +20,8 @@ function getViews(): number {
     ensureDataDir();
     if (existsSync(VIEWS_FILE)) {
       const data = readFileSync(VIEWS_FILE, "utf-8");
-      const json = JSON.parse(data) as { views?: number };
-      return json.views || 0;
+      const json: ViewsData = JSON.parse(data);
+      return json.views ?? 0;
     }
     return 0;
   } catch {
