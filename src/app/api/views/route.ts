@@ -20,8 +20,10 @@ function getViews(): number {
     ensureDataDir();
     if (existsSync(VIEWS_FILE)) {
       const data = readFileSync(VIEWS_FILE, "utf-8");
-      const json: ViewsData = JSON.parse(data);
-      return json.views ?? 0;
+      const parsed = JSON.parse(data);
+      const json: ViewsData =
+        typeof parsed === "object" && parsed !== null ? parsed : {};
+      return typeof json.views === "number" ? json.views : 0;
     }
     return 0;
   } catch {
