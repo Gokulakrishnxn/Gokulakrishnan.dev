@@ -16,7 +16,7 @@ function getViews(): number {
     ensureDataDir();
     if (existsSync(VIEWS_FILE)) {
       const data = readFileSync(VIEWS_FILE, "utf-8");
-      const json = JSON.parse(data);
+      const json = JSON.parse(data) as { views?: number };
       return json.views || 0;
     }
     return 0;
