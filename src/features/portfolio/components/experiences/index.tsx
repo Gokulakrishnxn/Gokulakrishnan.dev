@@ -1,8 +1,9 @@
 import React from "react";
 
-import { EXPERIENCES } from "../../data/experiences";
+import { WorkExperience } from "@/registry/work-experience/work-experience";
+
+import { WORK_EXPERIENCES } from "../../data/work-experiences";
 import { Panel, PanelHeader, PanelTitle } from "../panel";
-import { ExperienceItem } from "./experience-item";
 
 export function Experiences() {
   return (
@@ -11,10 +12,8 @@ export function Experiences() {
         <PanelTitle>Experience</PanelTitle>
       </PanelHeader>
 
-      <div className="pr-2 pl-4">
-        {EXPERIENCES.map((experience) => (
-          <ExperienceItem key={experience.id} experience={experience} />
-        ))}
+      <div>
+        <WorkExperience experiences={WORK_EXPERIENCES} />
       </div>
     </Panel>
   );

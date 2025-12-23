@@ -71,7 +71,7 @@ export function WorkExperience({
   experiences: ExperienceItemType[];
 }) {
   return (
-    <div className={cn("bg-background px-4", className)}>
+    <div className={cn("bg-background", className)}>
       {experiences.map((experience) => (
         <ExperienceItem key={experience.id} experience={experience} />
       ))}
@@ -85,7 +85,7 @@ export function ExperienceItem({
   experience: ExperienceItemType;
 }) {
   return (
-    <div className="space-y-4 py-4">
+    <div className="space-y-4 px-3 py-4 sm:px-4">
       <div className="not-prose flex items-center gap-3">
         <div
           className="flex size-6 shrink-0 items-center justify-center"
@@ -119,7 +119,7 @@ export function ExperienceItem({
         )}
       </div>
 
-      <div className="relative space-y-4 before:absolute before:left-3 before:h-full before:w-px before:bg-border">
+      <div className="relative space-y-4 before:absolute before:left-3 before:h-full before:w-px before:bg-border sm:before:left-4">
         {experience.positions.map((position) => (
           <ExperiencePositionItem key={position.id} position={position} />
         ))}
@@ -141,7 +141,7 @@ export function ExperiencePositionItem({
         <CollapsibleTrigger
           className={cn(
             "group/experience not-prose block w-full text-left select-none",
-            "relative before:absolute before:-top-1 before:-right-1 before:-bottom-1.5 before:left-7 before:rounded-lg hover:before:bg-muted/50"
+            "relative before:absolute before:-top-1 before:-right-1 before:-bottom-1.5 before:left-9 before:rounded-lg hover:before:bg-muted/50 sm:before:left-10"
           )}
         >
           <div className="relative z-1 mb-1 flex items-center gap-3">
@@ -165,7 +165,7 @@ export function ExperiencePositionItem({
             </div>
           </div>
 
-          <div className="relative z-1 flex items-center gap-2 pl-9 text-sm text-muted-foreground">
+          <div className="relative z-1 flex items-center gap-2 pl-9 text-sm text-muted-foreground sm:pl-10">
             {position.employmentType && (
               <>
                 <dl>
@@ -189,13 +189,13 @@ export function ExperiencePositionItem({
 
         <CollapsibleContent className="overflow-hidden duration-300 data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down">
           {position.description && (
-            <Prose className="pt-2 pl-9">
+            <Prose className="pt-2 pl-9 sm:pl-10">
               <ReactMarkdown>{position.description}</ReactMarkdown>
             </Prose>
           )}
 
           {Array.isArray(position.skills) && position.skills.length > 0 && (
-            <ul className="not-prose flex flex-wrap gap-1.5 pt-2 pl-9">
+            <ul className="not-prose flex flex-wrap gap-1.5 pt-2 pl-9 sm:pl-10">
               {position.skills.map((skill, index) => (
                 <li key={index} className="flex">
                   <Skill>{skill}</Skill>

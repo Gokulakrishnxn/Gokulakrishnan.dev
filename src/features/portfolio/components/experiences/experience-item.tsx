@@ -1,6 +1,9 @@
 import Image from "next/image";
 import React, { useMemo } from "react";
 
+import { Markdown } from "@/components/markdown";
+import { ProseMono } from "@/components/ui/typography";
+
 import type { Experience } from "../../types/experiences";
 import { ExperiencePositionItem } from "./experience-position-item";
 
@@ -74,6 +77,14 @@ export function ExperienceItem({ experience }: { experience: Experience }) {
           </span>
         )}
       </div>
+
+      {experience.bio && (
+        <div className="pb-2 pl-9">
+          <ProseMono className="text-sm text-muted-foreground">
+            <Markdown>{experience.bio}</Markdown>
+          </ProseMono>
+        </div>
+      )}
 
       <div className="relative space-y-4 before:absolute before:left-3 before:h-full before:w-px before:bg-border">
         {sortedPositions.map((position) => (

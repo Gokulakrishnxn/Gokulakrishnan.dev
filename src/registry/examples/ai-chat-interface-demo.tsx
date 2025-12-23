@@ -1,7 +1,8 @@
 "use client";
 
-import { AIChatInterface, type Message } from "@/registry/ai-chat-interface";
 import { useState } from "react";
+
+import { AIChatInterface, type Message } from "@/registry/ai-chat-interface";
 
 export default function AIChatInterfaceDemo() {
   const [messages, setMessages] = useState<Message[]>([
@@ -37,4 +38,3 @@ export default function AIChatInterfaceDemo() {
     </div>
   );
 }
-
