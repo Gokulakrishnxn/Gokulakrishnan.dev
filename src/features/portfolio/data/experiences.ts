@@ -5,13 +5,13 @@ export const EXPERIENCES: Experience[] = [
     id: "thebinaryholdings",
     companyName: "The Binary Holdings",
     companyWebsite: "https://www.thebinaryholdings.com/",
+    isCurrentEmployer: true,
     positions: [
       {
         id: "ai-engineer-intern",
         title: "AI Engineer Intern",
         employmentPeriod: {
           start: "2024",
-          end: "2025",
         },
         employmentType: "Internship",
         description: `**Project:** Buddy.ai – 3D Animated Emotional Assistance Chatbot
