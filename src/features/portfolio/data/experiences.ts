@@ -1,8 +1,44 @@
 import type { Experience } from "../types/experiences";
 
 export const EXPERIENCES: Experience[] = [
+  {
+    id: "thebinaryholdings",
+    companyName: "The Binary Holdings",
+    companyWebsite: "https://www.thebinaryholdings.com/",
+    positions: [
+      {
+        id: "ai-engineer-intern",
+        title: "AI Engineer Intern",
+        employmentPeriod: {
+          start: "2024",
+          end: "2025",
+        },
+        employmentType: "Internship",
+        description: `**Project:** Buddy.ai – 3D Animated Emotional Assistance Chatbot
 
+**Objective:** Developing a sentiment-aware 3D avatar designed to provide real-time emotional support through empathetic natural language processing.
 
+- **3D Avatar & Lip-Sync** - Integrated a 3D animated character (using Three.js or Unity) with automated lip-syncing and micro-expressions that dynamically react to detected user sentiments
+- **System Architecture** - Implemented a full-stack solution using Python for the backend and React for the frontend, ensuring low-latency communication between the LLM and 3D rendering engine
+- **Ethical AI Design** - Applied ethical guardrails to ensure safe interactions, maintaining 100% compliance with university safety standards for mental health-related assistance`,
+        icon: "code",
+        skills: [
+          "AI Engineering",
+          "LLM Integration",
+          "Three.js",
+          "Unity",
+          "Python",
+          "React",
+          "Sentiment Analysis",
+          "Natural Language Processing",
+          "3D Animation",
+          "Full-Stack Development",
+          "Ethical AI",
+        ],
+        isExpanded: true,
+      },
+    ],
+  },
   {
     id: "freelance",
     companyName: "Freelance",
