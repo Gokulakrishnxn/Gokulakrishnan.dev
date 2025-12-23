@@ -7,7 +7,6 @@ import type { WebSite, WithContext } from "schema-dts";
 
 import ConsentManager from "@/components/consent-manager";
 import { Providers } from "@/components/providers";
-import { SplashScreen } from "@/components/splash-screen";
 import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
 import { USER } from "@/features/portfolio/data/user";
 import { fontMono, fontSans } from "@/lib/fonts";
@@ -126,10 +125,7 @@ export default function RootLayout({
       <body>
         <Providers>
           <NuqsAdapter>
-            <ConsentManager>
-              <SplashScreen />
-              {children}
-            </ConsentManager>
+            <ConsentManager>{children}</ConsentManager>
           </NuqsAdapter>
         </Providers>
       </body>
