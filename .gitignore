@@ -43,5 +43,5 @@ next-env.d.ts
 # ncdai
 .ncdai
 
-# data (visitor counter data)
+# visitor data
 /data/
