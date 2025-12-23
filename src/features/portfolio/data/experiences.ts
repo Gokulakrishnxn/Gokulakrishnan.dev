@@ -4,7 +4,6 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "thebinaryholdings",
     companyName: "The Binary Holdings",
-    companyWebsite: "https://www.thebinaryholdings.com/",
     isCurrentEmployer: true,
     positions: [
       {
