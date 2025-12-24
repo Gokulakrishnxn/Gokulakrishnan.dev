@@ -17,7 +17,7 @@ export const WORK_EXPERIENCES: ExperienceItemType[] = [
       {
         id: "tbh-ai-engineer-intern",
         title: "AI Engineer Intern",
-        employmentPeriod: formatEmploymentPeriod("12.2024"),
+        employmentPeriod: formatEmploymentPeriod("12.2025"),
         employmentType: "Internship",
         icon: "code",
         description: `**Project Name:** Buddy.ai – 3D Animated Emotional Assistance Chatbot
