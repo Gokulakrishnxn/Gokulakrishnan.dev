@@ -7,6 +7,7 @@ import {
   CodeXmlIcon,
   DraftingCompassIcon,
   GraduationCapIcon,
+  InfinityIcon,
 } from "lucide-react";
 import Image from "next/image";
 import React from "react";
@@ -184,7 +185,19 @@ export function ExperiencePositionItem({
 
             <dl>
               <dt className="sr-only">Employment Period</dt>
-              <dd>{position.employmentPeriod}</dd>
+              <dd className="flex items-center gap-1">
+                {position.employmentPeriod.includes("present") ? (
+                  <>
+                    {position.employmentPeriod.replace("present", "").trim()}
+                    <InfinityIcon
+                      className="size-3.5 translate-y-[0.5px]"
+                      aria-hidden
+                    />
+                  </>
+                ) : (
+                  position.employmentPeriod
+                )}
+              </dd>
             </dl>
           </div>
         </CollapsibleTrigger>

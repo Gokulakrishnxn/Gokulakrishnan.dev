@@ -1,4 +1,4 @@
-import { LinkIcon } from "lucide-react";
+import { InfinityIcon, LinkIcon } from "lucide-react";
 import Image from "next/image";
 
 import { Icons } from "@/components/icons";
@@ -70,7 +70,17 @@ export function ProjectItem({
                     {!isSinglePeriod && (
                       <>
                         <span className="font-mono">—</span>
-                        {isOngoing ? <span>Present</span> : <span>{end}</span>}
+                        {isOngoing ? (
+                          <>
+                            <InfinityIcon
+                              className="size-4.5 translate-y-[0.5px]"
+                              aria-hidden
+                            />
+                            <span className="sr-only">Present</span>
+                          </>
+                        ) : (
+                          <span>{end}</span>
+                        )}
                       </>
                     )}
                   </dd>

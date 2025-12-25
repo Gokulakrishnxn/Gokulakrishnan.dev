@@ -1,3 +1,4 @@
+import { InfinityIcon } from "lucide-react";
 import React from "react";
 
 import { Markdown } from "@/components/markdown";
@@ -76,7 +77,17 @@ export function ExperiencePositionItem({
               <dd className="flex items-center gap-0.5">
                 <span>{start}</span>
                 <span className="font-mono">—</span>
-                {isOngoing ? <span>Present</span> : <span>{end}</span>}
+                {isOngoing ? (
+                  <>
+                    <InfinityIcon
+                      className="size-4.5 translate-y-[0.5px]"
+                      aria-hidden
+                    />
+                    <span className="sr-only">Present</span>
+                  </>
+                ) : (
+                  <span>{end}</span>
+                )}
               </dd>
             </dl>
           </div>
