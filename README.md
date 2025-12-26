@@ -2,20 +2,7 @@
 
 A minimal, pixel-perfect dev portfolio, component registry, and blog to showcase my work as an AI Engineer and Researcher.
 
-Check out the live site: [gokulakrishnan.dev](https://gokulakrishnan.dev)
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://assets.gokulakrishnan.dev/images/screenshot-desktop-dark.webp?t=1764345394">
-  <source media="(prefers-color-scheme: light)" srcset="https://assets.gokulakrishnan.dev/images/screenshot-desktop-light.webp?t=1764345394">
-  <img src="https://assets.gokulakrishnan.dev/images/screenshot-desktop-light.webp?t=1764345394" alt="Screenshot">
-</picture>
-
-## GitAds Sponsored
-
-[![Sponsored by GitAds](https://gitads.dev/v1/ad-serve?source=Gokulakrishnxn/gokulakrishnan.dev@github)](https://gitads.dev/v1/ad-track?source=Gokulakrishnxn/gokulakrishnan.dev@github)
-
-## Overview
-
+Check out the live site: [gokulakrishnan.dev](https://gokulakrishnan.dev/
 ### Stack
 
 - **Next.js 16** - React framework with App Router
