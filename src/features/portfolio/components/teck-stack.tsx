@@ -63,7 +63,7 @@ const techStackIconMap: Record<string, string> = {
   supabase: "supabase",
   // tensorflow: using custom SVG from public/tech-stack-icons/tensorflow.svg
   pytorch: "pytorch",
-  "scikit-learn": "scikitlearn",
+  // "scikit-learn": using custom SVG from public/tech-stack-icons/scikit-learn.svg
   numpy: "numpy",
   pandas: "pandas",
   // gcp: using custom SVG from public/tech-stack-icons/gcp.svg
