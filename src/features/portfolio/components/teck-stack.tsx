@@ -27,6 +27,9 @@ const techStackIconMap: Record<string, string> = {
   react: "react",
   nextjs2: "nextjs",
   tailwindcss: "tailwindcss",
+  "shadcn-ui": "shadcn",
+  radixui: "radix",
+  "react-router": "reactrouter",
   git: "git",
   docker: "docker",
   mysql: "mysql",
@@ -42,8 +45,12 @@ const techStackIconMap: Record<string, string> = {
   redis: "redis",
   figma: "figma",
   ps: "photoshop",
+  chatgpt: "openai",
+  gemini: "gemini",
+  claude: "anthropic",
   overleaf: "overleaf",
   cursor: "cursor",
+  // google-antigravity: not available in tech-stack-icons, will use fallback
 };
 
 // Mapping tech stack keys to LobeHub icon components (only for available icons)
