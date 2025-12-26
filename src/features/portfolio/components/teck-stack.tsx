@@ -4,6 +4,7 @@ import { Figma, Github, Vercel } from "@lobehub/icons";
 import Image from "next/image";
 import type { ComponentType } from "react";
 import { useState } from "react";
+import StackIcon from "tech-stack-icons";
 
 import {
   Tooltip,
@@ -15,8 +16,38 @@ import { cn } from "@/lib/utils";
 import { TECH_STACK } from "../data/tech-stack";
 import { Panel, PanelContent, PanelHeader, PanelTitle } from "./panel";
 
+// Mapping tech stack keys to tech-stack-icons names
+const techStackIconMap: Record<string, string> = {
+  typescript: "typescript",
+  js: "javascript",
+  javascript: "javascript",
+  python: "python",
+  r: "r",
+  nodejs: "nodejs",
+  react: "react",
+  nextjs2: "nextjs",
+  tailwindcss: "tailwindcss",
+  git: "git",
+  docker: "docker",
+  mysql: "mysql",
+  mongodb: "mongodb",
+  supabase: "supabase",
+  tensorflow: "tensorflow",
+  pytorch: "pytorch",
+  "scikit-learn": "scikitlearn",
+  numpy: "numpy",
+  pandas: "pandas",
+  gcp: "gcp",
+  vercel: "vercel",
+  redis: "redis",
+  figma: "figma",
+  ps: "photoshop",
+  overleaf: "overleaf",
+  cursor: "cursor",
+};
+
 // Mapping tech stack keys to LobeHub icon components (only for available icons)
-const iconMap: Record<string, ComponentType<{ size?: number }>> = {
+const lobeHubIconMap: Record<string, ComponentType<{ size?: number }>> = {
   vercel: Vercel,
   figma: Figma,
   // Add more LobeHub icons as they become available
@@ -26,8 +57,11 @@ function TechIcon({ tech }: { tech: (typeof TECH_STACK)[number] }) {
   const [imageError, setImageError] = useState(false);
   const [useLocal, setUseLocal] = useState(true);
 
-  // Try to get LobeHub icon first
-  const LobeHubIcon = iconMap[tech.key];
+  // Try tech-stack-icons first
+  const techStackIconName = techStackIconMap[tech.key];
+
+  // Try LobeHub icon as secondary option
+  const LobeHubIcon = lobeHubIconMap[tech.key];
 
   const getIconSrc = (suffix = "") => {
     if (useLocal) {
@@ -44,6 +78,40 @@ function TechIcon({ tech }: { tech: (typeof TECH_STACK)[number] }) {
       setImageError(true);
     }
   };
+
+  // Use tech-stack-icons if available
+  if (techStackIconName) {
+    return (
+      <>
+        {tech.theme ? (
+          <>
+            <div className="flex hidden size-8 items-center justify-center [html.light_&]:flex">
+              <StackIcon
+                name={techStackIconName}
+                variant="light"
+                style={{ width: 32, height: 32 }}
+              />
+            </div>
+            <div className="flex hidden size-8 items-center justify-center [html.dark_&]:flex">
+              <StackIcon
+                name={techStackIconName}
+                variant="dark"
+                style={{ width: 32, height: 32 }}
+              />
+            </div>
+          </>
+        ) : (
+          <div className="flex size-8 items-center justify-center">
+            <StackIcon
+              name={techStackIconName}
+              variant="light"
+              style={{ width: 32, height: 32 }}
+            />
+          </div>
+        )}
+      </>
+    );
+  }
 
   // Use LobeHub icon if available
   if (LobeHubIcon) {
