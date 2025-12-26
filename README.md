@@ -2,7 +2,7 @@
 
 A minimal, pixel-perfect dev portfolio, component registry, and blog to showcase my work as an AI Engineer and Researcher.
 
-Check out the live site: [gokulakrishnan.dev](https://gokulakrishnan.dev/
+Check out the live site: [gokulakrishnan.dev](https://gokulakrishnan.dev/)
 ### Stack
 
 - **Next.js 16** - React framework with App Router
