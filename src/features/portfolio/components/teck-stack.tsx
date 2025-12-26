@@ -66,7 +66,7 @@ const techStackIconMap: Record<string, string> = {
   "scikit-learn": "scikitlearn",
   numpy: "numpy",
   pandas: "pandas",
-  gcp: "gcp",
+  // gcp: using custom SVG from public/tech-stack-icons/gcp.svg
   vercel: "vercel",
   redis: "redis",
   figma: "figma",
