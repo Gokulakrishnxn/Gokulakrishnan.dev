@@ -61,7 +61,7 @@ const techStackIconMap: Record<string, string> = {
   mysql: "mysql",
   mongodb: "mongodb",
   supabase: "supabase",
-  tensorflow: "tensorflow",
+  // tensorflow: using custom SVG from public/tech-stack-icons/tensorflow.svg
   pytorch: "pytorch",
   "scikit-learn": "scikitlearn",
   numpy: "numpy",
