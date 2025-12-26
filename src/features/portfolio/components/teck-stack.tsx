@@ -2,8 +2,7 @@
 
 import { Figma, Github, Vercel } from "@lobehub/icons";
 import Image from "next/image";
-import type { ComponentType } from "react";
-import { useState } from "react";
+import React, { type ComponentType, useState } from "react";
 import StackIcon from "tech-stack-icons";
 
 import {
@@ -16,7 +15,37 @@ import { cn } from "@/lib/utils";
 import { TECH_STACK } from "../data/tech-stack";
 import { Panel, PanelContent, PanelHeader, PanelTitle } from "./panel";
 
+// Error boundary component for StackIcon
+class StackIconErrorBoundary extends React.Component<
+  {
+    children: React.ReactNode;
+    onError: () => void;
+  },
+  { hasError: boolean }
+> {
+  constructor(props: { children: React.ReactNode; onError: () => void }) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch() {
+    this.props.onError();
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return null;
+    }
+    return this.props.children;
+  }
+}
+
 // Mapping tech stack keys to tech-stack-icons names
+// Only include icons that are confirmed to exist in tech-stack-icons
 const techStackIconMap: Record<string, string> = {
   typescript: "typescript",
   js: "javascript",
@@ -27,9 +56,6 @@ const techStackIconMap: Record<string, string> = {
   react: "react",
   nextjs2: "nextjs",
   tailwindcss: "tailwindcss",
-  "shadcn-ui": "shadcn",
-  radixui: "radix",
-  "react-router": "reactrouter",
   git: "git",
   docker: "docker",
   mysql: "mysql",
@@ -48,9 +74,8 @@ const techStackIconMap: Record<string, string> = {
   chatgpt: "openai",
   gemini: "gemini",
   claude: "anthropic",
-  overleaf: "overleaf",
-  cursor: "cursor",
-  // google-antigravity: not available in tech-stack-icons, will use fallback
+  // Removed: cursor, overleaf, shadcn-ui, radixui, react-router - not available in tech-stack-icons
+  // These will use image fallback
 };
 
 // Mapping tech stack keys to LobeHub icon components (only for available icons)
@@ -63,6 +88,7 @@ const lobeHubIconMap: Record<string, ComponentType<{ size?: number }>> = {
 function TechIcon({ tech }: { tech: (typeof TECH_STACK)[number] }) {
   const [imageError, setImageError] = useState(false);
   const [useLocal, setUseLocal] = useState(true);
+  const [stackIconError, setStackIconError] = useState(false);
 
   // Try tech-stack-icons first
   const techStackIconName = techStackIconMap[tech.key];
@@ -86,37 +112,39 @@ function TechIcon({ tech }: { tech: (typeof TECH_STACK)[number] }) {
     }
   };
 
-  // Use tech-stack-icons if available
-  if (techStackIconName) {
-    return (
+  // Use tech-stack-icons if available and no error
+  if (techStackIconName && !stackIconError) {
+    const iconContent = tech.theme ? (
       <>
-        {tech.theme ? (
-          <>
-            <div className="flex hidden size-8 items-center justify-center [html.light_&]:flex">
-              <StackIcon
-                name={techStackIconName}
-                variant="light"
-                style={{ width: 32, height: 32 }}
-              />
-            </div>
-            <div className="flex hidden size-8 items-center justify-center [html.dark_&]:flex">
-              <StackIcon
-                name={techStackIconName}
-                variant="dark"
-                style={{ width: 32, height: 32 }}
-              />
-            </div>
-          </>
-        ) : (
-          <div className="flex size-8 items-center justify-center">
-            <StackIcon
-              name={techStackIconName}
-              variant="light"
-              style={{ width: 32, height: 32 }}
-            />
-          </div>
-        )}
+        <div className="flex hidden size-8 items-center justify-center [html.light_&]:flex">
+          <StackIcon
+            name={techStackIconName}
+            variant="light"
+            style={{ width: 32, height: 32 }}
+          />
+        </div>
+        <div className="flex hidden size-8 items-center justify-center [html.dark_&]:flex">
+          <StackIcon
+            name={techStackIconName}
+            variant="dark"
+            style={{ width: 32, height: 32 }}
+          />
+        </div>
       </>
+    ) : (
+      <div className="flex size-8 items-center justify-center">
+        <StackIcon
+          name={techStackIconName}
+          variant="light"
+          style={{ width: 32, height: 32 }}
+        />
+      </div>
+    );
+
+    return (
+      <StackIconErrorBoundary onError={() => setStackIconError(true)}>
+        {iconContent}
+      </StackIconErrorBoundary>
     );
   }
 
