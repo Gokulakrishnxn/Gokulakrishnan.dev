@@ -20,6 +20,12 @@ export const TECH_STACK: TechStack[] = [
     categories: ["Language"],
   },
   {
+    key: "r",
+    title: "R",
+    href: "https://www.r-project.org/",
+    categories: ["Language"],
+  },
+  {
     key: "nodejs",
     title: "Node.js",
     href: "https://nodejs.org/",
@@ -88,6 +94,54 @@ export const TECH_STACK: TechStack[] = [
     title: "MongoDB",
     href: "https://www.mongodb.com/",
     categories: ["Database"],
+  },
+  {
+    key: "supabase",
+    title: "Supabase",
+    href: "https://supabase.com/",
+    categories: ["Database", "Backend"],
+  },
+  {
+    key: "tensorflow",
+    title: "TensorFlow",
+    href: "https://www.tensorflow.org/",
+    categories: ["AI", "Machine Learning"],
+  },
+  {
+    key: "pytorch",
+    title: "PyTorch",
+    href: "https://pytorch.org/",
+    categories: ["AI", "Machine Learning"],
+  },
+  {
+    key: "scikit-learn",
+    title: "Scikit-learn",
+    href: "https://scikit-learn.org/",
+    categories: ["AI", "Machine Learning"],
+  },
+  {
+    key: "numpy",
+    title: "NumPy",
+    href: "https://numpy.org/",
+    categories: ["AI", "Data Science"],
+  },
+  {
+    key: "pandas",
+    title: "Pandas",
+    href: "https://pandas.pydata.org/",
+    categories: ["AI", "Data Science"],
+  },
+  {
+    key: "gcp",
+    title: "Google Cloud Platform",
+    href: "https://cloud.google.com/",
+    categories: ["Cloud", "DevOps"],
+  },
+  {
+    key: "vercel",
+    title: "Vercel",
+    href: "https://vercel.com/",
+    categories: ["Cloud", "DevOps"],
   },
   {
     key: "redis",

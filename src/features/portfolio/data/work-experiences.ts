@@ -17,16 +17,16 @@ export const WORK_EXPERIENCES: ExperienceItemType[] = [
       {
         id: "tbh-ai-engineer-intern",
         title: "AI Engineer Intern",
-        employmentPeriod: formatEmploymentPeriod("12.2025"),
+        employmentPeriod: formatEmploymentPeriod("11.2024"),
         employmentType: "Internship",
         icon: "code",
         description: `**Project Name:** Buddy.ai – 3D Animated Emotional Assistance Chatbot
 
-**High-Level Objective:** Developing a sentiment-aware 3D avatar designed to provide real-time emotional support through empathetic natural language processing.
+**High-Level Objective:** Developing a sentiment-aware 3D avatar designed to provide real-time emotional support through empathetic natural language processing for mental health assistance.
 
 - **3D Avatar & Lip-Sync** - Integrated a 3D animated character (using Three.js or Unity) with automated lip-syncing and micro-expressions that dynamically react to detected user sentiments.
-- **System Architecture** - Implemented a full-stack solution using Python for the backend and React for the frontend, ensuring low-latency communication between the LLM and 3D rendering engine.
-- **Ethical AI Design** - Applied ethical guardrails to ensure safe interactions, maintaining 100% compliance with university safety standards for mental health-related assistance.`,
+- **System Architecture** - Designed a low-latency full-stack architecture with Python backend and React frontend, enabling seamless communication between LLMs and the 3D rendering engine.
+- **Ethical AI Design** - Implemented ethical AI guardrails to ensure safe mental-health-related interactions, achieving 100% compliance with university safety standards.`,
         skills: [
           "Python",
           "React",
@@ -93,14 +93,16 @@ export const WORK_EXPERIENCES: ExperienceItemType[] = [
     positions: [
       {
         id: "c47f5903-88ae-4512-8a50-0b91b0cf99b6",
-        title: "Hindustan University Chennai",
-        employmentPeriod: formatEmploymentPeriod("2022", "2026"),
+        title: "Hindustan Institute of Technology and Science, Chennai",
+        employmentPeriod: formatEmploymentPeriod("09.2022", "05.2026"),
         icon: "education",
-        description: `- Final Year Student studying for a Bachelor's of Technology degree in Computer Science and Engineering specialized in artificial intelligence and data science.
-- Language Proficiency: English.
+        description: `- B.Tech. in Computer Science (Specialization: AI & Data Science)
+- CGPA: 8.26/10
+- Language Proficiency: English
 - Technical Lead of Blue Screen Programming Club (2024-2025)
-  - Hosted [Innothon 2025 Codearena](https://innothon-2025.vercel.app/events/code-arena) with 1000+ participants.
-  - Organized multiple events and workshops for the club.`,
+  - Hosted [Innothon 2025 CodeArena](https://innothon-2025.vercel.app/events/code-arena) with 1,000+ participants
+  - Organized multiple technical events and hands-on workshops for the club
+  - Drove student engagement and programming skill development`,
         skills: [
           "C++",
           "Java",

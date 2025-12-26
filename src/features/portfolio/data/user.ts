@@ -23,18 +23,28 @@ export const USER: User = {
   // about section
   about: `
 
-Hey 👋🏻! I'm Gokulakrishnan, an AI Engineer and Researcher from Chennai, passionate about Machine Learning and Large Language Models.
-I'm currently pursuing my Bachelor's in AI and Data Science at Hindustan University. Recently, I published my research at the IEEE International Conference in Singapore and received the Best Paper Award in AI and Robotics for my work on Privacy-Preserving Federated Learning for Decentralised Drone Swarm Exploration.
+Hey 👋🏻! I'm Gokulakrishnan, an AI Engineer and Researcher from Chennai, India, passionate about Machine Learning, Deep Learning, and Large Language Models.
 
-**What I Do**
-I've been freelancing for 3 years, delivering 40+ projects in web and full-stack development. For the past two years, I've focused on building AI agents, chatbots, and voicebots for clients.
-As Technical Lead of the Blue Screen Programming Club, I organized Innothon 2025 with 1000+ participants.
+**Education & Research**
+I'm currently pursuing my B.Tech. in Computer Science with a specialization in AI & Data Science at Hindustan Institute of Technology and Science, Chennai (CGPA: 8.26/10). My research focuses on Federated Learning, NLP, and Multi-Agent Systems. I recently published my research at the IEEE International Conference in Singapore (2025) and received the **Best Paper Award** for my work on "Privacy-Preserving Federated Learning Framework for Decentralized Drone Swarm Exploration."
 
-**Hackathon Wins**
-4th Place — OpenAI Academy X NxtWave Buildathon (1000 participants)
-Second Runner-Up — IBM Mindscape Hackathon
+**Professional Experience**
+Currently working as an **AI Engineer Intern** at The Binary Holdings, where I'm developing Buddy.ai—a sentiment-aware 3D avatar chatbot providing real-time emotional support using empathetic NLP techniques. I've integrated 3D animated characters with dynamic lip-sync and micro-expressions, designed low-latency full-stack architectures, and implemented ethical AI guardrails for mental health applications.
 
-I'm always excited to collaborate on innovative AI projects. Let's connect!
+**Technical Expertise**
+I specialize in **Python, R, JavaScript, Node.js** for development, with deep expertise in **TensorFlow, PyTorch, Scikit-learn, NumPy, Pandas** for AI/ML. I'm proficient in **Machine Learning, Deep Learning, NLP, Federated Learning**, and have hands-on experience with **Google Cloud Platform (GCP), Vercel, Docker, Git, CI/CD**. I work with databases including **Supabase (PostgreSQL, Auth, Storage, Realtime APIs)** and **MongoDB**.
+
+**Achievements & Leadership**
+- 🏆 **Best Paper Award** - IEEE International Conference, Singapore 2025
+- 🥇 **4th Place** - OpenAI Academy × NxtWave Buildathon (competed against 1,000+ teams)
+- 👨‍💼 **Technical Lead** - Blue Screen Programming Club (2024-2025)
+  - Hosted Innothon 2025 CodeArena with 1,000+ participants
+  - Organized multiple technical events and hands-on workshops
+
+**Projects & Research**
+My notable projects include REX Healthify (AI Health Assistant), which secured 4th place in the OpenAI × NxtWave Buildathon, and my research on Privacy-Preserving Federated Learning for Drone Swarm Exploration, which won the Best Paper Award at IEEE International Conference, Singapore 2025.
+
+I'm always excited to collaborate on innovative AI projects, research, and open-source contributions. Let's connect!
 `,
   avatar: "/profile.jpg",
   ogImage:

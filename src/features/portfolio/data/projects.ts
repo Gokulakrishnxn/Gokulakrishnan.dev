@@ -3,10 +3,11 @@ import type { Project } from "../types/projects";
 export const PROJECTS: Project[] = [
   {
     id: "federated-learning-drones",
-    title: "Privacy-Preserving Federated Learning Framework for Decentralized Drone Swarm Exploration",
+    title:
+      "Privacy-Preserving Federated Learning Framework for Decentralized Drone Swarm Exploration",
     period: {
-      start: "10.2025",
-      end: "11.2025",
+      start: "09.2024",
+      end: "11.2024",
     },
     link: "https://github.com/Gokulakrishnxn/Decentralized-FL-Drones",
     skills: [
@@ -19,14 +20,15 @@ export const PROJECTS: Project[] = [
       "Multi-Agent Systems",
       "Research",
     ],
-    description: `Published research paper and awarded **Best Paper Award** at IEEE International Conference, Singapore 2025.
+    description: `**IEEE International Conference, Singapore (2025) - Best Paper Award**
 
-- **3D Voxel Environment** - Simulated 3D grid environment with room-like obstacles and coverage metrics
-- **LiDAR Simulation** - 3D spherical scans with ray marching (8m range) for realistic sensor data
-- **Frontier-Based Exploration** - Intelligent target selection for informative exploration paths
-- **Federated Learning (FedAvg)** - Privacy-preserving model aggregation across drone swarm
-- **Local MLP Learning** - Each drone trains local exploration policies using MLPRegressor
-- **Real-Time Visualization** - Interactive 3D visualization of world, drones, and coverage metrics
+Proposed a privacy-preserving federated learning framework enabling decentralized exploration in autonomous drone swarms without centralized control.
+
+- **3D Voxel-Based Environment** - Designed 3D voxel-based environment with room-like obstacles and implemented coverage metrics
+- **LiDAR Sensor Simulation** - Implemented LiDAR sensor simulation using 3D spherical ray marching with 8m sensing range
+- **Frontier-Based Exploration** - Developed frontier-based exploration strategies for intelligent target selection
+- **Federated Learning (FedAvg)** - Applied Federated Averaging (FedAvg) to aggregate drone models while preserving local data privacy
+- **Real-Time 3D Visualization** - Built real-time 3D visualization tools to monitor drone trajectories, environment coverage, and swarm coordination
 - **Multi-Drone Coordination** - Collaborative exploration with decentralized decision-making`,
     logo: "/drone-logo.svg",
     isExpanded: true,
@@ -63,10 +65,11 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "rex-healthify",
-    title: "REX Healthify – Your Personal AI-Powered Health Management Assistant",
+    title:
+      "REX Healthify – Your Personal AI-Powered Health Management Assistant",
     period: {
-      start: "11.2025",
-      end: "11.2025",
+      start: "07.2024",
+      end: "11.2024",
     },
     link: "https://github.com/Gokulakrishnxn/rexhealthify",
     skills: [
@@ -79,14 +82,16 @@ export const PROJECTS: Project[] = [
       "NFC",
       "State Management",
     ],
-    description: `Hackathon project - 4th place overall (1000 teams) in OpenAI X NxtWave Buildathon.
+    description: `**4th Place Winner** - OpenAI Academy × NxtWave Buildathon (competed against 1,000+ teams)
 
-- **AI-Powered Health Assistant** - Get personalized health advice powered by Google Gemini AI
+An AI-driven health assistant using Gemini AI for personalized medical guidance with features for medical record management and emergency doctor discovery.
+
+- **AI-Powered Health Assistant** - Personalized medical guidance powered by Google Gemini AI
 - **Medical Records Management** - Organize and analyze all your medical records in one place
-- **Emergency Doctor Finder** - Locate nearby doctors instantly with interactive maps
-- **Medication Tracking** - Never miss a dose with smart reminders and adherence monitoring
-- **Voice Chat Interface** - Interact with your health assistant using natural voice commands
-- **NFC Emergency Card** - Quick access to critical health information in emergencies`,
+- **Emergency Doctor Discovery** - Locate nearby doctors instantly with interactive maps
+- **Medication Reminders** - Never miss a dose with smart reminders and adherence monitoring
+- **Voice Interaction** - Interact with your health assistant using natural voice commands
+- **NFC Emergency Access** - NFC-based emergency access to critical health data for rapid response scenarios`,
     logo: "/rex-logo.svg",
     isExpanded: false,
   },
@@ -97,7 +102,13 @@ export const PROJECTS: Project[] = [
       start: "10.2025",
     },
     link: "https://gokulakrishnan.dev",
-    skills: ["Next.js", "TypeScript", "Tailwind CSS", "React", "LLM Integrations"],
+    skills: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "React",
+      "LLM Integrations",
+    ],
     description:
       "Personal portfolio and blog showcasing AI, LLM, and full‑stack projects, built with Next.js App Router, TypeScript, and a component registry for rapid UI reuse.",
     logo: "/favicon.svg",
@@ -134,12 +145,7 @@ export const PROJECTS: Project[] = [
       end: "08.2023",
     },
     link: "https://github.com/Gokulakrishnxn/Profitfolio.in",
-    skills: [
-      "Data Visualization",
-      "R",
-      "Python",
-      "React",
-    ],
+    skills: ["Data Visualization", "R", "Python", "React"],
     description: `I handled data collection and website development for ProfitFolio.in, a platform that tracks a sample stock portfolio with an initial capital of Rs. 10 Lakhs. The website presents quarterly stock selections, profit/loss analysis, and cumulative portfolio performance, offering valuable insights for investors.
 
 - Collected and structured financial data
