@@ -51,7 +51,7 @@ const techStackIconMap: Record<string, string> = {
   js: "javascript",
   javascript: "javascript",
   python: "python",
-  r: "r",
+  // r: using custom SVG from public/tech-stack-icons/r.svg
   nodejs: "nodejs",
   react: "react",
   nextjs2: "nextjs",
