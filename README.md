@@ -1,4 +1,4 @@
-# [gokulakrishnan.dev](https://gokulakrishnan.dev)
+# Gokulakrishnan - Portfolio
 
 A minimal, pixel-perfect dev portfolio, component registry, and blog to showcase my work as an AI Engineer and Researcher.
 
