@@ -226,7 +226,7 @@ Please refer to the [Development Guide](./DEVELOPMENT.md) for more details.
 
 **Blog Posts**: Add MDX files to `src/features/blog/content/`
 
-**Components**: Add to `src/registry/` and run `pnpm registry:build`
+**Components**: Add to `src/registry/` and run `pnpm registry: build`
 
 ## Deployment
 
@@ -248,10 +248,6 @@ Licensed under the [MIT license](./LICENSE).
 
 You're free to use my code! Just make sure to <ins>remove all my personal information</ins> before publishing your website. It's awesome to see my code being useful to someone!
 
-## Star History
-
-[![Star History](https://starchart.cc/Gokulakrishnxn/gokulakrishnan.dev.svg?variant=adaptive&line=%23d37f2c)](https://starchart.cc/Gokulakrishnxn/gokulakrishnan.dev)
-
 ## Acknowledgments
 
 - [React](https://react.dev)
@@ -267,5 +263,3 @@ You're free to use my code! Just make sure to <ins>remove all my personal inform
 - [PostHog](https://posthog.com)
 - [c15t](https://c15t.com)
 - And many other open-source libraries used in `package.json`
-
-<!-- GitAds-Verify: QICCAB4PFWV9MHUGPGPN5B2I8SAXLAOK -->
