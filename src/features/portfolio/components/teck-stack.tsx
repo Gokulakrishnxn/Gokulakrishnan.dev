@@ -1,6 +1,8 @@
 "use client";
 
+import { Figma, Github, Vercel } from "@lobehub/icons";
 import Image from "next/image";
+import type { ComponentType } from "react";
 import { useState } from "react";
 
 import {
@@ -13,9 +15,19 @@ import { cn } from "@/lib/utils";
 import { TECH_STACK } from "../data/tech-stack";
 import { Panel, PanelContent, PanelHeader, PanelTitle } from "./panel";
 
+// Mapping tech stack keys to LobeHub icon components (only for available icons)
+const iconMap: Record<string, ComponentType<{ size?: number }>> = {
+  vercel: Vercel,
+  figma: Figma,
+  // Add more LobeHub icons as they become available
+};
+
 function TechIcon({ tech }: { tech: (typeof TECH_STACK)[number] }) {
   const [imageError, setImageError] = useState(false);
   const [useLocal, setUseLocal] = useState(true);
+
+  // Try to get LobeHub icon first
+  const LobeHubIcon = iconMap[tech.key];
 
   const getIconSrc = (suffix = "") => {
     if (useLocal) {
@@ -33,6 +45,16 @@ function TechIcon({ tech }: { tech: (typeof TECH_STACK)[number] }) {
     }
   };
 
+  // Use LobeHub icon if available
+  if (LobeHubIcon) {
+    return (
+      <div className="flex size-8 items-center justify-center">
+        <LobeHubIcon size={32} />
+      </div>
+    );
+  }
+
+  // Fallback to image-based icons
   if (imageError) {
     return (
       <div className="flex size-8 items-center justify-center rounded border border-muted-foreground/20 bg-muted text-xs font-medium text-muted-foreground">
