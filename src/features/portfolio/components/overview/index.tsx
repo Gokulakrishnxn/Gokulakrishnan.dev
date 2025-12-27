@@ -85,7 +85,7 @@ export function Overview() {
             </IntroItemIcon>
             <IntroItemContent>
               <IntroItemLink
-                href="https://drive.google.com/drive/folders/1qSlOyDCmDWDlMS6OOv2Kr31b4fTgKYbB?usp=sharing"
+                href="https://drive.google.com/file/d/1PTzA1FLDVnnqeHgPrv3hSOw2PSbpNEvi/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="View CV/Resume"
