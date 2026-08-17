@@ -36,13 +36,13 @@ html {
   background: var(--body-bg);
   color: var(--body-color);
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 body {
   min-height: 100%;
   overflow-y: scroll;
-  font-size: 16px;
+  font-size: 15px;
   font-family: var(--font-primary);
   font-weight: 460;
   text-rendering: optimizeLegibility;
