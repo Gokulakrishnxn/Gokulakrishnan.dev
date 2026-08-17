@@ -72,11 +72,7 @@ export default function Home() {
         </article>
 
         <section className="github-activity">
-          <MonoActivityHeatmap
-            username="Gokulakrishnxn"
-            accentColor="blue"
-            theme="light"
-          />
+          <MonoActivityHeatmap username="Gokulakrishnxn" />
         </section>
 
         <section>
