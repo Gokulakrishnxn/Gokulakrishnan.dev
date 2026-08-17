@@ -1,7 +1,22 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { GitCommitHorizontal } from "lucide-react";
 import { Tooltip } from "@/components/motion/tooltip";
+
+function GitHubIcon() {
+  return (
+    <svg
+      width="13"
+      height="13"
+      viewBox="0 0 16 16"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
+    </svg>
+  );
+}
 
 export type ContributionLevel = 0 | 1 | 2 | 3 | 4;
 
@@ -26,54 +41,68 @@ const MONTH_NAMES = [
   "Dec",
 ];
 
+const DAY_LABELS = ["", "Mon", "", "Wed", "", "Fri", ""];
+
 const DATE_FORMAT = new Intl.DateTimeFormat("en-US", {
   month: "short",
   day: "numeric",
   year: "numeric",
 });
 
-const GITHUB_GREEN: Record<ContributionLevel, string> = {
-  0: "#ebedf0",
-  1: "#9be9a8",
-  2: "#40c463",
-  3: "#30a14e",
-  4: "#216e39",
-};
-
 type ApiDay = { date: string; count: number; level: number };
 
 type CalendarPayload = {
   contributions: Contribution[];
-  total: number;
+  lastYear: number;
+  overall: number;
 };
 
 function toWeeks(contributions: Contribution[]) {
   const weeks: Contribution[][] = [];
   for (let i = 0; i < contributions.length; i += 7) {
-    weeks.push(contributions.slice(i, i + 7));
+    const week = contributions.slice(i, i + 7);
+    if (week.length === 7) weeks.push(week);
   }
   return weeks;
 }
 
-function monthLabels(weeks: Contribution[][]) {
-  const labels: (string | null)[] = weeks.map(() => null);
-  let last = "";
+function githubMonthLabels(weeks: Contribution[][]) {
+  const labels: { name: string; index: number }[] = [];
 
-  weeks.forEach((week, index) => {
-    const month = week[0]?.date.slice(5, 7);
-    if (month && month !== last) {
-      labels[index] = MONTH_NAMES[Number(month) - 1] ?? null;
-      last = month;
+  const monthAt = (week: Contribution[]) => {
+    const firstOfMonth = week.find((day) => day.date.endsWith("-01"));
+    return Number((firstOfMonth ?? week[0]).date.slice(5, 7));
+  };
+
+  const weekStartsMonth = (week: Contribution[], index: number) => {
+    if (week.some((day) => day.date.endsWith("-01"))) return true;
+    if (index !== 0) return false;
+    return true;
+  };
+
+  for (let i = 0; i < weeks.length; i++) {
+    if (!weekStartsMonth(weeks[i], i)) continue;
+
+    const month = monthAt(weeks[i]);
+    let next = weeks.length;
+    for (let j = i + 1; j < weeks.length; j++) {
+      if (weeks[j].some((day) => day.date.endsWith("-01"))) {
+        next = j;
+        break;
+      }
     }
-  });
+
+    if (next - i < 2 && i !== 0) continue;
+    labels.push({ name: MONTH_NAMES[month - 1], index: i });
+  }
 
   return labels;
 }
 
 function weeksForWidth(width: number) {
-  if (width < 360) return 16;
-  if (width < 480) return 22;
-  if (width < 640) return 32;
+  if (width < 360) return 18;
+  if (width < 480) return 26;
+  if (width < 640) return 36;
   return 53;
 }
 
@@ -89,13 +118,17 @@ async function fetchCalendar(login: string): Promise<CalendarPayload | null> {
   if (!days.length) return null;
 
   const totals = json?.total ?? {};
-  const total = Object.entries(totals).reduce((sum, [key, value]) => {
+  const lastYear =
+    typeof totals.lastYear === "number"
+      ? totals.lastYear
+      : days.slice(-365).reduce((sum, day) => sum + day.count, 0);
+  const overall = Object.entries(totals).reduce((sum, [key, value]) => {
     if (key === "lastYear") return sum;
     return sum + (typeof value === "number" ? value : 0);
   }, 0);
 
   const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  today.setHours(23, 59, 59, 999);
 
   const recent = days
     .filter((day) => new Date(`${day.date}T00:00:00`) <= today)
@@ -112,7 +145,8 @@ async function fetchCalendar(login: string): Promise<CalendarPayload | null> {
 
   return {
     contributions: recent.slice(start < 0 ? 0 : start),
-    total,
+    lastYear,
+    overall,
   };
 }
 
@@ -150,12 +184,13 @@ export function MonoActivityHeatmap({ username }: { username: string }) {
   const visibleWeeks = useMemo(() => {
     if (!payload) return [];
     const all = toWeeks(payload.contributions);
-    const count = weeksForWidth(width || 520);
-    return all.slice(-count);
+    return all.slice(-weeksForWidth(width || 520));
   }, [payload, width]);
 
-  const labels = useMemo(() => monthLabels(visibleWeeks), [visibleWeeks]);
-  const gap = width < 400 ? 2 : 2.5;
+  const labels = useMemo(
+    () => githubMonthLabels(visibleWeeks),
+    [visibleWeeks],
+  );
 
   if (!payload) {
     return <div ref={wrapRef} className="github-graph" />;
@@ -163,48 +198,67 @@ export function MonoActivityHeatmap({ username }: { username: string }) {
 
   return (
     <div ref={wrapRef} className="github-graph">
-      <div
-        className="github-graph-months"
-        style={{
-          gridTemplateColumns: `repeat(${visibleWeeks.length}, minmax(0, 1fr))`,
-          gap,
-        }}
-      >
-        {labels.map((label, index) => (
-          <span key={`m-${index}`}>{label ?? ""}</span>
-        ))}
-      </div>
+      <div className="github-graph-layout">
+        <div className="github-graph-days" aria-hidden="true">
+          {DAY_LABELS.map((label, index) => (
+            <span key={index}>{label}</span>
+          ))}
+        </div>
 
-      <div
-        className="github-graph-weeks"
-        style={{
-          gridTemplateColumns: `repeat(${visibleWeeks.length}, minmax(0, 1fr))`,
-          gap,
-        }}
-      >
-        {visibleWeeks.map((week, wIdx) => (
-          <div key={wIdx} className="github-graph-week" style={{ gap }}>
-            {week.map((day) => (
-              <Tooltip
-                key={day.date}
-                side="top"
-                delay={40}
-                content={`${day.count} ${day.count === 1 ? "contribution" : "contributions"} on ${DATE_FORMAT.format(new Date(`${day.date}T00:00:00`))}`}
-                wrapperClassName="github-graph-cell-wrap"
+        <div className="github-graph-main">
+          <div className="github-graph-months">
+            {labels.map((label) => (
+              <span
+                key={`${label.name}-${label.index}`}
+                style={{
+                  left: `${(label.index / visibleWeeks.length) * 100}%`,
+                }}
               >
-                <span
-                  className="github-graph-cell"
-                  style={{ backgroundColor: GITHUB_GREEN[day.level] }}
-                />
-              </Tooltip>
+                {label.name}
+              </span>
             ))}
           </div>
-        ))}
+
+          <div
+            className="github-graph-weeks"
+            style={{
+              gridTemplateColumns: `repeat(${visibleWeeks.length}, minmax(0, 1fr))`,
+            }}
+          >
+            {visibleWeeks.map((week, wIdx) => (
+              <div key={week[0]?.date ?? wIdx} className="github-graph-week">
+                {week.map((day) => (
+                  <Tooltip
+                    key={day.date}
+                    side="top"
+                    delay={40}
+                    content={`${day.count} ${day.count === 1 ? "contribution" : "contributions"} on ${DATE_FORMAT.format(new Date(`${day.date}T00:00:00`))}`}
+                    wrapperClassName="github-graph-cell-wrap"
+                  >
+                    <span
+                      className="github-graph-cell"
+                      data-level={day.level}
+                    />
+                  </Tooltip>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
-      <p className="github-graph-total">
-        {payload.total.toLocaleString()} contributions
-      </p>
+      <a
+        className="github-graph-total"
+        href={`https://github.com/${username}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <GitHubIcon />
+        {payload.lastYear.toLocaleString()} contributions
+        <span className="github-graph-sep">·</span>
+        <GitCommitHorizontal size={13} strokeWidth={1.75} />
+        {payload.overall.toLocaleString()} overall commits
+      </a>
     </div>
   );
 }

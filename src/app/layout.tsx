@@ -23,7 +23,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={cn(inter.variable, caveat.variable, "font-sans", geist.variable)}>
+    <html
+      lang="en"
+      className={cn(inter.variable, caveat.variable, "font-sans", geist.variable)}
+      suppressHydrationWarning
+    >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(()=>{try{const t=localStorage.getItem("theme");const d=t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d)}catch(e){}})()`,
+          }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

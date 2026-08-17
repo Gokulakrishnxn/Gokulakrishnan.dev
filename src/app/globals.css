@@ -11,6 +11,9 @@
   --font-script: var(--font-caveat), "Caveat", cursive;
   --body-color: #111;
   --body-bg: #fdfdfc;
+  --heading: #111;
+  --text-soft: rgba(0, 0, 0, 0.4);
+  --rule: #ededed;
   --muted: oklch(0.97 0 0);
   --line: #f2f2f2;
   --link-underline: #d9d9d9;
@@ -72,6 +75,10 @@ html {
   color: var(--body-color);
   scroll-behavior: smooth;
   font-size: 15.5px;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 body {
@@ -203,23 +210,60 @@ a {
   width: 100%;
 }
 
-.github-graph-months,
-.github-graph-weeks {
+.github-graph-layout {
   display: grid;
-  width: 100%;
+  grid-template-columns: 26px minmax(0, 1fr);
+  grid-template-rows: 14px auto;
+  column-gap: 6px;
+}
+
+.github-graph-days {
+  grid-column: 1;
+  grid-row: 2;
+  display: grid;
+  grid-template-rows: repeat(7, minmax(0, 1fr));
+  align-items: center;
+  gap: 2.5px;
+}
+
+.github-graph-days span {
+  font-size: 9px;
+  line-height: 1;
+  color: var(--text-soft);
+}
+
+.github-graph-main {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: grid;
+  grid-template-rows: 14px auto;
+  min-width: 0;
+}
+
+.github-graph-months {
+  position: relative;
+  height: 14px;
 }
 
 .github-graph-months span {
-  overflow: hidden;
+  position: absolute;
+  top: 0;
   font-size: 9px;
   line-height: 1;
-  color: rgba(0, 0, 0, 0.4);
+  color: var(--text-soft);
   white-space: nowrap;
+}
+
+.github-graph-weeks {
+  display: grid;
+  width: 100%;
+  gap: 2.5px;
 }
 
 .github-graph-week {
   display: grid;
   grid-template-rows: repeat(7, minmax(0, 1fr));
+  gap: 2.5px;
 }
 
 .github-graph-cell-wrap {
@@ -235,12 +279,72 @@ a {
   border-radius: 2px;
 }
 
+.github-graph-cell[data-level="0"] {
+  background: #ebedf0;
+}
+.github-graph-cell[data-level="1"] {
+  background: #9be9a8;
+}
+.github-graph-cell[data-level="2"] {
+  background: #40c463;
+}
+.github-graph-cell[data-level="3"] {
+  background: #30a14e;
+}
+.github-graph-cell[data-level="4"] {
+  background: #216e39;
+}
+
+.dark .github-graph-cell[data-level="0"] {
+  background: #161b22;
+}
+.dark .github-graph-cell[data-level="1"] {
+  background: #0e4429;
+}
+.dark .github-graph-cell[data-level="2"] {
+  background: #006d32;
+}
+.dark .github-graph-cell[data-level="3"] {
+  background: #26a641;
+}
+.dark .github-graph-cell[data-level="4"] {
+  background: #39d353;
+}
+
 .github-graph-total {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   margin-top: 0.55rem;
+  padding-left: 32px;
   font-size: 0.75rem;
   font-weight: 460;
   letter-spacing: -0.00563rem;
-  color: rgba(0, 0, 0, 0.4);
+  color: var(--text-soft);
+}
+
+.github-graph-total:hover {
+  color: var(--heading);
+}
+
+.github-graph-sep {
+  opacity: 0.45;
+}
+
+@media screen and (max-width: 480px) {
+  .github-graph-layout {
+    grid-template-columns: 22px minmax(0, 1fr);
+    column-gap: 4px;
+  }
+
+  .github-graph-weeks,
+  .github-graph-week {
+    gap: 2px;
+  }
+
+  .github-graph-total {
+    padding-left: 26px;
+  }
 }
 
 .homepage > section:not(.github-activity) {
@@ -263,7 +367,7 @@ a {
 }
 
 .article > header h1 {
-  color: #111;
+  color: var(--heading);
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.25rem;
@@ -271,7 +375,7 @@ a {
 }
 
 .article > header time {
-  color: rgba(0, 0, 0, 0.4);
+  color: var(--text-soft);
   font-size: 0.875rem;
   font-weight: 460;
   line-height: 1.25rem;
@@ -284,7 +388,7 @@ a {
   font-weight: 460;
   line-height: 1.25rem;
   letter-spacing: -0.00563rem;
-  color: #111;
+  color: var(--heading);
 }
 
 .basic-link {
@@ -326,7 +430,7 @@ a {
 }
 
 .post-list > h3 {
-  color: rgba(0, 0, 0, 0.4);
+  color: var(--text-soft);
   font-size: 0.875rem;
   font-weight: 460;
   letter-spacing: -0.00563rem;
@@ -377,7 +481,7 @@ a {
 .post-item h2 {
   display: inline-flex;
   align-items: center;
-  color: #111;
+  color: var(--heading);
   font-size: 0.875rem;
   font-weight: 460;
   letter-spacing: -0.00563rem;
@@ -385,7 +489,7 @@ a {
 }
 
 .post-item time {
-  color: rgba(0, 0, 0, 0.4);
+  color: var(--text-soft);
   font-size: 0.875rem;
   font-weight: 460;
   line-height: normal;
@@ -409,7 +513,7 @@ a {
   visibility: hidden;
   position: absolute;
   left: 0;
-  color: rgba(0, 0, 0, 0.4);
+  color: var(--text-soft);
 }
 
 .post-item.is-first time .year {
@@ -473,7 +577,7 @@ a {
   display: block;
   height: 1px;
   width: 3.125rem;
-  background: #ededed;
+  background: var(--rule);
   margin: 0 0 2.375rem;
 }
 
@@ -485,7 +589,7 @@ a {
 }
 
 .site-footer p {
-  color: rgba(0, 0, 0, 0.4);
+  color: var(--text-soft);
   font-size: 0.8125rem;
   font-weight: 460;
   letter-spacing: -0.0025rem;
@@ -511,6 +615,46 @@ a {
 
 .site-footer .mascot.is-ready {
   opacity: 1;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--text-soft);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle[data-ready="true"] {
+  opacity: 1;
+}
+
+.theme-toggle:hover {
+  color: var(--heading);
+  transform: scale(1.08);
+}
+
+.dark .page::before {
+  background: linear-gradient(
+    180deg,
+    #111 0,
+    rgba(17, 17, 17, 0.738) 19%,
+    rgba(17, 17, 17, 0.541) 34%,
+    rgba(17, 17, 17, 0.382) 47%,
+    rgba(17, 17, 17, 0.278) 56.5%,
+    rgba(17, 17, 17, 0.194) 65%,
+    rgba(17, 17, 17, 0.126) 73%,
+    rgba(17, 17, 17, 0.075) 80.2%,
+    rgba(17, 17, 17, 0)
+  );
 }
 
 @theme inline {
@@ -557,8 +701,17 @@ a {
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
+  --body-bg: #111111;
+  --body-color: #ededed;
+  --heading: #f5f5f5;
+  --text-soft: rgba(255, 255, 255, 0.42);
+  --line: #2a2a2a;
+  --link-underline: #4a4a4a;
+  --rule: #2a2a2a;
+  --selection-color: #fff;
+  --selection-bg: #333;
+  --background: #111111;
+  --foreground: #ededed;
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
