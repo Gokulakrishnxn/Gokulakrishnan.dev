@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Footer } from "@/components/Footer";
+import { LinkBar } from "@/components/LinkBar";
 import { WritingList } from "@/components/WritingList";
 
 function Link({
@@ -69,6 +70,8 @@ export default function Home() {
             reach me via <Link href="mailto:benji@benji.org">email</Link>.
           </p>
         </article>
+
+        <LinkBar />
 
         <section>
           <WritingList />
