@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { Footer } from "@/components/Footer";
+import { MonoActivityHeatmap } from "@/components/ui/mono-activity-heatmap";
 import { WritingList } from "@/components/WritingList";
 
 function Link({
@@ -69,6 +70,14 @@ export default function Home() {
             reach me via <Link href="mailto:benji@benji.org">email</Link>.
           </p>
         </article>
+
+        <section className="github-activity">
+          <MonoActivityHeatmap
+            username="Gokulakrishnxn"
+            accentColor="blue"
+            theme="light"
+          />
+        </section>
 
         <section>
           <WritingList />
