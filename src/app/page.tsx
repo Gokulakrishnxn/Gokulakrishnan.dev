@@ -1,29 +1,14 @@
-import type { ReactNode } from "react";
+import { FileText, Mail } from "lucide-react";
+import {
+  ArrowRightMark,
+  BinaryHoldingsMark,
+  Link,
+  iconStyle,
+} from "@/components/BrandMarks";
 import { Footer } from "@/components/Footer";
 import { MonoActivityHeatmap } from "@/components/ui/mono-activity-heatmap";
+import { ProjectsFolderLink } from "@/components/ProjectsFolderLink";
 import { WritingList } from "@/components/WritingList";
-
-function Link({
-  href,
-  children,
-}: {
-  href: string;
-  children: ReactNode;
-}) {
-  const external = href.startsWith("http");
-
-  return (
-    <a
-      className="basic-link"
-      href={href}
-      {...(external
-        ? { target: "_blank", rel: "noopener noreferrer" }
-        : undefined)}
-    >
-      {children}
-    </a>
-  );
-}
 
 export default function Home() {
   return (
@@ -31,43 +16,49 @@ export default function Home() {
       <div className="homepage">
         <article className="article">
           <header>
-            <h1>Benji Taylor</h1>
+            <div className="name-row">
+              <h1>Gokulakrishnan</h1>
+              <a className="resume-link" href="/resume" aria-label="Resume">
+                <FileText size={15} />
+              </a>
+            </div>
             <time>Updated Jul 29, 2026</time>
           </header>
-          <p>I was born in London, UK, and now live in Los Angeles, CA.</p>
           <p>
-            I founded <Link href="https://lfe.org">Los Feliz Engineering</Link>,
-            a consumer software company named after the first neighbourhood I
-            moved to in the U.S. We created <Link href="https://honk.me">Honk</Link>,
-            a real-time messaging app, and{" "}
-            <Link href="https://family.co">Family</Link>, a self-custody crypto
-            wallet. In September 2023, LFE was acquired by{" "}
-            <Link href="https://aave.com">Aave Labs</Link>, where I served as
-            CPO until October 2025.
+            I was born in Cuddalore and raised in Chennai, India, where I
+            currently live.
           </p>
           <p>
-            I currently work at <Link href="https://spacex.com">SpaceX</Link>,
-            where I lead design for <Link href="https://x.com">X</Link> and{" "}
-            <Link href="https://x.ai">SpaceXAI</Link>. Previously, I was Head of
-            Design at <Link href="https://base.org">Base</Link>, a division of
-            Coinbase.
+            I founded{" "}
+            <Link href="https://www.quarix.one">Quarix</Link>, a freelance
+            agency where we build AI agents, websites, and mobile apps.
+            We&apos;re a team helping businesses turn ideas into polished
+            digital products.
           </p>
           <p>
-            I’m also a co-founder at <Link href="https://dip.org">Dip</Link>,
-            which creates and publishes tools for achieving interface
-            excellence, such as{" "}
-            <Link href="https://www.npmjs.com/package/cmdk">cmdk</Link> and{" "}
-            <Link href="https://agentation.com">Agentation</Link>.
+            I currently work at <BinaryHoldingsMark />
+            The Binary Holdings as an AI Engineer for Bnry Labs. Previously,
+            I was a student and studied Computer Science Engineering,
+            specialising in Artificial Intelligence and Data Science, at
+            Hindustan Institute of Technology and Science.
           </p>
           <p>
-            I consider myself a designer at heart and enjoy building highly
+            I consider myself an Engineer at heart and enjoy building highly
             polished products.
           </p>
           <p>
+            You can see my works and projects here
+            <ArrowRightMark />
+            <ProjectsFolderLink />
+          </p>
+          <p>
             You can find me on{" "}
-            <Link href="https://x.com/benjitaylor">X</Link>,{" "}
-            <Link href="https://instagram.com/benjitaylor">Instagram</Link>, or
-            reach me via <Link href="mailto:benji@benji.org">email</Link>.
+            <Link href="https://x.com/benjitaylor">X</Link>, or reach me via{" "}
+            <Link href="mailto:benji@benji.org">
+              <Mail size={15} style={iconStyle} />
+              email
+            </Link>
+            .
           </p>
         </article>
 
