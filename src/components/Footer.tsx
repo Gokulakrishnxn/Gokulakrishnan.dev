@@ -3,9 +3,9 @@
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
-function getLosAngelesParts(date: Date) {
+function getCuddaloreParts(date: Date) {
   const formatter = new Intl.DateTimeFormat("en-US", {
-    timeZone: "America/Los_Angeles",
+    timeZone: "Asia/Kolkata",
     hour: "numeric",
     minute: "2-digit",
     hour12: true,
@@ -21,7 +21,7 @@ function getLosAngelesParts(date: Date) {
 
   const hour24 = Number(
     new Intl.DateTimeFormat("en-US", {
-      timeZone: "America/Los_Angeles",
+      timeZone: "Asia/Kolkata",
       hour: "numeric",
       hour12: false,
       hourCycle: "h23",
@@ -258,7 +258,7 @@ export function Footer() {
   } | null>(null);
 
   useEffect(() => {
-    const update = () => setClock(getLosAngelesParts(new Date()));
+    const update = () => setClock(getCuddaloreParts(new Date()));
     update();
     const interval = window.setInterval(update, 60_000);
     return () => window.clearInterval(interval);
@@ -270,7 +270,7 @@ export function Footer() {
       <div className="row">
         <p>
           <span className={`clock${clock ? " is-ready" : ""}`}>
-            {clock?.label ?? "12:00am"} in Los Angeles, California
+            {clock?.label ?? "12:00am"} in Cuddalore, India
           </span>{" "}
           <span className={`mascot${clock ? " is-ready" : ""}`}>
             <CatIcon sleeping={clock?.sleeping ?? false} />

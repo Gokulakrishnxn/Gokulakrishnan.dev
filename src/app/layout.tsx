@@ -17,7 +17,7 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Benji Taylor",
+  title: "Gokulakrishnan",
   description: "Born in London, UK. Based in Los Angeles, CA.",
 };
 
