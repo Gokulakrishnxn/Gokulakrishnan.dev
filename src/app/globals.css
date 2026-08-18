@@ -617,6 +617,9 @@ a {
 
 .folder-link {
   display: inline-flex;
+  align-items: center;
+  vertical-align: -2px;
+  margin-left: 6px;
   color: inherit;
   cursor: pointer;
 }
@@ -626,8 +629,6 @@ a {
   display: inline-block;
   width: 15px;
   height: 15px;
-  margin-right: 3px;
-  vertical-align: -2px;
 }
 
 .folder-mark {

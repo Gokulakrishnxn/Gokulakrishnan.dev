@@ -55,14 +55,18 @@ export function FinlioMark() {
 
 export function BinaryHoldingsMark() {
   return (
-    <InlineMark>
-      <rect x="4" y="4" width="4" height="16" />
-      <rect x="4" y="4" width="14" height="4" />
-      <rect x="4" y="10" width="14" height="4" />
-      <rect x="4" y="16" width="14" height="4" />
-      <rect x="14" y="4" width="4" height="10" />
-      <rect x="14" y="10" width="4" height="10" />
-    </InlineMark>
+    <img
+      src="/BNRY.Png"
+      alt=""
+      width={15}
+      height={15}
+      aria-hidden="true"
+      style={{
+        ...iconStyle,
+        borderRadius: "50%",
+        objectFit: "cover",
+      }}
+    />
   );
 }
 
@@ -135,7 +139,7 @@ export function ArrowRightMark() {
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
-      style={{ display: "inline-block", verticalAlign: "-2px", marginLeft: "3px" }}
+      style={{ display: "inline-block", verticalAlign: "-2px", marginLeft: "4px" }}
     >
       <line x1="5" y1="12" x2="19" y2="12" />
       <polyline points="12 5 19 12 12 19" />
