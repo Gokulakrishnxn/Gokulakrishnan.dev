@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { PageViews } from "@/components/PageViews";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 function getCuddaloreParts(date: Date) {
@@ -276,7 +277,10 @@ export function Footer() {
             <CatIcon sleeping={clock?.sleeping ?? false} />
           </span>
         </p>
-        <ThemeToggle />
+        <div className="footer-tools">
+          <PageViews />
+          <ThemeToggle />
+        </div>
       </div>
     </footer>
   );

@@ -19,6 +19,13 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   title: "Gokulakrishnan",
   description: "Born in London, UK. Based in Los Angeles, CA.",
+  icons: {
+    icon: [
+      { url: "/web.png?v=5", type: "image/png", sizes: "512x512" },
+    ],
+    shortcut: "/web.png?v=5",
+    apple: "/web.png?v=5",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

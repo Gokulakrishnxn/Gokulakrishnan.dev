@@ -45,11 +45,14 @@ function InlineMark({ children }: { children: ReactNode }) {
 
 export function FinlioMark() {
   return (
-    <InlineMark>
-      <rect x="4" y="4" width="4" height="16" />
-      <rect x="4" y="4" width="14" height="4" />
-      <rect x="4" y="10" width="11" height="4" />
-    </InlineMark>
+    <img
+      src="/Finlio.png"
+      alt=""
+      width={15}
+      height={15}
+      aria-hidden="true"
+      className="app-icon app-icon--inline"
+    />
   );
 }
 
@@ -61,11 +64,7 @@ export function BinaryHoldingsMark() {
       width={15}
       height={15}
       aria-hidden="true"
-      style={{
-        ...iconStyle,
-        borderRadius: "50%",
-        objectFit: "cover",
-      }}
+      className="brand-mark brand-mark--round"
     />
   );
 }

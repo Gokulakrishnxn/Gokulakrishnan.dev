@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Download, Eye, Printer } from "lucide-react";
+import { ArrowLeft, Download, Eye } from "lucide-react";
 import type { ReactNode } from "react";
-import { GitHubMark, Link, LinkedInMark } from "@/components/BrandMarks";
+import { GitHubMark, LinkedInMark } from "@/components/BrandMarks";
+import { WebAppIcon } from "@/components/WebAppIcon";
 import { Footer } from "@/components/Footer";
+import { GsapPage } from "@/components/GsapPage";
 import {
   academicProjects,
   education,
@@ -12,7 +14,6 @@ import {
   resumeHeader,
   skills,
 } from "@/data/resume";
-import { PrintButton } from "./PrintButton";
 
 export const metadata: Metadata = {
   title: "Resume — Gokulakrishnan",
@@ -21,18 +22,38 @@ export const metadata: Metadata = {
 
 const linkIcons: Record<string, ReactNode> = {
   "github.com/Gokulakrishnxn": <GitHubMark />,
-  "Gokulakrishnan.dev": "🌍 ",
+  "Gokulakrishnan.dev": <WebAppIcon className="app-icon--inline" />,
   "linkedin.com/in/gokulakrishnxn": <LinkedInMark />,
 };
 
+function ResumeRow({
+  left,
+  right,
+  strong = true,
+}: {
+  left: ReactNode;
+  right: ReactNode;
+  strong?: boolean;
+}) {
+  return (
+    <div className="resume-row">
+      <span className={strong ? "resume-line-strong" : undefined}>{left}</span>
+      <span className="resume-line-muted resume-row-right">{right}</span>
+    </div>
+  );
+}
+
 export default function ResumePage() {
   return (
-    <div className="page">
+    <GsapPage className="page page--resume">
       <div className="homepage">
         <article className="article">
-          <header>
-            <Link href="/">← Gokulakrishnan</Link>
-            <h1 style={{ marginTop: "1rem" }}>Resume</h1>
+          <header className="resume-page-header">
+            <a className="resume-back" href="/">
+              <ArrowLeft size={14} />
+              Back
+            </a>
+            <h1>Resume</h1>
           </header>
           <div className="resume-actions">
             <a
@@ -52,24 +73,25 @@ export default function ResumePage() {
               <Download size={14} />
               Download PDF
             </a>
-            <PrintButton>
-              <Printer size={14} />
-              Print / Save as PDF
-            </PrintButton>
           </div>
         </article>
 
         <section className="resume-sheet">
           <header className="resume-sheet-header">
-            <h2>{resumeHeader.name}</h2>
-            <p>
-              {resumeHeader.location} | {resumeHeader.email} |{" "}
-              {resumeHeader.phone}
+            <h2 className="gsap-name">{resumeHeader.name}</h2>
+            <p className="resume-contact">
+              <span>{resumeHeader.location}</span>
+              <span className="resume-dot">|</span>
+              <a href={`mailto:${resumeHeader.email}`}>{resumeHeader.email}</a>
+              <span className="resume-dot">|</span>
+              <a href={`tel:${resumeHeader.phone.replace(/\s/g, "")}`}>
+                {resumeHeader.phone}
+              </a>
             </p>
             <p className="resume-sheet-links">
               {resumeHeader.links.map((link, index) => (
-                <span key={link.href}>
-                  {index > 0 ? " | " : ""}
+                <span key={link.href} className="resume-sheet-link">
+                  {index > 0 ? <span className="resume-dot">|</span> : null}
                   <a href={link.href} target="_blank" rel="noopener noreferrer">
                     {linkIcons[link.label]}
                     {link.label}
@@ -79,69 +101,84 @@ export default function ResumePage() {
             </p>
           </header>
 
-          <h3 className="resume-section-title">Education</h3>
-          <p className="resume-line-strong">{education.school}</p>
-          <p className="resume-line-muted">{education.period}</p>
-          <p>{education.degree}</p>
-          <p className="resume-line-muted">{education.cgpa}</p>
+          <div className="resume-section">
+            <h3 className="resume-section-title">Education</h3>
+            <ResumeRow left={education.school} right={education.period} />
+            <ResumeRow
+              left={education.degree}
+              right={education.cgpa}
+              strong={false}
+            />
+          </div>
 
-          <h3 className="resume-section-title">Skills</h3>
-          {skills.map((skill) => (
-            <p key={skill.label}>
-              <span className="resume-line-strong">{skill.label}:</span>{" "}
-              {skill.value}
-            </p>
-          ))}
-
-          <h3 className="resume-section-title">Freelance Experience</h3>
-          <p className="resume-line-strong">{freelanceExperience.org}</p>
-          <p className="resume-line-muted">{freelanceExperience.role}</p>
-          <ul className="resume-list">
-            {freelanceExperience.bullets.map((bullet) => (
-              <li key={bullet}>{bullet}</li>
-            ))}
-          </ul>
-
-          <h3 className="resume-section-title">Academic Projects</h3>
-          {academicProjects.map((project) => (
-            <div className="resume-project" key={project.title}>
-              <p className="resume-line-strong">{project.title}</p>
-              <p className="resume-line-muted">{project.period}</p>
-              <p className="resume-line-muted">
-                {project.meta} |{" "}
-                <a
-                  href={project.githubHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
+          <div className="resume-section">
+            <h3 className="resume-section-title">Skills</h3>
+            {skills.map((skill) => (
+              <p className="resume-skill" key={skill.label}>
+                <span className="resume-line-strong">{skill.label}:</span>{" "}
+                {skill.value}
               </p>
-              <ul className="resume-list">
-                {project.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-          <h3 className="resume-section-title">Publications</h3>
-          <ul className="resume-list">
-            {publications.map((pub) => (
-              <li key={pub}>{pub}</li>
             ))}
-          </ul>
+          </div>
 
-          <h3 className="resume-section-title">Honors &amp; Leadership</h3>
-          <ul className="resume-list">
-            {honors.map((honor) => (
-              <li key={honor}>{honor}</li>
+          <div className="resume-section">
+            <h3 className="resume-section-title">Freelance Experience</h3>
+            <ResumeRow
+              left={freelanceExperience.org}
+              right={freelanceExperience.role}
+            />
+            <ul className="resume-list">
+              {freelanceExperience.bullets.map((bullet) => (
+                <li key={bullet}>{bullet}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="resume-section">
+            <h3 className="resume-section-title">Academic Projects</h3>
+            {academicProjects.map((project) => (
+              <div className="resume-project" key={project.title}>
+                <ResumeRow left={project.title} right={project.period} />
+                <p className="resume-line-muted resume-project-meta">
+                  {project.meta} |{" "}
+                  <a
+                    href={project.githubHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub
+                  </a>
+                </p>
+                <ul className="resume-list">
+                  {project.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
+          </div>
+
+          <div className="resume-section">
+            <h3 className="resume-section-title">Publications</h3>
+            <ul className="resume-list">
+              {publications.map((pub) => (
+                <li key={pub}>{pub}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="resume-section">
+            <h3 className="resume-section-title">Honors &amp; Leadership</h3>
+            <ul className="resume-list">
+              {honors.map((honor) => (
+                <li key={honor}>{honor}</li>
+              ))}
+            </ul>
+          </div>
         </section>
 
         <Footer />
       </div>
-    </div>
+    </GsapPage>
   );
 }

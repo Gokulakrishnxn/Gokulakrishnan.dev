@@ -5,16 +5,27 @@ export type WritingItem = {
   datetime: string;
   href: string;
   isNew?: boolean;
+  isLive?: boolean;
+  icon?: string;
 };
 
 export const writingItems: WritingItem[] = [
   {
     year: 2026,
-    title: "Drawesome",
-    date: "29/07",
-    datetime: "2026-07-29",
-    href: "https://benji.org/drawesome",
-    isNew: true,
+    title: "Finlio.app",
+    date: "05/08",
+    datetime: "2026-08-05",
+    href: "/writing/finlio",
+    isLive: true,
+    icon: "/Finlio.png",
+  },
+  {
+    year: 2026,
+    title: "ARIA",
+    date: "22/07",
+    datetime: "2026-07-22",
+    href: "/writing/aria",
+    icon: "/aria-logo.svg",
   },
   {
     year: 2026,

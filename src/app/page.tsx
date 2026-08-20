@@ -6,18 +6,19 @@ import {
   iconStyle,
 } from "@/components/BrandMarks";
 import { Footer } from "@/components/Footer";
+import { GsapPage } from "@/components/GsapPage";
 import { MonoActivityHeatmap } from "@/components/ui/mono-activity-heatmap";
 import { ProjectsFolderLink } from "@/components/ProjectsFolderLink";
 import { WritingList } from "@/components/WritingList";
 
 export default function Home() {
   return (
-    <div className="page">
+    <GsapPage className="page">
       <div className="homepage">
         <article className="article">
           <header>
             <div className="name-row">
-              <h1>Gokulakrishnan</h1>
+              <h1 className="gsap-name">Gokulakrishnan</h1>
               <a className="resume-link" href="/resume" aria-label="Resume">
                 <FileText size={15} />
               </a>
@@ -72,6 +73,6 @@ export default function Home() {
 
         <Footer />
       </div>
-    </div>
+    </GsapPage>
   );
 }

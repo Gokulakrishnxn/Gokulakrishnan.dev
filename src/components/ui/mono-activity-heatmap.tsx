@@ -2,7 +2,9 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { GitCommitHorizontal } from "lucide-react";
+import LoadingState from "@/components/LoadingState";
 import { Tooltip } from "@/components/motion/tooltip";
+import { ScrollTrigger } from "@/lib/gsap-client";
 
 function GitHubIcon() {
   return (
@@ -100,9 +102,9 @@ function githubMonthLabels(weeks: Contribution[][]) {
 }
 
 function weeksForWidth(width: number) {
-  if (width < 360) return 18;
-  if (width < 480) return 26;
-  if (width < 640) return 36;
+  if (width < 360) return 22;
+  if (width < 480) return 34;
+  if (width < 640) return 46;
   return 53;
 }
 
@@ -114,14 +116,12 @@ async function fetchCalendar(login: string): Promise<CalendarPayload | null> {
   if (!res.ok) return null;
 
   const json = await res.json();
-  const days: ApiDay[] = json?.contributions ?? [];
+  const days: ApiDay[] = [...(json?.contributions ?? [])].sort((a, b) =>
+    a.date.localeCompare(b.date),
+  );
   if (!days.length) return null;
 
   const totals = json?.total ?? {};
-  const lastYear =
-    typeof totals.lastYear === "number"
-      ? totals.lastYear
-      : days.slice(-365).reduce((sum, day) => sum + day.count, 0);
   const overall = Object.entries(totals).reduce((sum, [key, value]) => {
     if (key === "lastYear") return sum;
     return sum + (typeof value === "number" ? value : 0);
@@ -130,14 +130,18 @@ async function fetchCalendar(login: string): Promise<CalendarPayload | null> {
   const today = new Date();
   today.setHours(23, 59, 59, 999);
 
-  const recent = days
-    .filter((day) => new Date(`${day.date}T00:00:00`) <= today)
-    .slice(-371)
-    .map<Contribution>((day) => ({
-      date: day.date,
-      count: day.count,
-      level: Math.min(4, Math.max(0, day.level)) as ContributionLevel,
-    }));
+  const upToToday = days.filter(
+    (day) => new Date(`${day.date}T00:00:00`) <= today,
+  );
+  const lastYear = upToToday
+    .slice(-365)
+    .reduce((sum, day) => sum + day.count, 0);
+
+  const recent = upToToday.slice(-371).map<Contribution>((day) => ({
+    date: day.date,
+    count: day.count,
+    level: Math.min(4, Math.max(0, day.level)) as ContributionLevel,
+  }));
 
   const start = recent.findIndex(
     (day) => new Date(`${day.date}T00:00:00`).getDay() === 0,
@@ -154,6 +158,9 @@ export function MonoActivityHeatmap({ username }: { username: string }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const [width, setWidth] = useState(0);
   const [payload, setPayload] = useState<CalendarPayload | null>(null);
+  const [status, setStatus] = useState<"loading" | "ready" | "error">(
+    "loading",
+  );
 
   useEffect(() => {
     const node = wrapRef.current;
@@ -169,12 +176,22 @@ export function MonoActivityHeatmap({ username }: { username: string }) {
 
   useEffect(() => {
     let active = true;
+    setStatus("loading");
 
     fetchCalendar(username)
       .then((data) => {
-        if (active && data) setPayload(data);
+        if (!active) return;
+        if (data) {
+          setPayload(data);
+          setStatus("ready");
+          requestAnimationFrame(() => ScrollTrigger.refresh());
+          return;
+        }
+        setStatus("error");
       })
-      .catch(() => {});
+      .catch(() => {
+        if (active) setStatus("error");
+      });
 
     return () => {
       active = false;
@@ -192,8 +209,16 @@ export function MonoActivityHeatmap({ username }: { username: string }) {
     [visibleWeeks],
   );
 
-  if (!payload) {
-    return <div ref={wrapRef} className="github-graph" />;
+  if (status !== "ready" || !payload) {
+    return (
+      <div ref={wrapRef} className="github-graph github-graph--loading">
+        {status === "error" ? (
+          <p className="github-graph-total">Couldn’t load contributions</p>
+        ) : (
+          <LoadingState label="Loading contributions" variant="Drive" />
+        )}
+      </div>
+    );
   }
 
   return (

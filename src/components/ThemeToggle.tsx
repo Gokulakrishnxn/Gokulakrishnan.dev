@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { gsap, useGSAP } from "@/lib/gsap-client";
 
 function applyTheme(theme: "light" | "dark") {
   document.documentElement.classList.toggle("dark", theme === "dark");
@@ -48,6 +49,8 @@ function MoonIcon() {
 export function ThemeToggle() {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [ready, setReady] = useState(false);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const { contextSafe } = useGSAP({ scope: buttonRef });
 
   useEffect(() => {
     const stored = window.localStorage.getItem("theme");
@@ -64,17 +67,27 @@ export function ThemeToggle() {
 
   const dark = theme === "dark";
 
+  const toggle = contextSafe(() => {
+    const next = dark ? "light" : "dark";
+    setTheme(next);
+    applyTheme(next);
+    if (!buttonRef.current) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    gsap.fromTo(
+      buttonRef.current,
+      { rotate: -14, scale: 0.9 },
+      { rotate: 0, scale: 1, duration: 0.52, ease: "power2.out" },
+    );
+  });
+
   return (
     <button
+      ref={buttonRef}
       type="button"
       className="theme-toggle"
       aria-label={dark ? "Switch to light theme" : "Switch to dark theme"}
       data-ready={ready ? "true" : "false"}
-      onClick={() => {
-        const next = dark ? "light" : "dark";
-        setTheme(next);
-        applyTheme(next);
-      }}
+      onClick={toggle}
     >
       {dark ? <SunIcon /> : <MoonIcon />}
     </button>

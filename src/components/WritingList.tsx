@@ -1,4 +1,6 @@
 import { groupWritingByYear, writingItems } from "@/data/writing";
+import { AriaAppIcon } from "./AriaAppIcon";
+import { LiveDot } from "./LiveDot";
 import { NewBadge } from "./NewBadge";
 
 export function WritingList() {
@@ -16,11 +18,24 @@ export function WritingList() {
                   <a
                     className={`post-item${index === 0 ? " is-first" : ""}`}
                     href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    {...(item.href.startsWith("http")
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : undefined)}
                   >
                     <h2>
+                      {item.title === "ARIA" ? (
+                        <AriaAppIcon className="app-icon--inline" />
+                      ) : item.icon ? (
+                        <img
+                          src={item.icon}
+                          alt=""
+                          width={18}
+                          height={18}
+                          className="app-icon app-icon--inline"
+                        />
+                      ) : null}
                       {item.title}
+                      {item.isLive ? <LiveDot /> : null}
                       {item.isNew ? <NewBadge /> : null}
                     </h2>
                     <time dateTime={item.datetime}>
