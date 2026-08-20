@@ -60,7 +60,9 @@ function Book({
   });
 
   const animDuration = isIntro ? 0.14 : 0.45;
-  const animEase = isIntro ? "linear" : [0.33, 1, 0.68, 1];
+  const animEase = isIntro
+    ? "linear"
+    : ([0.33, 1, 0.68, 1] as [number, number, number, number]);
 
   useEffect(() => {
     if (currentIndex !== localIndex) {
