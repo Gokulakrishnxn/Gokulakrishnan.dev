@@ -53,6 +53,7 @@ export function peterKnowledgeBrief() {
   const linkedin = resumeHeader.links.find((link) =>
     link.label.includes("linkedin.com"),
   );
+  const x = resumeHeader.links.find((link) => link.label.includes("x.com"));
 
   return `
 Name: ${resumeHeader.name}
@@ -60,14 +61,13 @@ Current role: He works as an AI Engineer at The Binary Holdings, for Bnry Labs. 
 Where: born Cuddalore, raised in Chennai, still based in ${resumeHeader.location}.
 Studio: founded Quarix (https://www.quarix.one) — freelance studio growing into a software company. Builds AI agents, websites, mobile apps, SaaS.
 
-Public contact (share when asked; prefer email / LinkedIn / GitHub over phone unless they ask):
+Public contact (share when asked; prefer email / LinkedIn / GitHub / X over phone unless they ask):
 - Email: ${resumeHeader.email}
 - GitHub: ${github?.href ?? "https://github.com/Gokulakrishnxn"}
 - Site: ${site?.href ?? "https://www.gokulakrishnan.dev"}
 - LinkedIn: ${linkedin?.href ?? "https://linkedin.com/in/gokulakrishnxn/"}
+- X: ${x?.href ?? "https://x.com/Gokulakrishnxn"}
 - Phone (on the public résumé): ${resumeHeader.phone}
-
-Do not mention X/Twitter. The homepage still has leftover template links that are not his.
 
 Education (past): Graduated ${education.period.split("–")[1]?.trim() ?? "May 2026"}. ${education.degree} at ${education.school}. ${education.cgpa}. Do not use present tense (“studies”). Use “studied” / “graduated”.
 
@@ -93,6 +93,6 @@ ${publications.map((item) => `- ${item}`).join("\n")}
 Honors:
 ${honors.map((item) => `- ${item}`).join("\n")}
 
-Site map: homepage, /resume (PDF view/download), /projects, /writing/finlio, /writing/aria, /playground.
+Site map: homepage, /resume (PDF view/download), /projects, /writing/finlio, /writing/aria, /album.
 `.trim();
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowLeft, Download, Eye } from "lucide-react";
 import type { ReactNode } from "react";
-import { GitHubMark, LinkedInMark } from "@/components/BrandMarks";
+import { GitHubMark, LinkedInMark, XMark } from "@/components/BrandMarks";
 import { WebAppIcon } from "@/components/WebAppIcon";
 import { Footer } from "@/components/Footer";
 import { GsapPage } from "@/components/GsapPage";
@@ -24,6 +24,7 @@ const linkIcons: Record<string, ReactNode> = {
   "github.com/Gokulakrishnxn": <GitHubMark />,
   "Gokulakrishnan.dev": <WebAppIcon className="app-icon--inline" />,
   "linkedin.com/in/gokulakrishnxn": <LinkedInMark />,
+  "x.com/Gokulakrishnxn": <XMark />,
 };
 
 function ResumeRow({

@@ -1803,8 +1803,147 @@ a {
   border: 0;
 }
 
-.page--playground {
+.page--album {
   max-width: min(40rem, 100%);
+}
+
+.album-book {
+  margin-top: 1.75rem;
+}
+
+.projects-updating {
+  max-width: 16.5rem;
+  margin-top: 1.25rem;
+  padding: 0.65rem 0.7rem 0.7rem;
+  border-radius: 0.7rem;
+  background: #111;
+  color: #ededed;
+}
+
+.dark .projects-updating {
+  background: #1a1a1a;
+  border: 1px solid var(--line);
+}
+
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+.album-shot {
+  margin: 0;
+  min-width: 0;
+}
+
+.album-shot-frame {
+  overflow: hidden;
+  border-radius: 1.15rem;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--heading) 4%, var(--body-bg));
+}
+
+.album-shot img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  height: auto;
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+.album-shot--square img {
+  aspect-ratio: 1;
+}
+
+.album-shot--wide img,
+.album-shot--tall img {
+  aspect-ratio: 4 / 5;
+}
+
+.album-shot figcaption {
+  margin-top: 0.45rem;
+  color: var(--text-soft);
+  font-size: 0.75rem;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+.album-empty {
+  margin-top: 1.75rem;
+  color: var(--text-soft);
+  font-size: 0.875rem;
+}
+
+@media screen and (max-width: 640px) {
+  .album-grid {
+    gap: 0.55rem;
+  }
+
+  .album-shot-frame {
+    border-radius: 0.9rem;
+  }
+
+  .album-shot figcaption {
+    font-size: 0.6875rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .album-grid {
+    gap: 0.45rem;
+  }
+
+  .album-shot-frame {
+    border-radius: 0.8rem;
+  }
+}
+
+.page--lost {
+  min-height: 100dvh;
+}
+
+.page--lost .homepage {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100dvh - 7rem);
+}
+
+.lost {
+  padding-top: clamp(1.5rem, 8vh, 4rem);
+}
+
+.lost-code {
+  color: color-mix(in srgb, var(--heading) 18%, transparent);
+  font-size: clamp(4.5rem, 18vw, 8rem);
+  font-weight: 500;
+  letter-spacing: -0.08em;
+  line-height: 0.85;
+  margin: 0 0 1.25rem;
+  user-select: none;
+}
+
+.lost .lost-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  padding-top: 1.35rem;
+}
+
+.page--lost .site-footer {
+  margin-top: auto;
+}
+
+@media screen and (max-width: 640px) {
+  .lost {
+    padding-top: 1rem;
+  }
+
+  .lost-code {
+    font-size: clamp(3.5rem, 28vw, 5.5rem);
+    margin-bottom: 1rem;
+  }
 }
 
 .peter {

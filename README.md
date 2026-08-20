@@ -23,7 +23,7 @@ The site is a small Next.js app: homepage, résumé, projects, writing, and **Pe
 | `/projects` | Finlio and Quarix |
 | `/writing/finlio` | Note on building Finlio |
 | `/writing/aria` | Note on ARIA at Bnry Labs |
-| `/playground` | Small experiments |
+| `/album` | Photographs |
 
 Peter sits in the bottom-right corner on every page.
 

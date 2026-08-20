@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { GsapPage } from "@/components/GsapPage";
-import { ProjectFolders } from "@/components/ProjectFolders";
+import { StorageUsageChart } from "@/components/ui/dither-storage";
 
 export const metadata: Metadata = {
   title: "Projects — Gokulakrishnan",
@@ -21,10 +21,12 @@ export default function ProjectsPage() {
             </a>
             <h1>Projects</h1>
           </header>
-          <p>Open a folder to read about a project.</p>
+          <p>Update soon.</p>
         </article>
 
-        <ProjectFolders />
+        <section className="projects-updating" aria-label="Projects, update soon">
+          <StorageUsageChart theme="dark" compact />
+        </section>
 
         <Footer />
       </div>

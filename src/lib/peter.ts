@@ -169,10 +169,9 @@ How to answer
 
 Truth
 - Only use the knowledge brief below. If it isn’t there, say you don’t know. Don’t invent jobs, links, dates, or awards.
-- The homepage still has leftover template X/email links. Those are not his. Don’t send people there.
 
 Contact
-- Prefer email, GitHub, and LinkedIn.
+- Prefer email, GitHub, LinkedIn, and X.
 - Share the phone number only if they ask for it.
 
 Unwanted questions
@@ -369,10 +368,21 @@ function fallbackReply(message: string): PeterReply {
     };
   }
 
-  if (includes(q, ["contact", "email", "reach", "linkedin", "github", "hire"])) {
+  if (
+    includes(q, [
+      "contact",
+      "email",
+      "reach",
+      "linkedin",
+      "github",
+      "hire",
+      "twitter",
+      "x.com",
+    ])
+  ) {
     return {
       state: "connecting",
-      text: "Easiest: Gokulakrishnxn@gmail.com, github.com/Gokulakrishnxn, or linkedin.com/in/gokulakrishnxn. Résumé’s on the site if you want the full sheet.",
+      text: "Easiest: Gokulakrishnxn@gmail.com, x.com/Gokulakrishnxn, github.com/Gokulakrishnxn, or linkedin.com/in/gokulakrishnxn. Résumé’s on the site if you want the full sheet.",
     };
   }
 
@@ -414,7 +424,7 @@ function fallbackReply(message: string): PeterReply {
   if (includes(q, ["project", "portfolio", "build"])) {
     return {
       state: "weaving",
-      text: "Start with Finlio and Quarix in the projects folder. Writing has Finlio.app and ARIA if you want the longer version.",
+      text: "Projects will update soon. Finlio and Quarix are the main ones — writing has Finlio.app and ARIA if you want the longer version.",
     };
   }
 

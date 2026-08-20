@@ -7,6 +7,7 @@ export const resumeHeader = {
     { label: "github.com/Gokulakrishnxn", href: "https://github.com/Gokulakrishnxn" },
     { label: "Gokulakrishnan.dev", href: "https://www.gokulakrishnan.dev" },
     { label: "linkedin.com/in/gokulakrishnxn", href: "https://linkedin.com/in/gokulakrishnxn/" },
+    { label: "x.com/Gokulakrishnxn", href: "https://x.com/Gokulakrishnxn" },
   ],
 };
 

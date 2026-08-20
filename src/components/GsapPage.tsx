@@ -51,7 +51,7 @@ export function GsapPage({
           });
         });
 
-        const listItems = q(".post-item, .project-folder");
+        const listItems = q(".post-item, .project-folder, .album-shot");
         if (listItems.length) {
           gsap.from(listItems, {
             autoAlpha: 0,

@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
+import { AlbumGrid } from "@/components/AlbumGrid";
 import { Footer } from "@/components/Footer";
 import { GsapPage } from "@/components/GsapPage";
+import { DitherBook } from "@/components/ui/dither-book";
 
 export const metadata: Metadata = {
-  title: "Playground — Gokulakrishnan",
-  description: "Small experiments and UI sketches.",
+  title: "Album — Gokulakrishnan",
+  description: "Photographs by Gokulakrishnan.",
 };
 
-export default function PlaygroundPage() {
+export default function AlbumPage() {
   return (
-    <GsapPage className="page">
+    <GsapPage className="page page--album">
       <div className="homepage">
         <article className="article">
           <header className="resume-page-header">
@@ -18,13 +20,14 @@ export default function PlaygroundPage() {
               <ArrowLeft size={14} />
               Back
             </a>
-            <h1>Playground</h1>
+            <h1>Album</h1>
           </header>
-          <p>
-            Small experiments, motion sketches, and things that don&apos;t
-            belong on the homepage yet.
-          </p>
+          <p>Photos. Places, and the in-between.</p>
         </article>
+        <section className="album-book" aria-label="Photo book">
+          <DitherBook theme="light" />
+        </section>
+        <AlbumGrid />
         <Footer />
       </div>
     </GsapPage>

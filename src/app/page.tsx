@@ -57,8 +57,8 @@ export default function Home() {
           </p>
           <p>
             You can find me on{" "}
-            <Link href="https://x.com/benjitaylor">X</Link>, or reach me via{" "}
-            <Link href="mailto:benji@benji.org">
+            <Link href="https://x.com/Gokulakrishnxn">X</Link>, or reach me via{" "}
+            <Link href="mailto:Gokulakrishnxn@gmail.com">
               <Mail size={15} style={iconStyle} />
               email
             </Link>
