@@ -27,7 +27,7 @@ export function WritingList() {
                     </span>
                     <h2>
                       {item.title === "ARIA" ? (
-                        <AriaAppIcon className="app-icon--inline" />
+                        <AriaAppIcon className="aria-app-icon--inline" />
                       ) : item.icon ? (
                         <img
                           src={item.icon}
