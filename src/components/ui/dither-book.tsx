@@ -59,10 +59,9 @@ function Book({
     dir: 1,
   });
 
-  const animDuration = isIntro ? 0.14 : 0.45;
-  const animEase = isIntro
-    ? "linear"
-    : ([0.33, 1, 0.68, 1] as [number, number, number, number]);
+  const flipTransition = isIntro
+    ? { duration: 0.14, ease: "linear" as const }
+    : { duration: 0.45, ease: [0.33, 1, 0.68, 1] as const };
 
   useEffect(() => {
     if (currentIndex !== localIndex) {
@@ -193,7 +192,7 @@ function Book({
             }}
             initial={{ rotateY: flipState.dir === 1 ? 0 : -180 }}
             animate={{ rotateY: flipState.dir === 1 ? -180 : 0 }}
-            transition={{ duration: animDuration, ease: animEase }}
+            transition={flipTransition}
             onAnimationComplete={handleAnimationComplete}
           >
             <div
@@ -206,7 +205,7 @@ function Book({
                 className="absolute inset-0 bg-gradient-to-r from-transparent to-black"
                 initial={{ opacity: flipState.dir === 1 ? 0 : 0.4 }}
                 animate={{ opacity: flipState.dir === 1 ? 0.4 : 0 }}
-                transition={{ duration: animDuration, ease: animEase }}
+                transition={flipTransition}
               />
             </div>
 
@@ -223,7 +222,7 @@ function Book({
                 className="absolute inset-0 bg-gradient-to-l from-transparent to-black"
                 initial={{ opacity: flipState.dir === 1 ? 0.4 : 0 }}
                 animate={{ opacity: flipState.dir === 1 ? 0 : 0.4 }}
-                transition={{ duration: animDuration, ease: animEase }}
+                transition={flipTransition}
               />
             </div>
           </motion.div>
