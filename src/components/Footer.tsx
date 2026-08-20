@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { PageViews } from "@/components/PageViews";
+import { PlaygroundLink } from "@/components/PlaygroundLink";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 function getCuddaloreParts(date: Date) {
@@ -279,6 +280,7 @@ export function Footer() {
         </p>
         <div className="footer-tools">
           <PageViews />
+          <PlaygroundLink />
           <ThemeToggle />
         </div>
       </div>
