@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gokulakrishnan
 
-## Getting Started
+Personal site for [Gokulakrishnan](https://www.gokulakrishnan.dev) — AI Engineer at The Binary Holdings (Bnry Labs), founder of [Quarix](https://www.quarix.one).
 
-First, run the development server:
+The site is a small Next.js app: homepage, résumé, projects, writing, and **Peter**, a personal AI assistant that answers from the portfolio.
+
+## Stack
+
+- [Next.js](https://nextjs.org) 16 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- GSAP for page motion
+- [thinking-orbs](https://orbs.jakubantalik.com) for Peter’s status animation
+- Google Gemini (`gemini-flash-lite-latest`) for Peter’s replies
+
+## Pages
+
+| Path | What it is |
+| --- | --- |
+| `/` | Bio, GitHub activity, writing |
+| `/resume` | Résumé with PDF view / download |
+| `/projects` | Finlio and Quarix |
+| `/writing/finlio` | Note on building Finlio |
+| `/writing/aria` | Note on ARIA at Bnry Labs |
+| `/playground` | Small experiments |
+
+Peter sits in the bottom-right corner on every page.
+
+## Setup
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create `.env.local` in the repo root (this file is gitignored):
 
-## Learn More
+```bash
+# Free key: https://aistudio.google.com/apikey
+GEMINI_API_KEY=your_key_here
+```
 
-To learn more about Next.js, take a look at the following resources:
+Without a key, Peter still answers from a small on-site fallback. With a key, he uses Gemini.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Optional:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+PETER_MODEL=gemini-flash-lite-latest
+OPENAI_API_KEY=                     # used only if Gemini is unset
+```
 
-## Deploy on Vercel
+Never commit `.env.local`. The assistant prompt, portfolio brief, and model key stay on the server.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run dev      # local server
+npm run build    # production build
+npm run start    # serve the production build
+npm run lint     # eslint
+```
+
+## Peter
+
+Peter is Gokulakrishnan’s personal AI assistant.
+
+- Casual, short answers
+- Leads with the engineer job, not “student”
+- Knows work, writing, résumé, and public contact
+- Turns down gossip and off-topic personal questions
+- Runs through a server action, not a public `/api/peter` route
+
+Edit the voice and facts in:
+
+- `src/lib/peter.ts` — prompt, safety, model call
+- `src/lib/peter-knowledge.ts` — portfolio brief
+- `src/app/actions/send.ts` — server entry
+
+## Deploy
+
+Works on [Vercel](https://vercel.com). Add `GEMINI_API_KEY` in the project environment variables before deploying.
