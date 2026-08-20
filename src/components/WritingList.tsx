@@ -22,6 +22,9 @@ export function WritingList() {
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : undefined)}
                   >
+                    <span className="post-year" aria-hidden="true">
+                      {group.year}
+                    </span>
                     <h2>
                       {item.title === "ARIA" ? (
                         <AriaAppIcon className="app-icon--inline" />
@@ -38,11 +41,7 @@ export function WritingList() {
                       {item.isLive ? <LiveDot /> : null}
                       {item.isNew ? <NewBadge /> : null}
                     </h2>
-                    <time dateTime={item.datetime}>
-                      <span className="day">{item.date}</span>
-                      <span className="slash">/</span>
-                      <span className="year">{item.year}</span>
-                    </time>
+                    <time dateTime={item.datetime}>{item.date}</time>
                   </a>
                 </li>
               ))}

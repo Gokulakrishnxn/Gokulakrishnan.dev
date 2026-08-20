@@ -10,8 +10,11 @@ import { GsapPage } from "@/components/GsapPage";
 import { MonoActivityHeatmap } from "@/components/ui/mono-activity-heatmap";
 import { ProjectsFolderLink } from "@/components/ProjectsFolderLink";
 import { WritingList } from "@/components/WritingList";
+import { getSiteUpdatedLabel } from "@/lib/site-updated";
 
 export default function Home() {
+  const updated = getSiteUpdatedLabel();
+
   return (
     <GsapPage className="page">
       <div className="homepage">
@@ -23,7 +26,7 @@ export default function Home() {
                 <FileText size={15} />
               </a>
             </div>
-            <time>Updated Jul 29, 2026</time>
+            <time dateTime={updated.datetime}>{updated.label}</time>
           </header>
           <p>
             I was born in Cuddalore and raised in Chennai, India, where I
