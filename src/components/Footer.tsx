@@ -280,6 +280,9 @@ export function Footer() {
         </p>
         <div className="footer-tools">
           <PageViews />
+          <a className="footer-llm" href="/llm.txt">
+            llm.txt
+          </a>
           <AlbumLink />
           <ThemeToggle />
         </div>

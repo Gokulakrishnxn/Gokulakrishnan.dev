@@ -93,6 +93,6 @@ ${publications.map((item) => `- ${item}`).join("\n")}
 Honors:
 ${honors.map((item) => `- ${item}`).join("\n")}
 
-Site map: homepage, /resume (PDF view/download), /projects, /writing/finlio, /writing/aria, /album.
+Site map: homepage, /resume (PDF view/download), /projects, /writing/finlio, /writing/aria, /album, /llm.txt (plain-text brief of this portfolio).
 `.trim();
 }
