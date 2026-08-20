@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Caveat, Inter, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { PeterWidget } from "@/components/PeterWidget";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -15,6 +16,12 @@ const caveat = Caveat({
   subsets: ["latin"],
   weight: ["500", "600"],
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 export const metadata: Metadata = {
   title: "Gokulakrishnan",
@@ -42,7 +49,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <PeterWidget />
+      </body>
     </html>
   );
 }
