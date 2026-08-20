@@ -1821,10 +1821,6 @@ a {
   max-width: min(40rem, 100%);
 }
 
-.album-book {
-  margin-top: 1.75rem;
-}
-
 .projects-updating {
   max-width: 16.5rem;
   margin-top: 1.25rem;
