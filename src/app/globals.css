@@ -1366,6 +1366,22 @@ a {
   color: var(--heading);
 }
 
+.footer-credit {
+  display: inline-block;
+  margin-top: 0.85rem;
+  color: var(--text-soft);
+  font-size: 0.6875rem;
+  font-weight: 460;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  transition: color 0.28s ease;
+}
+
+.footer-credit:hover,
+.footer-credit:focus-visible {
+  color: var(--heading);
+}
+
 .footer-icon-link {
   display: inline-flex;
   align-items: center;
