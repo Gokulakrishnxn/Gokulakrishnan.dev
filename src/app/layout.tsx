@@ -28,10 +28,10 @@ export const metadata: Metadata = {
   description: "Born in London, UK. Based in Los Angeles, CA.",
   icons: {
     icon: [
-      { url: "/web.png?v=5", type: "image/png", sizes: "512x512" },
+      { url: "/web.png?v=6", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/web.png?v=5",
-    apple: "/web.png?v=5",
+    shortcut: "/web.png?v=6",
+    apple: "/web.png?v=6",
   },
 };
 

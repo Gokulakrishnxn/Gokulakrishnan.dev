@@ -643,7 +643,7 @@ a {
 }
 
 .app-icon--web {
-  background: #f3f3f1;
+  background: #000;
 }
 
 .app-icon--inline {
@@ -729,7 +729,7 @@ a {
 }
 
 .dark .app-icon--web {
-  background: #f3f3f1;
+  background: #000;
 }
 
 .writing-main {
