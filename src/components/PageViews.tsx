@@ -1,6 +1,7 @@
 "use client";
 
 import { Eye } from "lucide-react";
+import NumberFlow from "@number-flow/react";
 import { useEffect, useState } from "react";
 import { Tooltip } from "@/components/motion/tooltip";
 
@@ -36,7 +37,7 @@ export function PageViews() {
     <Tooltip content="Page views" side="top" delay={80}>
       <span className="page-views" aria-label={`${views.toLocaleString()} page views`}>
         <Eye size={15} strokeWidth={1.75} aria-hidden="true" />
-        {views.toLocaleString()}
+        <NumberFlow value={views} isolate />
       </span>
     </Tooltip>
   );
