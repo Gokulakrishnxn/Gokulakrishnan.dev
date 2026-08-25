@@ -1314,6 +1314,17 @@ a {
   font-variant-numeric: tabular-nums;
 }
 
+.site-footer number-flow-react,
+.page-views number-flow-react {
+  line-height: 0.9;
+  --number-flow-mask-height: 0.12em;
+  vertical-align: baseline;
+}
+
+.footer-clock-colon {
+  display: inline-block;
+}
+
 .site-footer .clock {
   opacity: 0;
   transition: opacity 0.3s ease;

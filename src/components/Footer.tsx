@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import NumberFlow, { NumberFlowGroup } from "@number-flow/react";
 import { PageViews } from "@/components/PageViews";
 import { AlbumLink } from "@/components/AlbumLink";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -15,10 +16,12 @@ function getCuddaloreParts(date: Date) {
   });
 
   const parts = formatter.formatToParts(date);
-  const hour = parts.find((part) => part.type === "hour")?.value ?? "";
-  const minute = parts.find((part) => part.type === "minute")?.value ?? "";
-  const dayPeriod = (
-    parts.find((part) => part.type === "dayPeriod")?.value ?? ""
+  const hour = Number(parts.find((part) => part.type === "hour")?.value ?? "12");
+  const minute = Number(
+    parts.find((part) => part.type === "minute")?.value ?? "0",
+  );
+  const period = (
+    parts.find((part) => part.type === "dayPeriod")?.value ?? "am"
   ).toLowerCase();
 
   const hour24 = Number(
@@ -33,7 +36,9 @@ function getCuddaloreParts(date: Date) {
   );
 
   return {
-    label: `${hour}:${minute}${dayPeriod}`,
+    hour,
+    minute,
+    period,
     sleeping: hour24 >= 22 || hour24 < 7,
   };
 }
@@ -255,14 +260,16 @@ function CatIcon({ sleeping }: { sleeping: boolean }) {
 
 export function Footer() {
   const [clock, setClock] = useState<{
-    label: string;
+    hour: number;
+    minute: number;
+    period: string;
     sleeping: boolean;
   } | null>(null);
 
   useEffect(() => {
     const update = () => setClock(getCuddaloreParts(new Date()));
     update();
-    const interval = window.setInterval(update, 60_000);
+    const interval = window.setInterval(update, 1_000);
     return () => window.clearInterval(interval);
   }, []);
 
@@ -272,7 +279,16 @@ export function Footer() {
       <div className="row">
         <p>
           <span className={`clock${clock ? " is-ready" : ""}`}>
-            {clock?.label ?? "12:00am"} in Cuddalore, India
+            <NumberFlowGroup>
+              <NumberFlow value={clock?.hour ?? 12} trend={0} />
+              <span className="footer-clock-colon">:</span>
+              <NumberFlow
+                value={clock?.minute ?? 0}
+                trend={0}
+                digits={{ 1: { max: 5 } }}
+                format={{ minimumIntegerDigits: 2 }}
+              />
+            </NumberFlowGroup>{`${clock?.period ?? "am"} in Cuddalore, India`}
           </span>{" "}
           <span className={`mascot${clock ? " is-ready" : ""}`}>
             <CatIcon sleeping={clock?.sleeping ?? false} />
