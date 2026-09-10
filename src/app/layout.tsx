@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Caveat, Inter, Geist } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { PeterWidget } from "@/components/PeterWidget";
@@ -47,6 +48,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           dangerouslySetInnerHTML={{
             __html: `(()=>{try{const t=localStorage.getItem("theme");const d=t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d)}catch(e){}})()`,
           }}
+        />
+        <Script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id="ca7e61b1-8b57-484a-b743-8c50ce1aa611"
+          strategy="afterInteractive"
         />
       </head>
       <body>

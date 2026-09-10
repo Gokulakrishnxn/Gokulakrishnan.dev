@@ -303,14 +303,6 @@ export function Footer() {
           <ThemeToggle />
         </div>
       </div>
-      <a
-        className="footer-credit"
-        href="https://benji.org/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Inspired by Benji Taylor
-      </a>
     </footer>
   );
 }
