@@ -4,6 +4,8 @@ export type WritingItem = {
   date: string;
   datetime: string;
   href: string;
+  published: string;
+  excerpt: string;
   isNew?: boolean;
   isLive?: boolean;
   icon?: string;
@@ -15,6 +17,9 @@ export const writingItems: WritingItem[] = [
     title: "Finlio.app",
     date: "05/08",
     datetime: "2026-08-05",
+    published: "5 August, 2026",
+    excerpt:
+      "A personal finance teammate. One view of your money, and a brief before the market opens.",
     href: "/writing/finlio",
     isLive: true,
     icon: "/Finlio.png",
@@ -24,6 +29,9 @@ export const writingItems: WritingItem[] = [
     title: "ARIA",
     date: "22/07",
     datetime: "2026-07-22",
+    published: "22 July, 2026",
+    excerpt:
+      "A research assistant that answers with sources, not vibes. Retrieve first. Speak second.",
     href: "/writing/aria",
     icon: "/aria-logo.svg",
   },

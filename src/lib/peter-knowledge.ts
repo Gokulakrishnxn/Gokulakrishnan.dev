@@ -77,7 +77,7 @@ ${skillLines}
 Projects on this site:
 ${projects}
 
-Writing on this site:
+Blogs on this site:
 ${writing}
 ${writingNotes}
 
@@ -93,6 +93,6 @@ ${publications.map((item) => `- ${item}`).join("\n")}
 Honors:
 ${honors.map((item) => `- ${item}`).join("\n")}
 
-Site map: homepage, /resume (PDF view/download), /projects, /writing/finlio, /writing/aria, /album, /llm.txt (plain-text brief of this portfolio).
+Site map: homepage, /blogs, /resume (PDF view/download), /projects, /writing/finlio, /writing/aria, /album, /llm.txt (plain-text brief of this portfolio).
 `.trim();
 }

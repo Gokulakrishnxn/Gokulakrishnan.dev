@@ -30,7 +30,8 @@ Prefer email, GitHub, LinkedIn, and X. Share the phone number only if asked.
 
 ## Pages
 
-- / — Bio, GitHub activity, writing list
+- / — Bio, GitHub activity
+- /blogs — Notes index (Finlio, ARIA)
 - /resume — Résumé, with PDF view and download
 - /projects — Placeholder: “Update soon.” Finlio and Quarix still exist; the folder UI is coming back later
 - /writing/finlio — Note on building Finlio (5 Aug 2026)
@@ -48,7 +49,7 @@ Current role: AI Engineer.
 
 ARIA is a research assistant that retrieves first, answers second, and leaves citations. Gokul did not start ARIA. He joined the team. His bar: if they cannot show the work, they should not ship the sentence. Internals stay with the team.
 
-Writing: https://www.gokulakrishnan.dev/writing/aria
+Blog: https://www.gokulakrishnan.dev/writing/aria
 
 ### Quarix
 
@@ -60,7 +61,7 @@ Personal AI finance teammate, built as founder and engineer with Beny. One view 
 
 He is not trying to replace a broker or tell anyone what to buy. He is trying to stop people from being the integration layer between their own accounts.
 
-Writing: https://www.gokulakrishnan.dev/writing/finlio
+Blog: https://www.gokulakrishnan.dev/writing/finlio
 
 ### Freelance
 
@@ -125,7 +126,7 @@ https://github.com/Gokulakrishnxn
 - Technical Lead, Blue Screen Programming Club: led Innothon 2025 CodeArena hackathon with 1,000+ participants.
 - Organized technical events and workshops.
 
-## Writing (full notes)
+## Blogs (full notes)
 
 ### Finlio.app — 5 Aug 2026 — /writing/finlio
 

@@ -8,7 +8,7 @@ export function WritingList() {
 
   return (
     <section className="post-list" data-variant="primary">
-      <h3>Writing</h3>
+      <h3>Blogs</h3>
       <ul>
         {groups.map((group) => (
           <li key={group.year}>

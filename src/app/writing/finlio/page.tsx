@@ -21,9 +21,6 @@ export default async function FinlioWritingPage() {
     <GsapPage className="page page--writing">
       <div className="writing-shell">
         <nav className="writing-nav" aria-label="On this page">
-          <a className="writing-nav-index" href="/">
-            ← Index
-          </a>
           <a href="#why-this-exists">Why this exists</a>
           <a href="#building-it">Building it</a>
           <a href="#where-we-are">Where we are</a>

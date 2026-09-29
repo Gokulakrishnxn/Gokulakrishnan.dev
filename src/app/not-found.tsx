@@ -20,7 +20,7 @@ export default function NotFound() {
             <h1>This page isn’t here.</h1>
           </header>
           <p>
-            That path isn’t on this site. Home, the résumé, and the writing
+            That path isn’t on this site. Home, the résumé, and the blog
             still are — or ask Peter in the corner.
           </p>
           <div className="lost-actions">

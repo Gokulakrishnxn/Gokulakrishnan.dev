@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { ArrowLeft, Download, Eye } from "lucide-react";
 import type { ReactNode } from "react";
+import { Download, Eye } from "lucide-react";
 import { GitHubMark, LinkedInMark, XMark } from "@/components/BrandMarks";
 import { WebAppIcon } from "@/components/WebAppIcon";
 import { Footer } from "@/components/Footer";
@@ -50,10 +50,6 @@ export default function ResumePage() {
       <div className="homepage">
         <article className="article">
           <header className="resume-page-header">
-            <a className="resume-back" href="/">
-              <ArrowLeft size={14} />
-              Back
-            </a>
             <h1>Resume</h1>
           </header>
           <div className="resume-actions">

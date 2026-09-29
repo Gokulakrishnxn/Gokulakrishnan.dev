@@ -78,6 +78,7 @@ html {
   background: var(--body-bg);
   color: var(--body-color);
   scroll-behavior: smooth;
+  overflow-x: hidden;
   font-size: clamp(14.5px, 0.35vw + 14.2px, 15.5px);
   color-scheme: light;
 }
@@ -131,8 +132,85 @@ a {
   position: relative;
   max-width: 36.375rem;
   margin: 0 auto;
-  padding: clamp(2rem, 7vw, 5rem) clamp(1rem, 4vw, 1.5rem)
+  padding: clamp(1.15rem, 4vw, 2.25rem) clamp(1rem, 4vw, 1.5rem)
     max(5.75rem, calc(2.5rem + env(safe-area-inset-bottom)));
+}
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.25rem;
+  margin: 0 0 1.65rem;
+  padding: 0.45rem 0 0.7rem;
+  background: linear-gradient(
+    180deg,
+    var(--body-bg) 0%,
+    var(--body-bg) 58%,
+    transparent
+  );
+}
+
+.site-nav a {
+  color: var(--text-soft);
+  font-size: 0.8125rem;
+  font-weight: 450;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible,
+.site-nav a.is-active {
+  color: var(--heading);
+}
+
+.site-nav a:focus-visible {
+  border-radius: 2px;
+  outline: 2px solid var(--focus-color);
+  outline-offset: 3px;
+}
+
+.site-nav-home {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.site-nav-logo {
+  display: block;
+  width: 1.4rem;
+  height: 1.4rem;
+  object-fit: cover;
+  border-radius: 0.28rem;
+  filter: invert(1);
+}
+
+.dark .site-nav-logo {
+  filter: none;
+}
+
+.site-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.2rem 1.05rem;
+}
+
+.site-nav-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.site-nav-icon {
+  width: 28px;
+  height: 28px;
 }
 
 .page::before {
@@ -170,6 +248,161 @@ a {
 
 .homepage > .github-activity {
   margin-top: 1.75rem;
+}
+
+#writing {
+  scroll-margin-top: 3.25rem;
+}
+
+.home-hero {
+  position: relative;
+  z-index: 10;
+  margin: 0;
+}
+
+.home-hero-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8.75rem;
+  padding: 0.85rem 1rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-bottom: 0;
+  border-radius: 1.15rem 1.15rem 0 0;
+  background: #fff;
+}
+
+.dark .home-hero-banner {
+  background: #fff;
+}
+
+.home-hero-scribble {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.home-hero-body {
+  position: relative;
+  padding: 0 0.15rem 0.15rem;
+}
+
+.home-hero-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.home-hero-photo {
+  display: block;
+  width: 5.65rem;
+  height: 5.65rem;
+  margin-top: -2.85rem;
+  object-fit: cover;
+  object-position: center 18%;
+  border-radius: 50%;
+  border: 3px solid var(--body-bg);
+  background: #1a1a1a;
+  position: relative;
+  z-index: 1;
+}
+
+.home-hero-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.38rem 0.85rem;
+  color: var(--heading);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.home-hero-resume:hover,
+.home-hero-resume:focus-visible {
+  border-color: var(--text-soft);
+  transform: translateY(-1px);
+}
+
+.home-hero-identity {
+  margin-top: 0.7rem;
+}
+
+.home-hero-name {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.home-hero-name h1 {
+  color: var(--heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.home-hero-verified {
+  display: block;
+  flex-shrink: 0;
+}
+
+.home-hero-handle {
+  display: inline-block;
+  margin-top: 0.12rem;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  letter-spacing: -0.01em;
+}
+
+.home-hero-handle:hover,
+.home-hero-handle:focus-visible {
+  color: var(--heading);
+}
+
+.home-hero-bio {
+  margin-top: 0.7rem;
+  color: var(--body-color);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  letter-spacing: -0.012em;
+}
+
+.home-hero-identity time {
+  display: block;
+  margin-top: 0.45rem;
+  color: var(--text-soft);
+  font-size: 0.75rem;
+  letter-spacing: -0.00563rem;
+}
+
+@media screen and (max-width: 640px) {
+  .home-hero-banner {
+    height: 7.25rem;
+    border-radius: 0.95rem 0.95rem 0 0;
+  }
+
+  .home-hero-scribble {
+    height: 100%;
+  }
+
+  .home-hero-photo {
+    width: 4.75rem;
+    height: 4.75rem;
+    margin-top: -2.4rem;
+  }
+
+  .home-hero-name h1 {
+    font-size: 1.05rem;
+  }
 }
 
 .gsap-name {
@@ -455,6 +688,95 @@ a {
   color: var(--heading);
 }
 
+.about-heading + p {
+  padding-top: 0.4rem;
+}
+
+.about-heading {
+  margin: 0.85rem 0 0;
+  color: var(--heading);
+  font-family: var(--font-script);
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+}
+
+.article > header.blogs-header {
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.blogs-count {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.8125rem;
+  font-weight: 450;
+  letter-spacing: -0.01em;
+}
+
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.75rem;
+}
+
+.blog-card {
+  display: block;
+  padding: 1.45rem 0 1.5rem;
+  border-top: 1px solid var(--line);
+  color: inherit;
+}
+
+.blog-card:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.blog-card-kicker {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.blog-card-kicker .app-icon--inline,
+.blog-card-kicker .aria-app-icon--inline {
+  margin-right: 0;
+}
+
+.blog-card h2 {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  color: var(--heading);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.3;
+}
+
+.blog-card p {
+  margin: 0.45rem 0 0;
+  max-width: 38rem;
+  color: var(--body-color);
+  font-size: 0.875rem;
+  font-weight: 460;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+.blog-card time {
+  display: block;
+  margin-top: 0.65rem;
+  color: var(--text-soft);
+  font-size: 0.75rem;
+  font-weight: 450;
+  letter-spacing: -0.00563rem;
+}
+
 .writing-title-row {
   display: flex;
   align-items: center;
@@ -481,7 +803,7 @@ a {
 
 .writing-nav {
   position: sticky;
-  top: 5rem;
+  top: 3.25rem;
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
@@ -828,6 +1150,7 @@ a {
 
 .post-list {
   padding: 3rem 0 0;
+  scroll-margin-top: 3.25rem;
 }
 
 .post-list > h3 {
@@ -2245,6 +2568,7 @@ a {
 }
 
 @media print {
+  .site-nav,
   .resume-page-header,
   .resume-actions,
   .site-footer,

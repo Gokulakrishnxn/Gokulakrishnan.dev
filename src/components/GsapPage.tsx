@@ -2,6 +2,7 @@
 
 import { useRef, type ReactNode } from "react";
 import { gsap, ScrollTrigger, SplitText, useGSAP } from "@/lib/gsap-client";
+import { SiteNav } from "@/components/SiteNav";
 
 export function GsapPage({
   children,
@@ -24,7 +25,7 @@ export function GsapPage({
 
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         const intro = q(
-          ".article > *, .resume-sheet-header, .writing-nav a, .writing-hero",
+          ".site-nav, .home-hero, .article > *, .blog-card, .resume-sheet-header, .writing-nav a, .writing-hero",
         );
         gsap.from(intro, {
           autoAlpha: 0,
@@ -160,6 +161,7 @@ export function GsapPage({
 
   return (
     <div ref={root} className={className}>
+      <SiteNav />
       {children}
     </div>
   );

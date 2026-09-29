@@ -22,9 +22,6 @@ export default async function AriaWritingPage() {
     <GsapPage className="page page--writing">
       <div className="writing-shell">
         <nav className="writing-nav" aria-label="On this page">
-          <a className="writing-nav-index" href="/">
-            ← Index
-          </a>
           <a href="#why-it-matters">Why it matters</a>
           <a href="#my-part">My part</a>
           <a href="#what-i-want-next-to-my-name">What I want next to my name</a>

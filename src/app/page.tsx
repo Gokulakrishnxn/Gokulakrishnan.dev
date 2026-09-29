@@ -1,15 +1,13 @@
-import { FileText, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import {
-  ArrowRightMark,
   BinaryHoldingsMark,
   Link,
   iconStyle,
 } from "@/components/BrandMarks";
-import { Footer } from "@/components/Footer";
 import { GsapPage } from "@/components/GsapPage";
+import { Footer } from "@/components/Footer";
+import { HomeHero } from "@/components/HomeHero";
 import { MonoActivityHeatmap } from "@/components/ui/mono-activity-heatmap";
-import { ProjectsFolderLink } from "@/components/ProjectsFolderLink";
-import { WritingList } from "@/components/WritingList";
 import { getSiteUpdatedLabel } from "@/lib/site-updated";
 
 export default function Home() {
@@ -18,16 +16,9 @@ export default function Home() {
   return (
     <GsapPage className="page">
       <div className="homepage">
+        <HomeHero updated={updated} />
         <article className="article">
-          <header>
-            <div className="name-row">
-              <h1 className="gsap-name">Gokulakrishnan</h1>
-              <a className="resume-link" href="/resume" aria-label="Resume">
-                <FileText size={15} />
-              </a>
-            </div>
-            <time dateTime={updated.datetime}>{updated.label}</time>
-          </header>
+          <h2 className="about-heading">About me</h2>
           <p>
             I was born in Cuddalore and raised in Chennai, India, where I
             currently live.
@@ -51,11 +42,6 @@ export default function Home() {
             polished products.
           </p>
           <p>
-            You can see my works and projects here
-            <ArrowRightMark />
-            <ProjectsFolderLink />
-          </p>
-          <p>
             You can find me on{" "}
             <Link href="https://x.com/Gokulakrishnxn">X</Link>, or reach me via{" "}
             <Link href="mailto:Gokulakrishnxn@gmail.com">
@@ -68,10 +54,6 @@ export default function Home() {
 
         <section className="github-activity">
           <MonoActivityHeatmap username="Gokulakrishnxn" />
-        </section>
-
-        <section>
-          <WritingList />
         </section>
 
         <Footer />
