@@ -828,6 +828,10 @@ a {
   margin-bottom: 1rem;
 }
 
+.writing-index-link {
+  display: none;
+}
+
 .writing-hero {
   display: flex;
   flex-direction: column;
@@ -1102,22 +1106,46 @@ a {
     padding-right: 1.5rem;
   }
 
+  .page--writing .site-nav {
+    display: none;
+  }
+
+  .writing-index-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin: 0 0 1.65rem;
+    color: var(--text-soft);
+    font-size: 0.8125rem;
+    font-weight: 450;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+    transition: color 0.28s ease;
+  }
+
+  .writing-index-link:hover,
+  .writing-index-link:focus-visible {
+    color: var(--heading);
+  }
+
+  .writing-index-link:focus-visible {
+    border-radius: 2px;
+    outline: 2px solid var(--focus-color);
+    outline-offset: 3px;
+  }
+
+  .writing-index-link svg {
+    display: block;
+    flex-shrink: 0;
+  }
+
   .writing-shell {
     grid-template-columns: 1fr;
-    row-gap: 1.5rem;
+    row-gap: 0;
   }
 
   .writing-nav {
-    position: static;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 0.75rem 1.1rem;
-    padding-top: 0;
-  }
-
-  .writing-nav-index {
-    margin-bottom: 0;
-    width: 100%;
+    display: none;
   }
 
   .article.writing-article > p,
