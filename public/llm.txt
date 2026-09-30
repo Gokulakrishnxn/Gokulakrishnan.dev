@@ -37,6 +37,7 @@ Prefer email, GitHub, LinkedIn, and X. Share the phone number only if asked.
 - /writing/finlio — Note on building Finlio (5 Aug 2026)
 - /writing/aria — Note on ARIA at Bnry Labs (22 Jul 2026)
 - /album — Library (shadcn/ui)
+- /privacy — How the site uses Umami and what stays on the visitor’s device
 - /llm.txt — This brief
 
 Peter is the site assistant. He sits in the bottom-right corner on every page and answers from this portfolio. He is Gokulakrishnan’s personal AI assistant, not Gokulakrishnan.
