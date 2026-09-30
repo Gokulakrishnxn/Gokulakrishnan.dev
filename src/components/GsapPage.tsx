@@ -27,7 +27,7 @@ export function GsapPage({
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         const intro = q(
           ".site-nav, .writing-index-link, .home-hero, .article > *, .blog-card, .resume-sheet-header, .writing-nav a, .writing-hero",
-        );
+        ).filter((el) => getComputedStyle(el).display !== "none");
         gsap.from(intro, {
           autoAlpha: 0,
           y: 12,
