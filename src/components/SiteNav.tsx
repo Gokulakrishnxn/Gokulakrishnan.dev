@@ -18,14 +18,21 @@ function GithubIcon() {
 }
 
 const links = [
-  { href: "/blogs", label: "Blogs", match: "blog" },
+  { href: "/blogs", label: "Blog", match: "blog" },
+  { href: "/album", label: "Library", match: "library" },
   { href: "/projects", label: "Projects", match: "projects" },
 ] as const;
 
-function isActive(pathname: string, match: "home" | "blog" | "projects") {
+function isActive(
+  pathname: string,
+  match: "home" | "blog" | "library" | "projects",
+) {
   if (match === "home") return pathname === "/";
   if (match === "blog") {
     return pathname === "/blogs" || pathname.startsWith("/writing");
+  }
+  if (match === "library") {
+    return pathname === "/album" || pathname.startsWith("/album/");
   }
   return pathname === "/projects" || pathname.startsWith("/projects/");
 }

@@ -2195,8 +2195,109 @@ a {
   border: 0;
 }
 
-.page--album {
-  max-width: min(40rem, 100%);
+.page--album,
+.page--library {
+  max-width: min(56rem, 100%);
+}
+
+.library-catalog {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.75rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--heading) 2.5%, var(--body-bg));
+}
+
+.library-catalog--few {
+  grid-template-columns: 1fr;
+}
+
+.library-catalog--few .library-item {
+  border-right: 0;
+}
+
+.library-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 3.2rem;
+  padding: 0.72rem 0.9rem;
+  color: var(--heading);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.library-item:nth-child(3n),
+.library-item:last-child {
+  border-right: 0;
+}
+
+.library-item:nth-last-child(-n + 3) {
+  border-bottom: 0;
+}
+
+a.library-item:hover,
+a.library-item:focus-visible {
+  background: color-mix(in srgb, var(--heading) 4%, transparent);
+}
+
+.library-item-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 0.45rem;
+  border: 1px solid color-mix(in srgb, var(--heading) 16%, transparent);
+  background: color-mix(in srgb, var(--heading) 3%, var(--body-bg));
+  color: var(--heading);
+}
+
+.library-item-icon svg {
+  width: 0.92rem;
+  height: 0.92rem;
+}
+
+.library-item-title {
+  overflow: hidden;
+  font-size: 0.875rem;
+  font-weight: 520;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.library-item-dot {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: #3b82f6;
+  box-shadow: 0 0 0 2px var(--body-bg);
+}
+
+@media screen and (max-width: 768px) {
+  .library-catalog {
+    grid-template-columns: 1fr;
+  }
+
+  .library-item,
+  .library-item:nth-child(3n),
+  .library-item:nth-last-child(-n + 3) {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .library-item:last-child {
+    border-bottom: 0;
+  }
 }
 
 .projects-updating {

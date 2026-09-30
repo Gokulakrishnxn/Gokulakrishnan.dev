@@ -36,7 +36,7 @@ Prefer email, GitHub, LinkedIn, and X. Share the phone number only if asked.
 - /projects — Placeholder: “Update soon.” Finlio and Quarix still exist; the folder UI is coming back later
 - /writing/finlio — Note on building Finlio (5 Aug 2026)
 - /writing/aria — Note on ARIA at Bnry Labs (22 Jul 2026)
-- /album — Photographs
+- /album — Library (shadcn/ui)
 - /llm.txt — This brief
 
 Peter is the site assistant. He sits in the bottom-right corner on every page and answers from this portfolio. He is Gokulakrishnan’s personal AI assistant, not Gokulakrishnan.
@@ -182,14 +182,9 @@ He works on the AI side: how a question is understood, how context is gathered, 
 
 The value is not a flashy reply. It is a person who can keep asking follow-ups and still land on something they can defend. If ARIA does its job, research gets faster without getting sloppy.
 
-## Album
+## Library
 
-Photographs at /album. Places, and the in-between.
-
-- Google Singapore — standing in front of the Google sign
-- Manali — lying in the snow with mountains behind
-- Singapore — Merlion at dusk with Marina Bay Sands across the water
-- Chennai Kovalam — sunset over the water at Kovalam beach
+Catalog at /album. Currently one saved link: [shadcn/ui](https://ui.shadcn.com/).
 
 ## Homepage bio (as written)
 

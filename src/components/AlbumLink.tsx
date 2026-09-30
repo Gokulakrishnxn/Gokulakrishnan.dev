@@ -21,8 +21,8 @@ function AlbumMark() {
 
 export function AlbumLink() {
   return (
-    <Tooltip content="Album" side="top" delay={80}>
-      <a className="footer-icon-link" href="/album" aria-label="Album">
+    <Tooltip content="Library" side="top" delay={80}>
+      <a className="footer-icon-link" href="/album" aria-label="Library">
         <AlbumMark />
       </a>
     </Tooltip>

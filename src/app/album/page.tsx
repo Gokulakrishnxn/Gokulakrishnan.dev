@@ -1,24 +1,28 @@
 import type { Metadata } from "next";
-import { AlbumGrid } from "@/components/AlbumGrid";
 import { Footer } from "@/components/Footer";
 import { GsapPage } from "@/components/GsapPage";
+import { LibraryCatalog } from "@/components/LibraryCatalog";
+import { libraryItems } from "@/data/library";
 
 export const metadata: Metadata = {
-  title: "Album — Gokulakrishnan",
-  description: "Photographs by Gokulakrishnan.",
+  title: "Library — Gokulakrishnan",
+  description: "A shelf for things Gokulakrishnan is saving.",
 };
 
-export default function AlbumPage() {
+export default function LibraryPage() {
+  const count = libraryItems.length;
+  const label = count === 0 ? "Empty" : count === 1 ? "1 item" : `${count} items`;
+
   return (
-    <GsapPage className="page page--album">
+    <GsapPage className="page page--library">
       <div className="homepage">
         <article className="article">
-          <header className="resume-page-header">
-            <h1>Album</h1>
+          <header className="blogs-header">
+            <h1>Library</h1>
+            <p className="blogs-count">{label}</p>
           </header>
-          <p>Photos. Places, and the in-between.</p>
         </article>
-        <AlbumGrid />
+        <LibraryCatalog />
         <Footer />
       </div>
     </GsapPage>
