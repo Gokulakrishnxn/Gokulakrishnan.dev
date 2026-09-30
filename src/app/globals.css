@@ -961,6 +961,29 @@ a {
   line-height: 1.15;
 }
 
+.privacy-list {
+  margin: 0.35rem 0 0;
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
+.privacy-list li {
+  padding-top: 0.4rem;
+  color: var(--heading);
+  font-size: 0.875rem;
+  font-weight: 460;
+  line-height: 1.45;
+  letter-spacing: -0.00563rem;
+}
+
+.privacy-list li strong {
+  font-weight: 600;
+}
+
+.privacy .about-heading {
+  margin-top: 1.55rem;
+}
+
 .article > header.blogs-header {
   flex-direction: row;
   align-items: baseline;
