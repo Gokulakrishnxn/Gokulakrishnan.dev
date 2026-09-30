@@ -150,8 +150,6 @@ Then: "Read these and build the website." First result is never final. He moves 
 
 AI did not replace design for him. It made design knowledge more valuable. He treats AI as a fast developer next to him. He decides what to build.
 
-Flow today: Idea → Research → Product → Content → Design → AI → Build → Improve → Ship.
-
 ### Finlio.app — 5 Aug 2026 — /writing/finlio
 
 Finlio is a personal finance teammate. One view of your money. A brief before the market opens.

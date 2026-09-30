@@ -73,10 +73,6 @@ AI didn't replace design for me, it made design knowledge more valuable. If you 
 
 I think of AI as a really fast developer sitting next to me. I decide what to build, and AI helps me build it faster.
 
-My flow today:
-
-Idea → Research → Product → Content → Design → AI → Build → Improve → Ship
-
 The tools keep changing, but the basics stay the same: understand the people, know your content, care about the design, and keep building.
 
 I started with HTML on YouTube during lockdown. Now I'm building much bigger things with AI, and I'm still learning. :)
