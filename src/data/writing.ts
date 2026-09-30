@@ -14,6 +14,18 @@ export type WritingItem = {
 export const writingItems: WritingItem[] = [
   {
     year: 2026,
+    title: "How I Design Websites Using AI :)",
+    date: "30/09",
+    datetime: "2026-09-30",
+    published: "30 September, 2026",
+    excerpt:
+      "I'm not a natural designer. Here's how I go from idea to a real website with AI, without ending up with something generic.",
+    href: "/writing/design-websites-ai",
+    isNew: true,
+    icon: "/web.png",
+  },
+  {
+    year: 2026,
     title: "Finlio.app",
     date: "05/08",
     datetime: "2026-08-05",

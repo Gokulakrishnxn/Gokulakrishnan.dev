@@ -96,6 +96,21 @@ export function MarkdownArticle({
           );
         }
 
+        const listItems = block
+          .split("\n")
+          .map((line) => line.match(/^[-*]\s+(.+)$/))
+          .filter((match): match is RegExpMatchArray => Boolean(match));
+        const lines = block.split("\n").filter(Boolean);
+        if (listItems.length > 0 && listItems.length === lines.length) {
+          return (
+            <ul key={index} className="writing-list">
+              {listItems.map((item, itemIndex) => (
+                <li key={itemIndex}>{renderInline(item[1])}</li>
+              ))}
+            </ul>
+          );
+        }
+
         const asideMatch = block.match(/\{aside:([^}]+)\}\s*$/);
         const body = asideMatch
           ? block.replace(/\s*\{aside:[^}]+\}\s*$/, "")

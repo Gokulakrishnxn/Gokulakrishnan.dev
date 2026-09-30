@@ -876,6 +876,22 @@ a {
   margin-bottom: -0.15rem;
 }
 
+.writing-article .writing-list {
+  display: grid;
+  gap: 0.45rem;
+  padding: 1.1rem 0 0 1.15rem;
+  margin: 0;
+  color: var(--heading);
+  font-size: clamp(1rem, 0.35vw + 0.95rem, 1.0625rem);
+  font-weight: 430;
+  line-height: 1.72;
+  letter-spacing: -0.012em;
+}
+
+.writing-article .writing-list li::marker {
+  color: var(--text-soft);
+}
+
 .writing-article .basic-link {
   color: var(--link);
   font-weight: 500;

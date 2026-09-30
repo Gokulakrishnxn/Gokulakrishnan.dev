@@ -24,7 +24,7 @@ export function BlogIndex() {
                 alt=""
                 width={18}
                 height={18}
-                className="app-icon app-icon--inline"
+                className={`app-icon app-icon--inline${item.icon === "/web.png" ? " app-icon--web" : ""}`}
               />
             ) : null}
             <h2>

@@ -13,6 +13,8 @@ import {
 import { writingItems } from "@/data/writing";
 
 const writingNotes = `
+Design with AI writing (/writing/design-websites-ai, 30 Sep 2026): Gokul is not a natural designer. First client was a café; he has since built sites for 50+ clients. He learned HTML/CSS/JS from YouTube in 11th grade lockdown. College Blue Screen Club taught him design is placement, type, color, spacing, flow. He does not prompt "build me a modern website." He writes product.md, content.md, and design.md first, then asks AI to build. AI is a fast developer next to him, not a replacement for design judgment. Flow: Idea → Research → Product → Content → Design → AI → Build → Improve → Ship.
+
 Finlio writing (/writing/finlio, 5 Aug 2026): Gokul is building Finlio as founder and engineer with Beny. It is a personal finance teammate — one view of money across banks, brokers, SIPs, EPF — plus a short morning brief in plain English. Default is local and readable; cloud is optional. Web first. Live at https://www.finlio.app. He is not trying to replace a broker or tell anyone what to buy.
 
 ARIA writing (/writing/aria, 22 Jul 2026): Gokul did not start ARIA. He joined The Binary Holdings / Bnry Labs as an AI Engineer. ARIA is a research assistant that retrieves first, answers second, and leaves citations. His bar: if they cannot show the work, they should not ship the sentence.

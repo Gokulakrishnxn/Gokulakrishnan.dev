@@ -128,6 +128,30 @@ https://github.com/Gokulakrishnxn
 
 ## Blogs (full notes)
 
+### How I Design Websites Using AI :) — 30 Sep 2026 — /writing/design-websites-ai
+
+He is not a natural designer. First website was ugly. First client was a café. He has since built websites for 50+ clients.
+
+He learned HTML, CSS and JavaScript in school wanting to build websites and games. During COVID lockdown in 11th grade, YouTube was his teacher: watch a tutorial, copy it, break it, fix it, repeat.
+
+After school he built a full café site. That made it real: helping a business look good online, not just writing code. That one café led to 50+ clients.
+
+In college he joined Blue Screen Club. A friend there was great at web design. He learned design is the small things: placement, fonts, colors, spacing, layout, flow. He finished 4 projects in a month and won a Best Paper Award. Belief: the more you build, the better you get.
+
+He does not open AI and type "build me a modern website." That always looked generic. He does not touch AI until he knows what he is building.
+
+Flow: get clear (purpose, audience, pages, theme, colors, fonts) → collect inspiration mostly from X/Twitter → write three markdown files before any code:
+
+- product.md: product, audience, problem, features
+- content.md: real copy for every section and page
+- design.md: colors, fonts, theme, style, layout
+
+Then: "Read these and build the website." First result is never final. He moves sections, changes fonts, fixes spacing, deletes what does not feel right.
+
+AI did not replace design for him. It made design knowledge more valuable. He treats AI as a fast developer next to him. He decides what to build.
+
+Flow today: Idea → Research → Product → Content → Design → AI → Build → Improve → Ship.
+
 ### Finlio.app — 5 Aug 2026 — /writing/finlio
 
 Finlio is a personal finance teammate. One view of your money. A brief before the market opens.
