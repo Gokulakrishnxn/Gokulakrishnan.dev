@@ -199,3 +199,5 @@ I consider myself an Engineer at heart and enjoy building highly polished produc
 You can see my works and projects on /projects. You can find me on X (https://x.com/Gokulakrishnxn) or email Gokulakrishnxn@gmail.com.
 
 The homepage also shows a GitHub contribution heatmap for Gokulakrishnxn.
+
+Below that: Technologies he's worked with — Rust, Python, React, TypeScript, React Native, Swift, SwiftUI, Postgres, and whatever else each project required. He does not care too much about the stack. He likes understanding how things work and shipping them.

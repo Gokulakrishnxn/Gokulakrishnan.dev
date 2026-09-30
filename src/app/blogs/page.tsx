@@ -16,7 +16,7 @@ export default function BlogsPage() {
   return (
     <GsapPage className="page page--blogs">
       <div className="homepage">
-        <article className="article">
+        <article className="article reveal-flow">
           <header className="blogs-header">
             <h1>Blogs</h1>
             <p className="blogs-count">{label}</p>

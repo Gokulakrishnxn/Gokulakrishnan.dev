@@ -21,14 +21,14 @@ export default async function AriaWritingPage() {
   return (
     <GsapPage className="page page--writing">
       <div className="writing-shell">
-        <nav className="writing-nav" aria-label="On this page">
+        <nav className="writing-nav reveal-flow" aria-label="On this page">
           <a href="#why-it-matters">Why it matters</a>
           <a href="#my-part">My part</a>
           <a href="#what-i-want-next-to-my-name">What I want next to my name</a>
         </nav>
 
         <div className="writing-main">
-          <article className="article writing-article">
+          <article className="article writing-article reveal-flow">
             <header className="writing-hero">
               <div className="writing-title-row">
                 <AriaAppIcon className="aria-app-icon--hero" />

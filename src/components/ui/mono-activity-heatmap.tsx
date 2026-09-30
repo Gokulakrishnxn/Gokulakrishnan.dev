@@ -3,8 +3,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { GitCommitHorizontal } from "lucide-react";
 import LoadingState from "@/components/LoadingState";
-import { Tooltip } from "@/components/motion/tooltip";
-import { ScrollTrigger } from "@/lib/gsap-client";
 
 function GitHubIcon() {
   return (
@@ -26,6 +24,7 @@ export type Contribution = {
   date: string;
   count: number;
   level: ContributionLevel;
+  label: string;
 };
 
 const MONTH_NAMES = [
@@ -108,10 +107,20 @@ function weeksForWidth(width: number) {
   return 53;
 }
 
+function cacheKey(login: string) {
+  return `gh-cal:${login}`;
+}
+
 async function fetchCalendar(login: string): Promise<CalendarPayload | null> {
+  try {
+    const cached = sessionStorage.getItem(cacheKey(login));
+    if (cached) return JSON.parse(cached) as CalendarPayload;
+  } catch {
+    /* ignore */
+  }
+
   const res = await fetch(
     `https://github-contributions-api.jogruber.de/v4/${login}`,
-    { cache: "no-store" },
   );
   if (!res.ok) return null;
 
@@ -141,17 +150,26 @@ async function fetchCalendar(login: string): Promise<CalendarPayload | null> {
     date: day.date,
     count: day.count,
     level: Math.min(4, Math.max(0, day.level)) as ContributionLevel,
+    label: `${day.count} ${day.count === 1 ? "contribution" : "contributions"} on ${DATE_FORMAT.format(new Date(`${day.date}T00:00:00`))}`,
   }));
 
   const start = recent.findIndex(
     (day) => new Date(`${day.date}T00:00:00`).getDay() === 0,
   );
 
-  return {
+  const payload = {
     contributions: recent.slice(start < 0 ? 0 : start),
     lastYear,
     overall,
   };
+
+  try {
+    sessionStorage.setItem(cacheKey(login), JSON.stringify(payload));
+  } catch {
+    /* ignore */
+  }
+
+  return payload;
 }
 
 export function MonoActivityHeatmap({ username }: { username: string }) {
@@ -161,17 +179,32 @@ export function MonoActivityHeatmap({ username }: { username: string }) {
   const [status, setStatus] = useState<"loading" | "ready" | "error">(
     "loading",
   );
+  const [tip, setTip] = useState<{
+    text: string;
+    x: number;
+    y: number;
+  } | null>(null);
 
   useEffect(() => {
     const node = wrapRef.current;
     if (!node) return;
 
-    const update = () => setWidth(node.clientWidth);
-    update();
+    let frame = 0;
+    const update = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const next = node.clientWidth;
+        setWidth((prev) => (prev === next ? prev : next));
+      });
+    };
 
+    update();
     const observer = new ResizeObserver(update);
     observer.observe(node);
-    return () => observer.disconnect();
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
   }, []);
 
   useEffect(() => {
@@ -184,7 +217,6 @@ export function MonoActivityHeatmap({ username }: { username: string }) {
         if (data) {
           setPayload(data);
           setStatus("ready");
-          requestAnimationFrame(() => ScrollTrigger.refresh());
           return;
         }
         setStatus("error");
@@ -249,28 +281,45 @@ export function MonoActivityHeatmap({ username }: { username: string }) {
             style={{
               gridTemplateColumns: `repeat(${visibleWeeks.length}, minmax(0, 1fr))`,
             }}
+            onPointerOver={(event) => {
+              const cell = (event.target as HTMLElement).closest<HTMLElement>(
+                ".github-graph-cell",
+              );
+              if (!cell?.dataset.tip) return;
+              const box = cell.getBoundingClientRect();
+              setTip({
+                text: cell.dataset.tip,
+                x: box.left + box.width / 2,
+                y: box.top,
+              });
+            }}
+            onPointerLeave={() => setTip(null)}
           >
             {visibleWeeks.map((week, wIdx) => (
               <div key={week[0]?.date ?? wIdx} className="github-graph-week">
                 {week.map((day) => (
-                  <Tooltip
+                  <span
                     key={day.date}
-                    side="top"
-                    delay={40}
-                    content={`${day.count} ${day.count === 1 ? "contribution" : "contributions"} on ${DATE_FORMAT.format(new Date(`${day.date}T00:00:00`))}`}
-                    wrapperClassName="github-graph-cell-wrap"
-                  >
-                    <span
-                      className="github-graph-cell"
-                      data-level={day.level}
-                    />
-                  </Tooltip>
+                    className="github-graph-cell"
+                    data-level={day.level}
+                    data-tip={day.label}
+                  />
                 ))}
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      {tip ? (
+        <div
+          className="github-graph-tip"
+          role="tooltip"
+          style={{ top: tip.y, left: tip.x }}
+        >
+          {tip.text}
+        </div>
+      ) : null}
 
       <a
         className="github-graph-total"

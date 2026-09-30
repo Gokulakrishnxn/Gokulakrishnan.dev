@@ -2,13 +2,11 @@
 
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(useGSAP);
 
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, SplitText);
+  gsap.ticker.lagSmoothing(1000, 16);
 }
 
-export { gsap, useGSAP, ScrollTrigger, SplitText };
+export { gsap, useGSAP };

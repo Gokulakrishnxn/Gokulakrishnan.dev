@@ -21,7 +21,7 @@ export default async function DesignWebsitesAiWritingPage() {
   return (
     <GsapPage className="page page--writing">
       <div className="writing-shell">
-        <nav className="writing-nav" aria-label="On this page">
+        <nav className="writing-nav reveal-flow" aria-label="On this page">
           <a href="#i-was-terrible-at-design-at-first">Terrible at first</a>
           <a href="#my-first-client-was-a-caf">First client</a>
           <a href="#then-college-taught-me-design">College</a>
@@ -34,7 +34,7 @@ export default async function DesignWebsitesAiWritingPage() {
         </nav>
 
         <div className="writing-main">
-          <article className="article writing-article">
+          <article className="article writing-article reveal-flow">
             <header className="writing-hero">
               <div className="writing-title-row">
                 <WebAppIcon className="app-icon--hero" />

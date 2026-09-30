@@ -1,4 +1,9 @@
+"use client";
+
+import { motion, useReducedMotion } from "motion/react";
 import { libraryItems, type LibraryItem } from "@/data/library";
+import { Stagger } from "@/components/motion/reveal";
+import { EASE_OUT } from "@/lib/ease";
 
 function ShadcnLogo() {
   return (
@@ -25,6 +30,7 @@ function LibraryIcon({ icon }: { icon?: LibraryItem["icon"] }) {
 }
 
 function LibrarySlot({ item }: { item: LibraryItem }) {
+  const reduce = useReducedMotion();
   const inner = (
     <>
       <span className="library-item-icon">
@@ -42,15 +48,19 @@ function LibrarySlot({ item }: { item: LibraryItem }) {
   }
 
   return (
-    <a
+    <motion.a
       className="library-item"
       href={item.href}
+      initial={reduce ? false : { opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      whileHover={reduce ? undefined : { x: 4 }}
+      transition={{ duration: 0.35, ease: EASE_OUT }}
       {...(item.external
         ? { target: "_blank", rel: "noopener noreferrer" }
         : undefined)}
     >
       {inner}
-    </a>
+    </motion.a>
   );
 }
 
@@ -58,13 +68,15 @@ export function LibraryCatalog() {
   const few = libraryItems.length < 3;
 
   return (
-    <div
+    <Stagger
       className={`library-catalog${few ? " library-catalog--few" : ""}`}
       aria-label="Library"
+      delay={0.06}
+      stagger={0.08}
     >
       {libraryItems.map((item) => (
         <LibrarySlot key={item.title} item={item} />
       ))}
-    </div>
+    </Stagger>
   );
 }

@@ -20,14 +20,14 @@ export default async function FinlioWritingPage() {
   return (
     <GsapPage className="page page--writing">
       <div className="writing-shell">
-        <nav className="writing-nav" aria-label="On this page">
+        <nav className="writing-nav reveal-flow" aria-label="On this page">
           <a href="#why-this-exists">Why this exists</a>
           <a href="#building-it">Building it</a>
           <a href="#where-we-are">Where we are</a>
         </nav>
 
         <div className="writing-main">
-          <article className="article writing-article">
+          <article className="article writing-article reveal-flow">
             <header className="writing-hero">
               <div className="writing-title-row">
                 <FinlioAppIcon className="app-icon--hero" />

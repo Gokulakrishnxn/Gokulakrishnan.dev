@@ -16,7 +16,7 @@ export default function LibraryPage() {
   return (
     <GsapPage className="page page--library">
       <div className="homepage">
-        <article className="article">
+        <article className="article reveal-flow">
           <header className="blogs-header">
             <h1>Library</h1>
             <p className="blogs-count">{label}</p>

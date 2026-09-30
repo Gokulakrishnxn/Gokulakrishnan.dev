@@ -1,7 +1,9 @@
 "use client";
 
+import { motion, useReducedMotion } from "motion/react";
 import { usePathname } from "next/navigation";
 import { Tooltip } from "@/components/motion/tooltip";
+import { EASE_OUT, SPRING_LAYOUT, SPRING_PRESS } from "@/lib/ease";
 
 function GithubIcon() {
   return (
@@ -39,14 +41,24 @@ function isActive(
 
 export function SiteNav() {
   const pathname = usePathname();
+  const reduce = useReducedMotion();
 
   return (
-    <nav className="site-nav" aria-label="Site">
-      <a
+    <motion.nav
+      className="site-nav"
+      aria-label="Site"
+      initial={reduce ? false : { opacity: 0, y: -8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: EASE_OUT }}
+    >
+      <motion.a
         className={`site-nav-home${isActive(pathname, "home") ? " is-active" : ""}`}
         href="/"
         aria-label="Gokulakrishnan"
         aria-current={isActive(pathname, "home") ? "page" : undefined}
+        whileHover={reduce ? undefined : { scale: 1.08, rotate: -8 }}
+        whileTap={reduce ? undefined : { scale: 0.94 }}
+        transition={SPRING_PRESS}
       >
         <img
           className="site-nav-logo"
@@ -55,36 +67,48 @@ export function SiteNav() {
           width={22}
           height={22}
         />
-      </a>
+      </motion.a>
       <ul className="site-nav-links">
         {links.map((link) => {
           const active = isActive(pathname, link.match);
           return (
             <li key={link.match}>
-              <a
-                className={active ? "is-active" : undefined}
+              <motion.a
+                className={`site-nav-link${active ? " is-active" : ""}`}
                 href={link.href}
                 aria-current={active ? "page" : undefined}
+                whileHover={reduce ? undefined : { y: -1 }}
+                transition={{ duration: 0.22, ease: EASE_OUT }}
               >
                 {link.label}
-              </a>
+                {active ? (
+                  <motion.span
+                    className="site-nav-indicator"
+                    layoutId="nav-ink"
+                    transition={SPRING_LAYOUT}
+                  />
+                ) : null}
+              </motion.a>
             </li>
           );
         })}
         <li>
           <Tooltip content="GitHub" side="bottom" delay={80}>
-            <a
+            <motion.a
               className="site-nav-icon"
               href="https://github.com/Gokulakrishnxn"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
+              whileHover={reduce ? undefined : { y: -1, rotate: -8 }}
+              whileTap={reduce ? undefined : { scale: 0.94 }}
+              transition={SPRING_PRESS}
             >
               <GithubIcon />
-            </a>
+            </motion.a>
           </Tooltip>
         </li>
       </ul>
-    </nav>
+    </motion.nav>
   );
 }

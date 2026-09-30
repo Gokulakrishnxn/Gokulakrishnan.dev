@@ -4,9 +4,11 @@ import {
   Link,
   iconStyle,
 } from "@/components/BrandMarks";
+import { PeekLink } from "@/components/motion/hover-preview";
 import { GsapPage } from "@/components/GsapPage";
 import { Footer } from "@/components/Footer";
 import { HomeHero } from "@/components/HomeHero";
+import { Reveal } from "@/components/motion/reveal";
 import { MonoActivityHeatmap } from "@/components/ui/mono-activity-heatmap";
 import { getSiteUpdatedLabel } from "@/lib/site-updated";
 
@@ -17,7 +19,7 @@ export default function Home() {
     <GsapPage className="page">
       <div className="homepage">
         <HomeHero updated={updated} />
-        <article className="article">
+        <article className="article reveal-flow">
           <h2 className="about-heading">About me</h2>
           <p>
             I was born in Cuddalore and raised in Chennai, India, where I
@@ -25,10 +27,11 @@ export default function Home() {
           </p>
           <p>
             I founded{" "}
-            <Link href="https://www.quarix.one">Quarix</Link>, a freelance
-            agency where we build AI agents, websites, and mobile apps.
-            We&apos;re a team helping businesses turn ideas into polished
-            digital products.
+            <PeekLink href="https://www.quarix.one" kind="quarix">
+              Quarix
+            </PeekLink>, a freelance agency where we build AI agents, websites,
+            and mobile apps. We&apos;re a team helping businesses turn ideas
+            into polished digital products.
           </p>
           <p>
             I currently work at <BinaryHoldingsMark />
@@ -43,7 +46,10 @@ export default function Home() {
           </p>
           <p>
             You can find me on{" "}
-            <Link href="https://x.com/Gokulakrishnxn">X</Link>, or reach me via{" "}
+            <PeekLink href="https://x.com/Gokulakrishnxn" kind="x">
+              X
+            </PeekLink>
+            , or reach me via{" "}
             <Link href="mailto:Gokulakrishnxn@gmail.com">
               <Mail size={15} style={iconStyle} />
               email
@@ -52,9 +58,21 @@ export default function Home() {
           </p>
         </article>
 
-        <section className="github-activity">
+        <Reveal className="github-activity">
           <MonoActivityHeatmap username="Gokulakrishnxn" />
-        </section>
+        </Reveal>
+
+        <article className="article home-stack reveal-flow">
+          <h2 className="about-heading">Technologies I&apos;ve worked with</h2>
+          <p>
+            Rust · Python · React · TypeScript · React Native · Swift · SwiftUI
+            · Postgres · and whatever else each project required
+          </p>
+          <p>
+            I don&apos;t care too much about the stack. I like understanding how
+            things work and shipping them.
+          </p>
+        </article>
 
         <Footer />
       </div>

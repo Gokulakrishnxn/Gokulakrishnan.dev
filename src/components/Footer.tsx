@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
 import NumberFlow, { NumberFlowGroup } from "@number-flow/react";
 import { PageViews } from "@/components/PageViews";
 import { AlbumLink } from "@/components/AlbumLink";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { EASE_OUT } from "@/lib/ease";
 
 function getCuddaloreParts(date: Date) {
   const formatter = new Intl.DateTimeFormat("en-US", {
@@ -259,6 +261,7 @@ function CatIcon({ sleeping }: { sleeping: boolean }) {
 }
 
 export function Footer() {
+  const reduce = useReducedMotion();
   const [clock, setClock] = useState<{
     hour: number;
     minute: number;
@@ -267,14 +270,27 @@ export function Footer() {
   } | null>(null);
 
   useEffect(() => {
-    const update = () => setClock(getCuddaloreParts(new Date()));
+    let last = "";
+    const update = () => {
+      const next = getCuddaloreParts(new Date());
+      const key = `${next.hour}:${next.minute}:${next.period}:${next.sleeping}`;
+      if (key === last) return;
+      last = key;
+      setClock(next);
+    };
     update();
     const interval = window.setInterval(update, 1_000);
     return () => window.clearInterval(interval);
   }, []);
 
   return (
-    <footer className="site-footer">
+    <motion.footer
+      className="site-footer"
+      initial={reduce ? false : { opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "0px 0px -6% 0px" }}
+      transition={{ duration: 0.7, ease: EASE_OUT }}
+    >
       <div className="rule" />
       <div className="row">
         <p>
@@ -303,6 +319,6 @@ export function Footer() {
           <ThemeToggle />
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

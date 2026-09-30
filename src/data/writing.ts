@@ -9,6 +9,8 @@ export type WritingItem = {
   isNew?: boolean;
   isLive?: boolean;
   icon?: string;
+  preview?: string;
+  previewFit?: "cover" | "contain";
 };
 
 export const writingItems: WritingItem[] = [
@@ -23,6 +25,7 @@ export const writingItems: WritingItem[] = [
     href: "/writing/design-websites-ai",
     isNew: true,
     icon: "/web.png",
+    preview: "/hero-banner.png",
   },
   {
     year: 2026,
@@ -35,6 +38,7 @@ export const writingItems: WritingItem[] = [
     href: "/writing/finlio",
     isLive: true,
     icon: "/Finlio.png",
+    preview: "/finliobanner.jpeg",
   },
   {
     year: 2026,
@@ -46,6 +50,8 @@ export const writingItems: WritingItem[] = [
       "A research assistant that answers with sources, not vibes. Retrieve first. Speak second.",
     href: "/writing/aria",
     icon: "/aria-logo.svg",
+    preview: "/aria-logo.svg",
+    previewFit: "contain",
   },
 ];
 

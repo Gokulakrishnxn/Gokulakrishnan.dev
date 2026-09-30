@@ -48,7 +48,7 @@ export default function ResumePage() {
   return (
     <GsapPage className="page page--resume">
       <div className="homepage">
-        <article className="article">
+        <article className="article reveal-flow">
           <header className="resume-page-header">
             <h1>Resume</h1>
           </header>
@@ -73,7 +73,7 @@ export default function ResumePage() {
           </div>
         </article>
 
-        <section className="resume-sheet">
+        <section className="resume-sheet reveal-flow">
           <header className="resume-sheet-header">
             <h2 className="gsap-name">{resumeHeader.name}</h2>
             <p className="resume-contact">
