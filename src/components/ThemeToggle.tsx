@@ -47,19 +47,14 @@ function MoonIcon() {
 }
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
   const [ready, setReady] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const { contextSafe } = useGSAP({ scope: buttonRef });
 
   useEffect(() => {
     const stored = window.localStorage.getItem("theme");
-    const next =
-      stored === "dark" || stored === "light"
-        ? stored
-        : window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
+    const next = stored === "light" ? "light" : "dark";
     setTheme(next);
     applyTheme(next);
     setReady(true);

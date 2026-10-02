@@ -312,6 +312,9 @@ export function Footer() {
         </p>
         <div className="footer-tools">
           <PageViews />
+          <a className="footer-llm" href="/contact">
+            Contact
+          </a>
           <a className="footer-llm" href="/privacy">
             Privacy
           </a>

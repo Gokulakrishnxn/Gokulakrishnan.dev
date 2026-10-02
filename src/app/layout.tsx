@@ -2,7 +2,9 @@ import type { Metadata, Viewport } from "next";
 import { Caveat, Inter, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { AnimatedFavicon } from "@/components/AnimatedFavicon";
 import { PeterWidget } from "@/components/PeterWidget";
+import { SiteBackdrop } from "@/components/SiteBackdrop";
 import { Umami } from "@/components/Umami";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
@@ -40,19 +42,21 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={cn(inter.variable, caveat.variable, "font-sans", geist.variable)}
+      className={cn(inter.variable, caveat.variable, "font-sans", geist.variable, "dark")}
       suppressHydrationWarning
     >
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(()=>{try{const t=localStorage.getItem("theme");const d=t==="dark"||(t!=="light"&&matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",d)}catch(e){}})()`,
+            __html: `(()=>{try{document.documentElement.classList.toggle("dark",localStorage.getItem("theme")!=="light")}catch(e){}})()`,
           }}
         />
       </head>
       <body>
+        <SiteBackdrop />
         {children}
         <PeterWidget />
+        <AnimatedFavicon />
         <Umami />
       </body>
     </html>

@@ -95,6 +95,7 @@ ${publications.map((item) => `- ${item}`).join("\n")}
 Honors:
 ${honors.map((item) => `- ${item}`).join("\n")}
 
-Site map: homepage, /blogs, /resume (PDF view/download), /projects, /writing/finlio, /writing/aria, /writing/design-websites-ai, /album (Library, currently shadcn/ui), /privacy, /llm.txt (plain-text brief of this portfolio).
+Site map: homepage, /blogs, /resume (PDF view/download), /projects, /writing/finlio, /writing/aria, /writing/design-websites-ai, /album (Library, currently shadcn/ui), /photos (Album), /contact (freelance inquiry form), /privacy, /llm.txt (plain-text brief of this portfolio).
+Occasionally available for freelance work. Visitors with a project should use /contact.
 `.trim();
 }

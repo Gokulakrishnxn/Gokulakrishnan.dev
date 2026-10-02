@@ -72,6 +72,12 @@ export default function Home() {
             I don&apos;t care too much about the stack. I like understanding how
             things work and shipping them.
           </p>
+          <p className="home-freelance">
+            I&apos;m occasionally available for{" "}
+            <mark className="home-mark">freelance work</mark>. If you have
+            something interesting in mind,{" "}
+            <Link href="/contact">I&apos;d love to hear about it</Link>.
+          </p>
         </article>
 
         <Footer />

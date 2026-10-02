@@ -37,6 +37,8 @@ Prefer email, GitHub, LinkedIn, and X. Share the phone number only if asked.
 - /writing/finlio — Note on building Finlio (5 Aug 2026)
 - /writing/aria — Note on ARIA at Bnry Labs (22 Jul 2026)
 - /album — Library (shadcn/ui)
+- /photos — Album (Google Singapore, Manali, Singapore, Chennai Kovalam)
+- /contact — Freelance inquiry form (websites, AI agents, mobile apps, SaaS)
 - /privacy — How the site uses Umami and what stays on the visitor’s device
 - /llm.txt — This brief
 

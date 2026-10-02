@@ -3,6 +3,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import { usePathname } from "next/navigation";
 import { Tooltip } from "@/components/motion/tooltip";
+import { PeterCommandBar } from "@/components/PeterCommandBar";
 import { EASE_OUT, SPRING_LAYOUT, SPRING_PRESS } from "@/lib/ease";
 
 function GithubIcon() {
@@ -92,6 +93,9 @@ export function SiteNav() {
             </li>
           );
         })}
+        <li>
+          <PeterCommandBar />
+        </li>
         <li>
           <Tooltip content="GitHub" side="bottom" delay={80}>
             <motion.a
