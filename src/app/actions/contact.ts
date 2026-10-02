@@ -85,28 +85,35 @@ function buildMessage(data: ReturnType<typeof validate>["data"]) {
   return { subject, body };
 }
 
+function env(name: string) {
+  return process.env[name]?.trim().replace(/^["']|["']$/g, "") ?? "";
+}
+
 async function sendWithResend(subject: string, body: string, replyTo: string) {
-  const key = process.env.RESEND_API_KEY;
+  const key = env("RESEND_API_KEY");
   if (!key) return false;
 
-  const from = process.env.CONTACT_FROM ?? "Portfolio <onboarding@resend.dev>";
+  // Resend test mode only allows this from-address and the account inbox.
+  const payload = {
+    from: "Gokulakrishnan <onboarding@resend.dev>",
+    to: ["gokulakrishnxn@gmail.com"],
+    reply_to: replyTo.toLowerCase(),
+    subject,
+    text: body,
+  };
+
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${key}`,
     },
-    body: JSON.stringify({
-      from,
-      to: [TO.toLowerCase()],
-      reply_to: replyTo,
-      subject,
-      text: body,
-    }),
+    body: JSON.stringify(payload),
   });
 
   if (!response.ok) {
     const detail = await response.text();
+    console.error("Resend rejected the contact email", response.status, detail);
     throw new Error(`Resend ${response.status} ${detail}`);
   }
   return true;

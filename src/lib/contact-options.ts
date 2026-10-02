@@ -1,4 +1,4 @@
-export const CONTACT_EMAIL = "Gokulakrishnxn@gmail.com";
+export const CONTACT_EMAIL = "gokulakrishnxn@gmail.com";
 
 export const PROJECT_TYPES = [
   "Website",
